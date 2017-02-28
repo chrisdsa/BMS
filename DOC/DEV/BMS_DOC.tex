@@ -1,4 +1,6 @@
 \documentclass[12pt,letterpaper]{article}
+\usepackage{hyperref}
+\hypersetup{pdftex,colorlinks=true,allcolors=black}
 \usepackage[frenchb]{babel}
 \usepackage[margin=0.75in]{geometry}
 \usepackage{hhline}
@@ -93,6 +95,7 @@
 					La premi\`{e}re solution envisag\'{e} \'{e}taient de lire un voltage de r\'{e}f\'{e}rence avec le ADC. Puisqu'on connait la tension \`{a} l'entr\'{e}e, il est possible de d\'{e}terminer la tension de l'alimentation du ADC avec la valeur de la lecture. Le ADS1013 avait \'{e}t\'{e} retenue puisqu'il a une alimentation de 2 \`{a} 5.5V, un quiescent current de 150$\mu$A et une r\'{e}solution de 12 bits. Cependant, ce ADC a une entr\'{e}e diff\'{e}rentielle et nous aurions seulement utilis\'{e} la moiti\'{e}e de la plage. Nous nous retrouverions ainsi avec uns r\'{e}solution de 11 bits. En utilisant un voltage de r\'{e}f\'{e}rence de 2.048V, nous obtenerions une pr\'{e}cision de 4.2mV lorsque le module est \`{a} 4.2V.Nous somme pr\`{e}s de nos objectifs mais le voltage minimum pour l'alimentation de l'isolateur I2C (3V) fait en sorte que cette solution ne peut \^{e}tre envisag\'{e}e.
 					% Schema
 					\begin{center}
+						Sch\'{e}ma fonctionnel \\ \vspace{0.5cm}
 						\includegraphics[scale=0.3]{Voltage_reference} \\ \vspace{1cm}
 					\end{center}
 				\newpage
