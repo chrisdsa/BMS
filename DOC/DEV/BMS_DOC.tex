@@ -1,6 +1,7 @@
 \documentclass[12pt,letterpaper]{article}
 \usepackage{hyperref}
 \hypersetup{pdftex,colorlinks=true,allcolors=black}
+\usepackage[utf8]{inputenc}
 \usepackage[frenchb]{babel}
 \usepackage[margin=0.75in]{geometry}
 \usepackage{hhline}
@@ -42,6 +43,9 @@
 		\newpage
 	\end{titlepage}
 	\tableofcontents
+	\listoftables
+	\listoffigures
+	
 	\newpage
 	\pagenumbering{arabic}
 	\begin{normalsize}
@@ -52,35 +56,40 @@
 				\subsubsection{Sch\'{e}ma}
 				\begin{center}
 					% Schema
-					\includegraphics[scale=0.5]{Analog} \\ \vspace{1cm}
+					\includegraphics[scale=0.5]{Analog} \\ \vspace{0cm}
 				\end{center}
 			
 				\subsubsection{Analyse}
-					\begin{center}
-						
-						%  BOM
-						BOM \\ \vspace{0.25cm}
+					%  BOM
+					\begin{table}[h!]	
+						\centering
+						BOM\\ \vspace{0.2cm}
 						\begin{tabular}{|c|c|c|}
 							\hline
 							Part number & Description & Prix (total)\\ \hhline{|=|=|=|}
 							BU7421SG-TR & Op-amp (2x) & 2\$ \\ \hline
 							LOC110STR & Optocoupleur lin\'{e}aire & 4.09\$ \\ \hline
-							 \multicolumn{2}{|c|}{ }& 6.09\$ \\ \hline
-							 \multicolumn{3}{r}{ } Prix de digikey pour 1 unit\'{e} \\
-						\end{tabular}\\ \vspace{0.5cm}
-						% Fin BOM
-					
-						% Avantage // Desavantage
-						Analyse de la solution \\ \vspace{0.25cm}
+							 \multicolumn{2}{|c|}{*Prix de digikey pour 1 unit\'{e} }& 6.09\$ \\ \hline
+						\end{tabular}
+						\caption{Bill of material - Analog}
+						\label{Table:1}
+					\end{table}
+						
+					% Avantage // Desavantage	
+					\begin{table}[h!]
+					\centering
+					Analyse de la solution\\ \vspace{0.2cm}
 						\begin{tabular}{|c|c|}
 							\hline
 							Avantage & D\'{e}savantage\\ \hhline{|=|=|}
-							Peut de composantes & Pr\'{e}cision de +/- 1\% \\ \hline
+							Peu de composantes & Pr\'{e}cision de +/- 1\% \\ \hline
 							Robuste & L'optocoupleur lin\'{e}aire est gros (SOIC 8)\\ \hline
 							 & Consomme beaucoup de courant (10mA max)\\ \hline
-						\end{tabular} \\ \vspace{0.5cm}
-						% Fin Avantage // Desavantage
-					\end{center} 
+						\end{tabular}
+						\caption{Avantage et d\'{e}savantage - Analog}
+						\label{Table:2}
+					\end{table} 
+					
 				\subsubsection{Conclusion}
 				% Conclusion
 				Le circuit analogique autour de l'optocoupleur lin\'{e}aire n'est pas assez pr\'{e}cis pour \^{e}tre consid\'{e}r\'{e} comme viable pour le projet.De plus, il consomme beaucoup trop de courant pour pouvoir \^{e}tre toujours en marche. Il faudrait ajouter un circuit pour d\'{e}sactiver la lecture lorsqu'elle n'est pas utilis\'{e}. Ceci enl\`{e}ve l'avantage d'utiliser cette solution. 
@@ -91,19 +100,23 @@
 					Les ADC externes utilisent souvent les m\^{e}me trois interface de communication s\'{e}riel : UART,I2C et SPI. Puisque nous avons un nombre limit\'{e} de ces periph\'{e}rique sur le microcontr\^{o}leur, nous aurons besoin d'un bus qui permet d'avoir un maximum d'ADC. Il nous reste donc le choix entre le I2C et le SPI. Le SPI demanderais d'avoir un circuit d'isolation consid\'{e}rablement plus gros et dispendieux que le I2C. Le SPI \`{a} deux fils de plus que le I2C ( 1 pour le data et 1 pour choisir le "slave"). \\
 					Le protocol choisis est le I2C et le circuit d'isolation est le ISO1541DR. Malheureusement, le circuit consomme un petit peu moins de 5mA. Nous devrons donc avoir une alimentation qui permettra de d\'{e}sactiver l'alimentation du c\^{o}t\'{e} du modules lorsque le syst\`{e}me ne sera pas en marche.
 					
-				\subsubsection{Lecture d'un voltage de reference}
+				\subsubsection{Lecture d'un voltage de r\'{e}f\'{e}rence}
 					La premi\`{e}re solution envisag\'{e} \'{e}taient de lire un voltage de r\'{e}f\'{e}rence avec le ADC. Puisqu'on connait la tension \`{a} l'entr\'{e}e, il est possible de d\'{e}terminer la tension de l'alimentation du ADC avec la valeur de la lecture. Le ADS1013 avait \'{e}t\'{e} retenue puisqu'il a une alimentation de 2 \`{a} 5.5V, un quiescent current de 150$\mu$A et une r\'{e}solution de 12 bits. Cependant, ce ADC a une entr\'{e}e diff\'{e}rentielle et nous aurions seulement utilis\'{e} la moiti\'{e}e de la plage. Nous nous retrouverions ainsi avec uns r\'{e}solution de 11 bits. En utilisant un voltage de r\'{e}f\'{e}rence de 2.048V, nous obtenerions une pr\'{e}cision de 4.2mV lorsque le module est \`{a} 4.2V.Nous somme pr\`{e}s de nos objectifs mais le voltage minimum pour l'alimentation de l'isolateur I2C (3V) fait en sorte que cette solution ne peut \^{e}tre envisag\'{e}e.
 					% Schema
-					\begin{center}
-						Sch\'{e}ma fonctionnel \\ \vspace{0.5cm}
-						\includegraphics[scale=0.3]{Voltage_reference} \\ \vspace{1cm}
-					\end{center}
+					\begin{figure}[h]
+						\centering
+						\includegraphics[scale=0.3]{Voltage_reference} \\ \vspace{0cm}
+						\caption{Sch\'{e}ma fonctionnel : Voltage de r\'{e}f\'{e}rence }
+						\label{fig:schema_voltage_ref}
+					\end{figure}
+
 				\newpage
 				\subsubsection{Lecture de la tension du module}
 					Pour pouvoir mesurer la tension du module, l'alimentation du ADC doit \^{e}tre au dessus du voltage maximal du module plus une marge de s\'{e}curit\'{e}. De plus, il est plus int\'{e}ressant d'utiliser un ADC "single ended" ou "pseudo differential" pour avoir acc\`{e}s \`{a} toute la plage. Il est donc n\'{e}cessaire d'avoir un "boost" pour amener la tension d'alimentation \`{a} 5V. Cette tension va alimenter le circuit d'isolation I2C. Un r\'{e}gulateur lin\'{e}aire sera n\'{e}cessaire pour alimenter le ADC afin d'avoir un minimum de bruit dans les lecture. Un "boost" avec l'option "shutdown" sera utilis\'{e} pour que le circuit ne vide pas les batteries lorsque le "battery pack" est entrepos\'{e}. Un premier ADC, le MCP3221A5T avait \'{e}t\'{e} selectionn\'{e} mais il fut rejet\'{e} puisqu'il est impossible de changer l'adresse du IC (elle doit \^{e}tre chang\'{e} par la compagnie). En ce moment, les pi\`{e}ces envisag\'{e}es sont : \\
 					
 					%  BOM
-					\begin{center}
+					\begin{table}[h!]
+						\centering
 						BOM \\ \vspace{0.25cm}
 						\begin{tabular}{|c|c|c|}
 							\hline
@@ -115,12 +128,17 @@
 							LTV-816S & Optocoupleur (boost shutdown) & 0.61\$ \\ \hline
 							\multicolumn{2}{|c|}{ }& 13.31\$ \\ \hline
 							\multicolumn{3}{r}{ } Prix de digikey pour 1 unit\'{e} \\ 
-						\end{tabular} \\
-						% Schema
-						\vspace{1cm} 
-						Sch\'{e}ma fonctionnel \\ \vspace{0.5cm}
-						\includegraphics[scale=0.3]{Tension_module} \\ \vspace{1cm}
-					\end{center}
+						\end{tabular} \\ \vspace{0cm} 
+						\caption{Bill of material - Digital}
+						\label{Table:3}
+					\end{table}
+				% Schema
+				\begin{figure}[h]
+				\centering
+				\includegraphics[scale=0.3]{Tension_module} \\ \vspace{0cm}
+				\caption{Sch\'{e}ma fonctionnel : lecture de la tension du module}
+				\label{fig:schema_tension_module}
+				\end{figure}
 				\newpage
 		\section{Balancing}
 					
