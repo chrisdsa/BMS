@@ -140,7 +140,26 @@
 				\label{fig:schema_tension_module}
 				\end{figure}
 				\newpage
-		\section{Balancing}
+		\section{Balancement}
+			\subsection{Topologie}
+			\subsubsection{Passif}
+			Probl\`{e}me : si le mosfet Fail Short. Il faut trouver moyen de d\'{e}connecter le circuit.
+			\subsubsection{Passif avec Flyback}
+			Probl\`{e}me : si le mosfet Fail Short. La fuse ouvre le circuit. Il faut ajouter un circuit current sense pour controler le courant du flyback en closed-loop. Close-loop en lisant la tension du module pourrait fonctionner mais il faut mettre un duty maximum.
+			
+			Lecture de courant avec le ACS712ELCTR-05B-T. 
+			
+			\subsection{Controle de Mosfet}
+			
+			
+		
+		\section{Protection}
+			\subsection{Polarisation inverse}
+			
+			\subsection{D\'{e}faillance du balancement}
+					
+					
+			
 					
 	\end{normalsize}
 \end{document}
