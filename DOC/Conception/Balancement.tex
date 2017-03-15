@@ -3,11 +3,12 @@
 
 \section{Balancement}
 	\subsection{Topologie}
-	\subsubsection{Passif}
+		\subsubsection{Mosfet avec r\'{e}sistance en s\'{e}rie}
 	%note
 	Probl\`{e}me : si le mosfet Fail Short. Il faut trouver moyen de d\'{e}connecter le circuit ou d'\^{e}tre s\^{u}r que le mosfet ne puisse pas briser.
 	- Les resistances surface mount comme les 2512 on un risque de cracker.
-	\subsubsection{Passif avec Flyback}
+		\subsubsection{Flyback avec une r\'{e}sistance au secondaire}
 	%note
 	Probl\`{e}me : si le mosfet Fail Short. La fuse ouvre le circuit. Il faut ajouter un circuit current sense pour controler le courant du flyback en closed-loop. Close-loop en lisant la tension du module pourrait fonctionner mais il faut mettre un duty maximum. 
-	\\Lecture de courant avec le ACS712ELCTR-05B-T. 
+	\\Lecture de courant avec le ACS712ELCTR-05B-T.  \\
+	Cette topologie permet aussi un transition vers l'active balancing sans modification majeur. il serait possible de mettre les 2.

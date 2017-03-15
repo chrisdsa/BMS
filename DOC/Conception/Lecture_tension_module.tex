@@ -2,16 +2,15 @@
 %===== Lecture de tension des modules =====
 
 \section{Lecture de tension des modules}
-			\subsection{Objectifs}
-				Nous d\'{e}sirons avoir une lecture tr\`{e}s pr\'{e}sise (+/- 2mV) du modules. Afin de pouvoir brancher les modules dans n'importe quel ordre sur le BMS, nous devons faire en sorte que les lectures de tension sont isol\'{e}es.Le circuit doit consommer un minimum de courant puisqu'il sera aliment\'{e} par le modules.
+			%\subsection{Objectifs}
+				Nous d\'{e}sirons avoir une lecture tr\`{e}s pr\'{e}sise (+/- 2mV) de la tension du modules. Afin de pouvoir brancher les modules dans n'importe quel ordre sur le BMS, nous devons faire des lectures de tension isol\'{e}es. Le circuit doit consommer un minimum de courant puisqu'il sera aliment\'{e} par le modules.
 			\subsection{Circuit analogique}
-				\subsubsection{Sch\'{e}ma}
+				
 				\begin{center}
 					% Schema
 					\includegraphics[scale=0.5]{Analog} \\ \vspace{0cm}
 				\end{center}
 			
-				\subsubsection{Analyse}
 					%  BOM
 					\begin{table}[h!]	
 						\centering
@@ -23,7 +22,7 @@
 							 \multicolumn{2}{|c|}{*Prix de digikey pour 1 unit\'{e} }& 6.09\$ \\ \hline
 						\end{tabular}
 						\caption{Bill of material - Analog}
-						\label{Table:1}
+						\label{Table:BOM_Analog}
 					\end{table}
 						
 					% Avantage // Desavantage	
@@ -37,10 +36,9 @@
 							 & Consomme beaucoup de courant (10mA max)\\ \hline
 						\end{tabular}
 						\caption{Avantage et d\'{e}savantage - Analog}
-						\label{Table:2}
+						\label{Table:Analyse_Analog}
 					\end{table} 
 					
-				\subsubsection{Conclusion}
 				% Conclusion
 				Le circuit analogique autour de l'optocoupleur lin\'{e}aire n'est pas assez pr\'{e}cis pour \^{e}tre consid\'{e}r\'{e} comme viable pour le projet.De plus, il consomme beaucoup trop de courant pour pouvoir \^{e}tre toujours en marche. Il faudrait ajouter un circuit pour d\'{e}sactiver la lecture lorsqu'elle n'est pas utilis\'{e}. Ceci enl\`{e}ve l'avantage d'utiliser cette solution. 
 				\newpage
@@ -57,7 +55,7 @@
 						\centering
 						\includegraphics[scale=0.3]{Voltage_reference} \\ \vspace{0cm}
 						\caption{Sch\'{e}ma fonctionnel : Voltage de r\'{e}f\'{e}rence }
-						\label{fig:schema_voltage_ref}
+						\label{Fig:schema_voltage_ref}
 					\end{figure}
 
 				\newpage
@@ -79,12 +77,12 @@
 							\multicolumn{3}{r}{ } Prix de digikey pour 1 unit\'{e} \\ 
 						\end{tabular} \\ \vspace{0cm} 
 						\caption{Bill of material - Digital}
-						\label{Table:3}
+						\label{Table:BOM_Digital}
 					\end{table}
 				% Schema
 				\begin{figure}[h]
 					\centering
 					\includegraphics[scale=0.3]{Tension_module} \\ \vspace{0cm}
 					\caption{Sch\'{e}ma fonctionnel : Lecture de la tension du module}
-					\label{fig:schema_tension_module}
+					\label{Fig:schema_tension_module}
 				\end{figure}
