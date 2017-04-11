@@ -1,6 +1,6 @@
 \documentclass[12pt,letterpaper]{article}
 \usepackage{hyperref}
-\hypersetup{pdftex,colorlinks=true,allcolors=black}
+\hypersetup{colorlinks=true,allcolors=black}
 \usepackage[utf8]{inputenc}
 \usepackage[frenchb]{babel}
 \usepackage[margin=0.75in]{geometry}
@@ -10,8 +10,9 @@
 \pgfplotsset{compat=newest}
 \usepackage{multicol}
 \usepackage{graphicx}
-\graphicspath{ {images/} }
+\graphicspath{}
 \hyphenpenalty=10000
+\usepackage{caption}
 
 \usepackage{float}
 \floatstyle{plaintop}
@@ -19,24 +20,27 @@
 
 \begin{document}
 	
-%====== Page de presentation ======%
+	%====== Page de presentation ======%
+	\hypersetup{pageanchor=false}
 	\input{./page_presentation.tex}
 	\newpage
-%====== Table des matieres ======%
+	%====== Table des matieres ======%
+	\pagenumbering{roman}
+	\hypersetup{pageanchor=false}
 	\tableofcontents
 	\listoftables
 	\listoffigures	
 	\newpage
-	\pagenumbering{arabic}
+
 
 %====================== INCLUSION DES PARTIES ======================
-
+	\pagenumbering{arabic}	
 %===== Lecture de tension des modules =====
-	\input{./Lecture_tension_module.tex}
+	\input{./Lecture/Lecture_tension_module.tex}
 %===== Balancement =====	
-	\input{./Balancement.tex}
+	%\input{./Balancement/Balancement.tex}
 %===== Detection des fautes =====
-	\input{Detection_Fautes.tex}
+	%\input{./Detection_Fautes/Detection_Fautes.tex}
 
 
 \end{document}
