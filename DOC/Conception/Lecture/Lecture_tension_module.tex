@@ -71,9 +71,11 @@
 							ADC121C021CIMM/NOPB & ADC 12 bit I2C & 4.3\$ \\ \hline
 							AP2202K-ADJTRG1 & LDO & 0.63\$ \\ \hline
 							AP3015KTR-G1 & Boost & 1.1\$ \\ \hline
-							ISO1541DR & Isolation I2C & 6.67\$ \\ \hline
+							ISO1541DR & Isolation I2C & 6.67\$ \\
+							   ou 	  & ou & ou \\
+							SI8602AC-B-IS & Isolation I2C & 4.62 \$ \\ \hline
 							LTV-816S & Optocoupleur (boost shutdown) & 0.61\$ \\ \hline
-							\multicolumn{2}{|c|}{ }& 13.31\$ \\ \hline
+							\multicolumn{2}{|c|}{ }& 13.31 ou 11.31\$ \\ \hline
 							\multicolumn{3}{r}{ } Prix de digikey pour 1 unit\'{e} \\ 
 						\end{tabular} \\ \vspace{0cm} 
 						\caption{Bill of material - Digital}
@@ -86,3 +88,5 @@
 					\caption{Sch\'{e}ma fonctionnel : Lecture de la tension du module}
 					%\label{fig:schema_tension_module}
 				\end{figure}
+			
+			Note : Mettre un mosfet comme protection de polariter inverse, voir pour mettre la gate sur la pin SHDN du boost pour eviter qu'il y ait un tension sur l'entrée de l'ADC lorsqu'il n'est pas alimenté.
