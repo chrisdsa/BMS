@@ -4,28 +4,26 @@
 	\subsection{Danger des batteries Li-Ion}
 	% merger avec la version à l'école
 	
-		\subsection{Système de protection et de gestion de batterie}
+	\subsection{Système de protection et de gestion de batterie}
+	
+	La protection et la gestion de batteries se fait par un système électronique. Il est important de comprendre les différentes composantes formant le système de protection et de gestion de batterie.
+	
+		\paragraph{}
+		\textbf{Cellule:} C'est la plus petite unité composant un système. Les cellules sont des accumulateurs chimiques pouvant avoir avoir une formes cylindriques, prismatiques ou en sachet.  
 		
-		% TODO: Petite description d'un BMS
+		\paragraph{}
+		\textbf{Module:} Les cellules sont regrouper en parralèles pour former des modules. De cette façon, on peut additionner le courant vennant des cellules. Les modules peuvent être remplacer dans un système.
 		
-		Il est important de comprendre les différentes composantes formant le système de protection et de gestion de batterie.
+		\paragraph{}
+		\textbf{Batterie:} On dispose les modules en série pour former la batterie. On augmente ainsi la tension pour l'application voulue.
 		
-			\paragraph{}
-			\textbf{Cellule:} C'est la plus petite unité composant un système. Les cellules sont des accumulateurs chimiques pouvant avoir avoir une formes cylindriques, prismatiques ou en sachet.  
-			
-			\paragraph{}
-			\textbf{Module:} Les cellules sont regrouper en parralèles pour former des modules. De cette façon, on peut additionner le courant vennant des cellules. Les modules peuvent être remplacer dans un système.
-			
-			\paragraph{}
-			\textbf{Batterie:} On dispose les modules en série pour former la batterie. On augmente ainsi la tension pour l'application voulue.
-			
-			\paragraph{}
-			\textbf{Système de protection:} Cette composante effectue des mesures sur les modules. On mesure entre autre la tension, le courant et la température. Cela permet de savoir si les cellules opèrent à l'intérieur des caractéristiques fourni par le manufacturier des cellules. Il s'assure également que les modules soient balancé pour éviter une surtension des modules lors de la recharge. Il commande aussi les périphériques auxilières, tels que les ventilateurs de refroidissement.
-			
-			
-			\paragraph{}
-			\textbf{Système de gestion:} Il est nécessaire de faire une bonne gestion pour s'assurer du bon fonctionnement de la batterie. Le système de gestion calcul donc l'état de charge, l'état de santé et les limites de puissances. Le système communique ces informations à d'autres systèmes avec un protocole de communication. Il gère également les contacteurs connectant la batterie avec la charge et la recharge.
+		\paragraph{}
+		\textbf{Système de protection:} Cette composante effectue des mesures sur les modules. On mesure entre autre la tension, le courant et la température. Cela permet de savoir si les cellules opèrent à l'intérieur des caractéristiques fourni par le manufacturier des cellules. Il s'assure également que les modules soient balancé pour éviter une surtension des modules lors de la recharge. Il commande aussi les périphériques auxilières, tels que les ventilateurs de refroidissement.
 		
+		
+		\paragraph{}
+		\textbf{Système de gestion:} Il est nécessaire de faire une bonne gestion pour s'assurer du bon fonctionnement de la batterie. Le système de gestion calcul donc l'état de charge, l'état de santé et les limites de puissances. Le système communique ces informations à d'autres systèmes avec un protocole de communication. Il gère également les contacteurs connectant la batterie avec la charge et la recharge.
+	
 	
 	\subsection{Projet spécial}
 	% merger avec la version à l'école
@@ -42,28 +40,32 @@
 		
 	
 	\subsection{Compétitions}
-	
+	Les différentes compétitions que participe Éclipse ont tous leurs particulartités et leurs règlements spécifiques. Il est donc important de concevoir le système de protection et de contrôle de batterie pour qu'il soit complatible avec les différentes compétitions. Il est également important de corriger les défis rencontrés durant les compétitions passées afin de faciliter les compétitions suivantes. Éclipse prévoit participé à la Formula Sun Grand Prix (FSGP) et à l'American Solar Challenge (ASC), deux compétitions se déroulant aux États-Unis. Le club pourra participer à la World Solar Challenge (WSC), compétition se déroulant dans le désert de l'Australie, s'il se classe bien aux deux compétitions précédentes.
 	
 	\subsubsection{ASC2016}
-	
-	Scruteneering
+		
+		\paragraph{}
+		La dernière compétition était la American Solar Challenge 2016. Cette compétition survient à tous les deux ans et elle est séparée en deux étapes. La première étape, la Formula Sun Grand Prix 2016, est une course en circuit fermé. Le club a trois jours pour passer tous les tests techniques pour pouvoir embarquer sur la piste les trois jours suivants. Durant la dernière compétition, il a été très difficile de passer les tests électriques concernant le système de protection de batterie. Puisque le clube utilisait un système provient d'une compagnie externe, il était ardu de pouvoir effectuer les tests puisque le club n'avait pas accès à tout les systèmes de protection.
+		
+		\paragraph{}
+		Durant la deuxième partie de la compétition, les différentes équipes participantes devaient parcourir un trajet de 3000 km à travers les États-Unis. Pour cette course d'endurance, il est prémordial de bien faire la gestion de l'énergie du véhicule. Cependant, il était très difficile de recuillir l'état de charge de la batterie avec le système actuel. De plus, il ne prennait pas en compte la situation où la batterie est complètement chargée et un freinage regénératif venait recharger la batterie. Le système coupait automatiquement l'alimentation du véhicule, perdant du temps précieux.
 	
 	\subsubsection{Compétitions futures}
+	Il est important de se pencher sur les règlements des prochaines compétitions pour que le systeme soit conforme et pour que le club ne subisse pas de pénalité.
 	
-	Règlements
-	
-	
-	FSGP2017
-	ASC2018
-	WSC2019
-	
+		\paragraph{}
+		\textbf{FSGP2017:} Les règlements pour cette compétition sont les plus sévères puisque les équipes doivent passer les tests de vérifications. Ces tests comprennent la détection d'un dépassement de la tension au dessus et en dessous des spécifications du manufacturier. Le système de protection doit aussi détecter lorsque le courrant dépasse la limite permise. De plus, le système doit détecter lorsque la température atteint un niveaux trop élevé. Les procédures de ce tests sont disponibles dans le document Battery Protection System Test Procedure, document fourni par les responsables de la compétition. Également, l'article 5.4 Protection Circuitry, le système de protection doit être actif lorsque la chimie des cellules utilisent du Li-Ion. C'est-à-dire qu'il doit actionner le relais principal lorsque les fautes mentionnées plus haut sont détectées. Le conducteur doit également en être avisé sur son tableau de bord.
+		
+		\paragraph{}
+		\textbf{ASC2018:} Les règlements sont très similaires à la FSGP2017. L'article 8.3 de la règlementation détails les requis pour le système de protection de batterie.
+		
+		\paragraph{}
+		\textbf{WSC2019:} Le seul règlement concerant le système de protection de batterie est l'article 2.5.8 qui spécifie que les cellules ne doivent pas, en aucun cas, opérer à l'extérieur des tensions, courrant et température spécifié par le manufacturier. (source)
 	
 	
 	\subsection{Rétrocompatibilité}
-	
-	
-	
-	BMS Lithium Balance
+	L'équipe s'est fait donner comme contrainte que le système de protection de gestion de batterie soit compatible avec le système actuel. Puisque développement d'un tel système est long et complexe, le directeur électrique du club aimerait qu'il soit possible de changer 
+	Le système provenant de la compagnie Lithium Balance 
 	
 	%\begin{figure}[h!]
 	%	\includegraphics[width=\linewidth]{Hardware.jpg}
