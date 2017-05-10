@@ -9,13 +9,13 @@ Réaliser tout les objectifs pour avoir un système de protection et de gestion 
 		La protection des modules consiste à détecter une surcharge, une décharge excessive, un courant trop élever et une température trop élever. Suite à la détection d'une faute, le système de protection doit amener la batterie à un état sécuritaire indépendamment du conducteur. La réglementation exige que des indicateurs de faute soit installé à l'extérieur du véhicule et sur le tableau de bord. La faute doit être verrouillé et cette dernière doit seulement être effacé manuellement lorsque le véhicule n'est pas en mouvement et que la faute n'est plus présente.
 	
 		\subsubsection{Balancement des modules}
-		Il existe différente stratégie de balancement des modules qui varie en complexité. Bien que ce ne soit pas nécessaire pour que le système ce qualifie, l'étape de balancement à la fin de la charge de la batterie permet d'atteindre un état de charge de 100\% pour tout les modules. Cette étape est critique pour une bonne performance à la compétition. 
+		Le balancement des cellules signifie que tout les modules sont à la même tension lors de la fin de la charge. Il existe différente stratégie de balancement des modules qui varie en complexité. Bien que ce ne soit pas nécessaire pour que le système ce qualifie, l'étape de balancement à la fin de la charge de la batterie permet d'atteindre un état de charge de 100\% pour tout les modules. Cette étape est critique pour une bonne performance à la compétition. 
 				
 		\subsubsection{Compatibilité avec le BMS présentement utilisé}
 		Éclipse utilise présentement un système de protection et de gestion de batterie avec lequel tout les autres circuits sont compatible et fonctionnel. Pour faciliter l'intégration du projet réalisé dans ce cours, il devra être compatible autant au niveau matériel que des fonctionnalités logiciels avec celui présentement utilisé.		
 		
 		\subsubsection{Facilité les manipulations lors des vérifications techniques}
-		Il est important de prendre le moins de temps possible lors des vérification technique à la compétition afin d'avoir une marge de manœuvre pour faire des ajustements ou des réparations de dernière minutes. Les méthodes et procédure de vérification de l'"American Solar Challenge" sont disponibles et devront être facile à effectuer sur le projet.
+		Il est important que les manipulations prennent le moins de temps possible lors des vérification technique à la compétition afin d'avoir une marge de manœuvre pour faire des ajustements ou des réparations de dernière minutes. Les méthodes et procédure de vérification de l'American Solar Challenge sont disponibles et devront être effectué sur le projet avec moins de manipulation que le système utilisé présentement.
 		
 	\subsection{Objectifs pour la compétition ASC 2018}
 	Plusieurs fonctionnalité intéressante pourrait permettre au système de gestion de batterie d'être beaucoup plus performant. Ces fonctionnalité seront développé au cours de l'année lorsque le cours d'ELE-791 sera terminé. 
@@ -27,7 +27,7 @@ Réaliser tout les objectifs pour avoir un système de protection et de gestion 
 	Le calcul de l'état de charge est très important au cours de la compétition pour élaborer la stratégie de course. Il existe plusieurs méthodes pour estimer la charge et ces techniques varie en complexité et en précision. Il faudra donc évaluer et tester chaque méthode pour déterminer celle qui répond le mieux aux besoins et l'implémenter. 
 	
 	\subsubsection{Limites dynamique}
-	Afin d'avoir un maximum de performance et de robustesse, des limites dynamiques doivent être communiqué à la charge afin de prévenir les différentes fautes décrite au point \ref{protection_module}. Ces limites sont calculés en temps réel par le système de gestion de batterie. 
+	Afin d'avoir un maximum de performance et de robustesse, des limites dynamiques doivent être communiqué à la charge afin de prévenir les différentes fautes décrite au point \ref{protection_module}. Ces limites sont calculés en temps réel par le système de gestion de batterie.
 	
 	\subsubsection{Surveiller la batterie et envoyer les informations sur un serveur}
 	La batterie d'Éclipse passe la majorité de sa vie utile entreposé à l'atelier sans être surveillé. Une faute ou un état de charge trop bas peut endommager la batterie de façon permanente. Le système de protection et de gestion de la batterie pourrait être connecté sur internet et transmettre les données tout au long de la période d'entreposage afin qu'Éclipse puisse prendre action au besoin.  
