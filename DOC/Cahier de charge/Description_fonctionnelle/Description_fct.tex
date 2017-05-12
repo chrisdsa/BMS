@@ -2,34 +2,31 @@
 \section{Description fonctionnelle}
 
 	\subsection{Fonctionnalités pour le projet spécial}
-		\subsubsection{Lecture de tension des modules}
-		Ces lectures devront être le plus précis possible car elles vont être utilisées pour la détection de sur-tension et de sous-tension, le balancement des modules, l'estimation de l'état de charge et les limites dynamique. 
-		
-		\subsubsection{Lecture du courant de la batterie}
-		La lecture du courant de la batterie devra elle aussi être le plus précis possible car elle va être utilisé pour la détection de courant trop élevé, l'estimation de l'état de charge et les limites dynamique.
-		
-		\subsubsection{Lecture de température}
-		Des sondes de température installées dans la batterie permettrons d'avoir la température ambiante et celle des modules en temps réel. 
-		
-		\subsubsection{Détection de sur-tension}
-		
-		\subsubsection{Détection de sous-tension}
-		
-		\subsubsection{Détection de courant trop élevé}
-		
-		\subsubsection{Détection de température trop élevé}
-		
-		\subsubsection{Balancement des modules}
-		Le système de gestion de batterie amènera chaque module à la même tension et/ou le même état de charge. 
-		
-		\subsubsection{Contrôle des contacteurs}
-		L'état des contacteurs est directement contrôlé par le système de protection de batterie. 
-		
-		\subsubsection{Précharge}
-		La précharge viens limiter le courant qui circule entre la batterie et la charge avant que la voiture puisse être en mouvement.
-		
-		\subsubsection{Communication}
-		Le système de protection et de gestion devra communiquer les différentes informations avec le circuit de contrôle de la voiture solaire. 
+	
+		\begin{description}
+			\item [Lecture de tension des modules :] 
+			
+			\item [Lecture du courant de la batterie :]
+			
+			\item [Lecture de température :]
+			
+			\item [Détection de sur-tension :]
+			
+			\item [Détection de sous-tension :]
+			
+			\item [Détection de courant trop élevé :]
+			
+			\item [Détection de température trop élevé :]
+			
+			\item [Balancement des modules :]
+			
+			\item [Contrôle des contacteurs :]
+			
+			\item [Précharge :]
+			Limitation du courant lorsque la batterie est connecté à la voiture pour charger les charges capacitives.
+			\item [Communication :] 
+			Les différentes informations sont communiqués au circuit de contrôle de la voiture solaire et tout autre circuit externe à la voiture.	
+		\end{description} 
 	
 	\subsection{Fonctionnalités pour la compétition}
 		\subsubsection{Détection d'un débalancement des modules}	
@@ -39,7 +36,7 @@
 		\subsubsection{Calcul de l'état de charge}
 		
 		\subsubsection{Limites dynamique}
-		Calcul le courant maximum afin de ne pas dépasser les limites de voltage et de température. (Voir aussi P175 dans A systems approach to Lithium-ion Battery management)
+		Note : Calcul le courant maximum afin de ne pas dépasser les limites de voltage et de température. (Voir aussi P175 dans A systems approach to Lithium-ion Battery management)
 		
 		\subsubsection{Surveiller la batterie et envoyer les informations un le serveur}
 		
