@@ -3,55 +3,58 @@
 
 	\subsection{Fonctionnalités pour le projet spécial}
 	
-		\begin{description}
-			\item [Lecture de tension des modules :] 
-			Lecture de la tension au borne de chaque module.
+		\paragraph{Lecture de tension des modules :} 
+		Lecture de la tension au borne de chaque module.
+		
+		\paragraph{Lecture du courant de la batterie :}
+		Lecture du courant bidirectionnel de la batterie.
+		
+		\paragraph{Lecture de température :}
+		Lecture de la température ambiante à l'intérieur de la batterie et des modules. 
+		
+		\paragraph{Détection de sur-tension :}
+		Une faute de sur-tension est déclenché lorsque la tension d'un module est plus élevé que celle donné par le manufacturier avec une marge de sécurité.  
+		
+		\paragraph{Détection de sous-tension :}
+		Une faute de sous-tension est déclenché lorsque la tension d'un module est plus basse que celle donné par le manufacturier avec une marge de sécurité.
+		
+		\paragraph{Détection de courant trop élevé :}
+		Une faute de courant trop élevé est déclenché lorsque le courant de charge ou décharge ne respecte pas les maximum donnés par le manufacturier avec une marge de sécurité.
+		
+		\paragraph{Détection de température trop élevé :}
+		Une faute de température trop élevé est déclenché lorsque la température du module est plus haute ou plus basse que la région d'opération donnée par le manufacturier avec une marge de sécurité.
+					
+		\paragraph{Balancement des modules :}
+		Le voltage de chaque module est amener au même voltage et/ou le même état de charge.
+		
+		\paragraph{Contrôle des contacteurs :}
+		Le système de protection et de gestion de batterie contrôle l'état des contacteurs pour connecter ou déconnecter la batterie. L'état des contacteurs est surveillé pour détecter des rebondissements ou une défaillance.
+		
+		\paragraph{Précharge :}
+		Limitation du courant lorsque la batterie est connecté à la voiture pour charger les charges capacitives.
+		
+		\paragraph{Communication :}
+		Les différentes informations sont communiqués au circuit de contrôle de la voiture solaire et tout autre circuit externe à la voiture.	
+		
+		\paragraph{Sécuriser la batterie :}
+		Lorsqu'une faute est déclenchée, le système de protection amène la batterie à un état sécuritaire. 
 			
-			\item [Lecture du courant de la batterie :]
-			Lecture du courant bidirectionnel de la batterie.
-			
-			\item [Lecture de température :]
-			Lecture de la température ambiante à l'intérieur de la batterie et des modules. 
-			
-			\item [Détection de sur-tension :]
-			Une faute de sur-charge est déclenché lorsque la tension d'un module est plus élevé que celle donné par le manufacturier avec une marge de sécurité.  
-			
-			\item [Détection de sous-tension :]
-			Une faute de décharge excessive est déclenché lorsque la tension d'un module est plus basse que celle donné par le manufacturier avec une marge de sécurité.
-			
-			\item [Détection de courant trop élevé :]
-			Une faute de courant trop élevé est déclenché lorsque le courant de charge ou décharge ne respecte pas les maximum donnés par le manufacturier avec une marge de sécurité.
-			
-			\item [Détection de température trop élevé :]
-			Une faute de température trop élevé est déclenché lorsque la température du module est plus haute ou plus basse que la région d'opération donnée par le manufacturier avec une marge de sécurité.
-						
-			\item [Balancement des modules :]
-			Le voltage de chaque module est amener au même voltage et/ou le même état de charge.
-			
-			\item [Contrôle des contacteurs :]
-			Le système de protection et de gestion de batterie contrôle l'état des contacteurs pour connecter ou déconnecter la batterie. L'état des contacteurs est surveillé pour détecter des rebondissements ou une défaillance.
-			
-			\item [Précharge :]
-			Limitation du courant lorsque la batterie est connecté à la voiture pour charger les charges capacitives.
-			
-			\item [Communication :] 
-			Les différentes informations sont communiqués au circuit de contrôle de la voiture solaire et tout autre circuit externe à la voiture.	
-			
-			\item [Action en cas de faute :]
-			Lorsqu'une faute est déclenchée, le système de protection amène la batterie dans un état sécuritaire. 
-			
-		\end{description} 
 	
 	\subsection{Fonctionnalités pour la compétition}
-		\subsubsection{Détection d'un débalancement des modules}	
-	
-		\subsubsection{Gestion du système de refroidissement}
 		
-		\subsubsection{Calcul de l'état de charge}
-		
-		\subsubsection{Limites dynamique}
-		Note : Calcul le courant maximum afin de ne pas dépasser les limites de voltage et de température. (Voir aussi P175 dans A systems approach to Lithium-ion Battery management)
-		
-		\subsubsection{Surveiller la batterie et envoyer les informations un le serveur}
-		
+
+			\paragraph{Détection d'un débalancement des modules :}
+			Une alarme est déclenché lorsque l'écart maximum entre deux modules est atteint. Cette alarme indique à l'équipe qu'un module devrait être changé car il diminue les performances de la batterie.  
+			
+			\paragraph{Gestion du système de refroidissement :} 
+			Le système de gestion contrôle les fans pour maintenir une température sécuritaire et optimal si possible.
+			
+			\paragraph{Estimation de l'état de charge :}
+			L'état de la charge de la batterie est estimé en temps réel et communiqué à la télémétrie.
+			
+			\paragraph{Limites dynamique :}
+			Le système de gestion communique les limites de performance (courant et/ou puissance) en temps réel à la voiture afin d’évité que la batterie entre en faute.
+			
+			\paragraph{Surveillance à distance :}
+			Le système de gestion prend quelques mesures à chaque jours que la batterie est entreposé et les communiques à un serveur.		
 		
