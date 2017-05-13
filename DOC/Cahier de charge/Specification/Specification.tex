@@ -4,13 +4,18 @@
 	Les spécifications du projet sont majoritaire tiré du guide d'inspection qui va être utilisé par les organisateurs de la compétition \cite{BMS_inspection}.
 	
 	\begin{table}[H]
+		\centering
 		\caption{Spécification pour ELE-791}
-		\renewcommand{\arraystretch}{1.2}
+		\renewcommand{\arraystretch}{1.3}
 		\begin{tabular}{|c|c|c c|c|}
 			\hline
-			\textbf{Fonctionnalité}			& \textbf{Paramètre} & \textbf{MIN} & \textbf{MAX} & \textbf{Unité} \\ \hhline{|=|=|==|=|}
-			\multirow{3}{5cm}{Lecture de tension des modules}  & Voltage d'entrée	 & 	2	&	  5	&  	V	\\ \hhline{|~|-|--|-|}
-											& Résolution	 	& 		2		&	  10	   &  		mV		\\ \hhline{|~|-|--|-|}
-											& Fréquence	 	& 		100		&	    &  		ms		\\ \hline								
+			\textbf{Fonctionnalité}			& \textbf{Paramètre} & \textbf{MIN} & \textbf{MAX} 	& \textbf{Unité}	\\ \hhline{|=|=|==|=|}
+			\multirow{3}{5cm}{Lecture de tension des modules}  & Voltage d'entrée & 2 & 5 	   	&    V 				\\ \hhline{|~|-|--|-|}
+											& Résolution	 	& 		2		&	  10	   	&  	mV				\\ \hhline{|~|-|--|-|}
+											& Fréquence	 		& 		100		&	    		&	ms				\\ \hline
+			\multirow{2}{5cm}{Lecture de courant} & Courant 	& 				&			   	&	A				\\ \hhline{|~|-|--|-|}
+											&	Résolution		&				&		2		&	\%				\\ \hline
+			\multirow{2}{5cm}{Lecture de température}& Région d'opération & -10	&		85		& $\degres \text{C}$\\ \hhline{|~|-|--|-|}
+											&	Résolution		&		2		&				&$\degres \text{C}$	\\ \hline
 		\end{tabular}
 	\end{table}
