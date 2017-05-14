@@ -1,0 +1,49 @@
+\section{Méthodes de travail}
+\paragraph{}
+Le développement logiciel se fera en adoptant quelques-unes des meilleures pratiques de l’industrie dans le but d’obtenir un produit de qualité et surtout sécuritaire. Comme la vie d’un humain dépendra du bon fonctionnement du système de gestion des batteries, il est impératif de réduire au maximum les risques d’erreurs de programmation. Les pratiques qui seront décrites dans cette sections aideront à atteindre ce but.
+
+	\subsection{Flux de travail (workflow)}
+	\paragraph{}
+	Le flux de travail général pour le développement logiciel dépendra de l’utilisation de Git. Git est un logiciel de gestion de versions décentralisé. Il permet, entre autres, d’enregistrer l’état du code source à tout moment (commit) et ainsi d’avoir un historique des différentes modifications passées (log). Il permet aussi de faciliter le travail collaboratif en permettant à plusieurs personnes de travailler facilement sur le même projet ou fichier en même temps. Tout le code d’un projet se retrouve dans un répertoire (repository) et est segmenté en branches (branch). Une branche est une façon d’attribuer une signification au code qui est développé.
+
+	\paragraph{}
+	Dans le flux de travail utilisé, la branche « master » servira au code qui est prêt à faire partie du produit final. Elle est donc utilisée pour faire des relâches (release). La branche « develop » est la branche qui contient le code qui a été révisé et candidat pour la prochaine relâche. Le développement du code dans « develop » est donc en avance sur celui du code dans « master ». Ensuite, il y a les branches de fonctions (features), qui porteront le nom de la fonction à implémenter. Par exemple, si la fonction de lecture de courant doit être développée, elle le sera dans une branche qui pourra porter le nom de « lecture\_de\_courant ».
+
+	\paragraph{}
+	Une fois le code d’une fonctionnalité terminé, le développeur devra faire un « pull request », c’est-à-dire une demande explicite que son code soit fusionné (merge) avec le code de « develop ». Ce processus implique qu’un autre développeur révise le code proposé et exige  des modifications le cas échéant. Une fois le code fusionné avec celui de « develop », la branche de la fonction pourra être supprimée pour ne pas embourber le système inutilement. La révision de code est obligatoire par au moins un autre développeur. Si le temps le permet, un deuxième développeur pourra aussi réviser le code.
+
+	\subsection{Standards}
+	\paragraph{}
+	L’utilisation de standards reconnus est une bonne façon d’assurer une certaine constance dans la qualité du code produit. Les standards suivants sont utilisés en tout ou en partie, selon les contraintes imposés par le projet et les préférences de l’équipe de développement:
+
+		\subsubsection{MISRA-C}
+		\paragraph{}
+		MISRA-C est un standard de bonnes pratiques qui a été développé par un consortium automobile en 1998. Le standard s’applique au langage C, langage qui sera utilisé pour la programmation du système de gestion des batteries. La version 2012 du standard évoque 143 règles à suivre pour aider à la robustesse et la sécurité du code. Si certaines règles ne peuvent être appliquées pour une raison valable, le développeur pourra documenter l’omission de se conformer à la règle et quand même respecter le standard. Bien que MISRA-C ait été développé pour l’industrie de l’automobile, on le voit souvent être utilisé dans d’autres domaines.
+
+		\subsubsection{Linux Coding Standard}
+		\paragraph{}
+		Ce standard est celui utilisé par les développeurs du noyau Linux, le coeur des systèmes d’exploitation GNU/Linux comme Ubuntu. Il consiste en une série de règles, dont une bonne partie servent à décrire l’allure du code source. Par exemple, il décrit comment indenter les blocs de code et l’endroit où mettre les accolades ouvrantes et fermantes pour les définitions de fonctions et l’utilisation des boucles. Il y a aussi des règles ayant moins rapport à l’esthétisme comme celles concernant la bonne façon d’écrire des macros. L’utilisation d’un tel standard permet une uniformité au niveau de la base de code. En étant bien appliqué par tout les développeurs, on ne devrait pas être capable de dire qui a écrit tel ou tel partie de code.
+
+	\subsection{Vérification et validation}
+	\paragraph{}
+	Il est important de s’assurer que le code développé réponde bien aux fonctionnalités décrites et qu’il fait ce que le développeur s’attend à ce qu’il fasse. Plusieurs phases de tests sont nécessaires pour tester le système en profond
+
+		\subsubsection{Tests unitaires}
+		\paragraph{}
+		Ces tests sont développés pour tester chaque module séparément. On vérifie avec ceux-ci que les fonctions du module, soumis à différentes entrées, produisent les sorties prévues. On peut aussi vérifier qu’après une certaines séquences d’appel de ces fonctions, le systèmes est dans l’état qu’il devrait être. L’outil utilisé pour ces tests sera le « framework » Ceedling.
+
+		\subsubsection{Tests d'intégration}
+		\paragraph{}
+		Ces tests, quant à eux, permettent de vérifier que l’interaction des différents modules fonctionne bien. Ils assurent que des modifications sur un module ne brise pas le fonctionnement d’un autre module qui en dépendrait. L’outil utilisé pour ces tests sera le « framework » Ceedling et la  plate-forme d’intégration continue Travis-CI
+
+		\subsubsection{Tests de validation}
+		\paragraph{}
+		Ces tests servent à vérifier que le système complet répond bien au cahier des charges. Ils seront exécuté directement sur le matériel à l’aide d’outils de test comme un charge électronique et des simulateurs de cellules au Li-Ion.
+
+	\subsection{Analyse statique}
+	\paragraph{}
+	Chaque fichier source sera scruté par plusieurs analyseurs statiques. Ces analyseurs regardent automatiquement les lignes de code pour trouver non pas des erreurs de compilation, mais des erreurs de programmation qui feraient en sorte que le programme puisse avoir des comportements étranges. Par exemple, l’analyseur statique détectera l’utilisation de variables locales non préalablement initialisées et les boucles qui tentent d’écrire à un index d’un tableau qui dépasse sa taille. Ces erreurs sont normalement très difficiles à détecter et peuvent souvent n’arriver qu’à certaines occasions très précises. Les analyseurs utilisés seront splint et ccpcheck.
+
+	\subsection{Modularité}
+	\paragraph{}
+	Chaque fonctionnalité du projet devra être bien découpé en modules pour faciliter le test de celui-ci ainsi que de permettre sa réutilisation. Comme le projet en est un de type embarqué, il sera important de développer des couches d’abstraction du matériel pour les modules qui en dépendent. La modularité du code permet aussi de déverminer celui-ci beaucoup plus facilement et d’éviter bien des erreurs de programmation de par le fait que tout est bien encapsulé.
