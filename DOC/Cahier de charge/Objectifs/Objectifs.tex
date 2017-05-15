@@ -1,44 +1,53 @@
 
 \section{Objectifs}
-\paragraph{}
-Réaliser tout les objectifs pour avoir un système de protection et de gestion de batterie  n'est malheureusement pas réalisable dans le cadre du cours de projet spécial. Puisque la compétition aura lieu à l'été 2018, l'équipe d'Éclipse pourra continuer le projet tout en ce référant à ce cahier des charges. Les objectifs sont donc séparés en deux sections: ELE-791, compétition ASC 2018.  
+	\paragraph{}
+	Réaliser tous les objectifs pour avoir un système de protection et de gestion de batterie  n'est malheureusement pas réalisable dans le cadre du cours de projet spécial. Puisque la compétition aura lieu à l'été 2018, l'équipe d'Éclipse pourra continuer le projet tout en se référant à ce cahier des charges. Les objectifs sont donc séparés en deux sections: ELE-791, compétition ASC 2018.  
 
 	\subsection{Objectifs pour ELE-791}
-	\paragraph{}	
-	Les objectifs pour le cours ce concentrerons sur le minimum requis pour que le système soit utilisable en compétition. Les règlements de la compétition (American Solar Challenge) imposent plusieurs critères pour que le système puisse être utilisé. Chaque critère est testé pendant la période de vérification technique qui a une plage horaire donnée. Certaines fonctions propre au système de gestion sont aussi nécessaires pour avoir des performances intéressantes.
+
+		\paragraph{}	
+		Les objectifs pour le cours se concentreront sur le minimum requis pour que le système soit utilisable en compétition. Les règlements de la compétition (American Solar Challenge) imposent plusieurs critères pour que le système puisse être utilisé. Chaque critère est testé pendant la période de vérification technique qui a une plage horaire donnée. Certaines fonctions propres au système de gestion sont aussi nécessaires pour avoir des performances intéressantes.
 		
-		\subsubsection{Protection des modules} \label{protection_module}
+	\subsubsection{Protection des modules} \label{protection_module}
+
 		\paragraph{}
-		La protection des modules consiste à détecter une surcharge, une décharge excessive, un courant trop élevé et une température trop élevé. Suite à la détection d'une faute, le système de protection doit amener la batterie à un état sécuritaire indépendamment du conducteur. La réglementation exige que des indicateurs de fautes soient installés à l'extérieur du véhicule et sur le tableau de bord. La faute doit être verrouillé et cette dernière doit seulement être effacé manuellement lorsque le véhicule n'est pas en mouvement et que la faute n'est plus présente.
+		La protection des modules consiste à détecter une surcharge, une décharge excessive, un courant trop élevé et une température trop élevée. Suite à la détection d'une faute, le système de protection doit amener la batterie à un état sécuritaire indépendamment du conducteur. La réglementation exige que des indicateurs de fautes soient installés à l'extérieur du véhicule et sur le tableau de bord. La faute doit être verrouillée et cette dernière doit seulement être effacée manuellement lorsque le véhicule n'est pas en mouvement et que la faute n'est plus présente.
+		
+	\subsubsection{Balancement des modules}
 	
-		\subsubsection{Balancement des modules}
 		\paragraph{}
-		Le balancement des cellules signifie que tous les modules sont à la même tension lors de la fin de la charge. Il existe différentes stratégies de balancement des modules qui varient en complexité. Bien que ce ne soit pas nécessaire pour que le système ce qualifie, l'étape de balancement à la fin de la charge de la batterie permet d'atteindre un état de charge de 100\% pour tous les modules. Cette étape est critique pour une bonne performance à la compétition. 
-				
-		\subsubsection{Compatibilité avec le BMS présentement utilisé}
-		\paragraph{}
-		Éclipse utilise présentement un système de protection et de gestion de batterie avec lequel tous les autres circuits sont compatibles et fonctionnels. Pour faciliter l'intégration du projet réalisé dans ce cours, il devra être compatible autant au niveau matériel que des fonctionnalités logiciels avec celui présentement utilisé.		
+		Le balancement des cellules signifie que tous les modules sont à la même tension lors de la fin de la charge. Il existe différentes stratégies de balancement des modules qui varient en complexité. Bien que ce ne soit pas nécessaire pour que le système se qualifie, l'étape de balancement à la fin de la charge de la batterie permet d'atteindre un état de charge de 100\% pour tous les modules. Cette étape est critique pour une bonne performance à la compétition. 
 		
-		\subsubsection{Facilité les manipulations lors des vérifications techniques}
+	\subsubsection{Compatibilité avec le BMS présentement utilisé}
 		\paragraph{}
-		Il est important que les manipulations prennent le moins de temps possible lors des vérification technique à la compétition afin d'avoir une marge de manœuvre pour faire des ajustements ou des réparations de dernières minutes. Les méthodes et procédures de vérification de l'American Solar Challenge sont disponibles et devront être effectué sur le projet avec moins de manipulations que le système utilisé présentement.
+		Éclipse utilise présentement un système de protection et de gestion de batterie avec lequel tous les autres circuits sont compatibles et fonctionnels. Pour faciliter l'intégration du projet réalisé dans ce cours, il devra être compatible autant au niveau matériel que des fonctionnalités logicielles avec celui présentement utilisé.		
+		
+	\subsubsection{Facilité les manipulations lors des vérifications techniques}
+
+		\paragraph{}
+		Il est important que les manipulations prennent le moins de temps possible lors des vérifications techniques à la compétition afin d'avoir une marge de manœuvre pour faire des ajustements ou des réparations de dernières minutes. Les méthodes et procédures de vérification de l'American Solar Challenge sont disponibles et devront être effectuées sur le projet avec moins de manipulations que le système utilisé présentement.
 		
 	\subsection{Objectifs pour la compétition ASC 2018}
-	\paragraph{}
-	Plusieurs fonctionnalités intéressantes pourraient permettre au système de gestion de batterie d'être beaucoup plus performant. Ces fonctionnalités seront développés au cours de l'année lorsque le cours d'ELE-791 sera terminé. 
+
+		\paragraph{}
+		Plusieurs fonctionnalités intéressantes pourraient permettre au système de gestion de batterie d'être beaucoup plus performant. Ces fonctionnalités seront développées au cours de l'année lorsque le cours d'ELE-791 sera terminé. 
+		
+		\subsubsection{Contrôle du système de refroidissement}
+		
+			\paragraph{}
+			Les modules ne doivent pas atteindre une certaine température spécifiée dans la fiche technique du manufacturier. Un système de refroidissement sera intégré et contrôlé par le système de gestion de batterie. 
+			
+		\subsubsection{Calcul de l'état de charge}
+		
+			\paragraph{}
+			Le calcul de l'état de charge est très important au cours de la compétition pour élaborer la stratégie de course. Il existe plusieurs méthodes pour estimer la charge et ces techniques varient en complexité et en précision. Il faudra donc évaluer et tester chaque méthode pour déterminer celle qui répond le mieux aux besoins et l'implémenter. 
+			
+		\subsubsection{Limites dynamiques}
 	
-	\subsubsection{Contrôle du système de refroidissement}
-	\paragraph{}
-	Les modules ne doivent pas atteindre une certaine température spécifiée dans la fiche technique du manufacturier. Un système de refroidissement sera intégré et contrôlé par le système de gestion de batterie. 
-	
-	\subsubsection{Calcul de l'état de charge}
-	\paragraph{}
-	Le calcul de l'état de charge est très important au cours de la compétition pour élaborer la stratégie de course. Il existe plusieurs méthodes pour estimer la charge et ces techniques varient en complexité et en précision. Il faudra donc évaluer et tester chaque méthode pour déterminer celle qui répond le mieux aux besoins et l'implémenter. 
-	
-	\subsubsection{Limites dynamique}
-	\paragraph{}
-	Afin d'avoir un maximum de performance et de robustesse, des limites dynamiques doivent être communiquées à la charge afin de prévenir les différentes fautes décritent au point \ref{protection_module}. Ces limites sont calculées en temps réel par le système de gestion de batterie.
-	
-	\subsubsection{Surveiller la batterie et envoyer les informations sur un serveur}
-	\paragraph{}
-	La batterie d'Éclipse passe la majorité de sa vie utile entreposé à l'atelier sans être surveillée. Une faute ou un état de charge trop bas peut endommager la batterie de façon permanente. Le système de protection et de gestion de la batterie pourrait être connectée sur internet et transmettre les données tout au long de la période d'entreposage afin qu'Éclipse puisse prendre action au besoin.  
+			\paragraph{}
+			Afin d'avoir un maximum de performance et de robustesse, des limites dynamiques doivent être communiquées à la charge afin de prévenir les différentes fautes décritent au point \ref{protection_module}. Ces limites sont calculées en temps réel par le système de gestion de batterie.
+			
+		\subsubsection{Surveiller la batterie et envoyer les informations sur un serveur}
+		
+			\paragraph{}
+			La batterie d'Éclipse passe la majorité de sa vie utile entreposée à l'atelier sans être surveillée. Une faute ou un état de charge trop bas peut endommager la batterie de façon permanente. Le système de protection et de gestion de la batterie pourrait être connecté sur internet et transmettre les données tout au long de la période d'entreposage afin qu'Éclipse puisse réagir au besoin.  
