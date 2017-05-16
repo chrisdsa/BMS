@@ -1,6 +1,133 @@
 EESchema-LIBRARY Version 2.3
 #encoding utf-8
 #
+# +VRef
+#
+DEF +VRef #PWR 0 0 N N 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "+VRef" -10 140 50 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+DRAW
+P 2 0 1 0 -70 100 0 100 N
+P 2 0 1 0 0 0 0 100 N
+P 2 0 1 0 0 100 70 100 N
+X +VRef 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# 1935161
+#
+DEF ~1935161 J 0 0 Y N 1 F N
+F0 "J" -100 200 60 H V C CNN
+F1 "1935161" 0 -320 50 H I C CNN
+F2 "Connectors:1935161" 0 -910 30 H I C CNN
+F3 "https://media.digikey.com/pdf/Data%20Sheets/Phoenix%20Contact%20PDFs/1935161.pdf" 0 -960 30 H I C CNN
+F4 "Digikey" 0 -510 60 H I C CNN "Supplier"
+F5 "277-1667-ND" 0 -410 60 H I C CNN "Supplier Part Number"
+F6 "Phoenix Contact" 0 -610 60 H I C CNN "Manufacturer"
+F7 "1935161" 0 -710 60 H I C CNN "Manufacturer Part Number"
+F8 "TERM BLOCK PCB 2POS 5.0MM GREEN" 0 -810 60 H I C CNN "Description"
+DRAW
+S -150 150 0 -50 0 0 0 f
+X ~ 1 100 0 100 L 50 40 1 1 P
+X ~ 2 100 100 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# 5V
+#
+DEF 5V #PWR 0 0 N N 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "5V" -10 140 50 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+DRAW
+P 2 0 1 0 -70 100 0 100 N
+P 2 0 1 0 0 0 0 100 N
+P 2 0 1 0 0 100 70 100 N
+X 5V 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# 885012107015
+#
+DEF ~885012107015 C 0 0 N N 1 F N
+F0 "C" -50 160 60 H V C CNN
+F1 "885012107015" -50 -350 60 H I C CNN
+F2 "Capacitors:C0805" -50 -950 60 H I C CNN
+F3 "D" -50 -1050 60 H I C CNN
+F4 "Digikey" -50 -450 60 H I C CNN "Supplier"
+F5 "732-7625-1-ND" -50 -550 60 H I C CNN "Supplier Part Number"
+F6 "Wurth Electronics Inc." -50 -650 60 H I C CNN "Manufacturer"
+F7 "885012107015" -50 -750 60 H I C CNN "Manufacturer Part Number"
+F8 "CAP CER 1UF 25V X5R 0805" -50 -850 60 H I C CNN "Description"
+F9 "1µF" -50 -120 50 H V C CNN "Capacitance (Farad)"
+F10 "±20%" 210 -120 50 H I C CNN "Tolerance (%)"
+F11 "25V" -50 -190 50 H I C CNN "Voltage Rated (Volt)"
+DRAW
+P 2 0 1 0 -100 0 -90 0 N
+P 2 0 1 10 -85 75 -85 -75 N
+P 2 0 1 10 -15 75 -15 -75 N
+P 2 0 1 0 0 0 -10 0 N
+P 2 0 1 0 25 0 50 0 N
+X 1 1 -200 0 100 R 50 50 1 1 P
+X 2 2 100 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# 885012207047
+#
+DEF ~885012207047 C 0 0 N N 1 F N
+F0 "C" -50 160 60 H V C CNN
+F1 "885012207047" -50 -350 60 H I C CNN
+F2 "Capacitors:C0805" -50 -950 60 H I C CNN
+F3 "D" -50 -1050 60 H I C CNN
+F4 "Digikey" -50 -450 60 H I C CNN "Supplier"
+F5 "732-7660-1-ND" -50 -550 60 H I C CNN "Supplier Part Number"
+F6 "Wurth Electronics Inc." -50 -650 60 H I C CNN "Manufacturer"
+F7 "885012207047" -50 -750 60 H I C CNN "Manufacturer Part Number"
+F8 "CAP CER 220nF 16V X7R 0805" -50 -850 60 H I C CNN "Description"
+F9 "220nF" -50 -120 50 H V C CNN "Capacitance (Farad)"
+F10 "±10%" 210 -120 50 H I C CNN "Tolerance (%)"
+F11 "16V" -50 -190 50 H I C CNN "Voltage Rated (Volt)"
+DRAW
+P 2 0 1 0 -100 0 -90 0 N
+P 2 0 1 10 -85 75 -85 -75 N
+P 2 0 1 10 -15 75 -15 -75 N
+P 2 0 1 0 0 0 -10 0 N
+P 2 0 1 0 25 0 50 0 N
+X 1 1 -200 0 100 R 50 50 1 1 P
+X 2 2 100 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# 885012207098
+#
+DEF ~885012207098 C 0 0 N N 1 F N
+F0 "C" -50 160 60 H V C CNN
+F1 "885012207098" -50 -350 60 H I C CNN
+F2 "Capacitors:C0805" -50 -950 60 H I C CNN
+F3 "D" -50 -1050 60 H I C CNN
+F4 "Digikey" -50 -450 60 H I C CNN "Supplier"
+F5 "732-8080-1-ND" -50 -550 60 H I C CNN "Supplier Part Number"
+F6 "Wurth Electronics Inc." -50 -650 60 H I C CNN "Manufacturer"
+F7 "885012207098" -50 -750 60 H I C CNN "Manufacturer Part Number"
+F8 "CAP CER 0.1UF 50V X7R 0805" -50 -850 60 H I C CNN "Description"
+F9 "100nF" -50 -120 50 H V C CNN "Capacitance (Farad)"
+F10 "±10%" 210 -120 50 H I C CNN "Tolerance (%)"
+F11 "50V" -50 -190 50 H I C CNN "Voltage Rated (Volt)"
+DRAW
+P 2 0 1 0 -100 0 -90 0 N
+P 2 0 1 10 -85 75 -85 -75 N
+P 2 0 1 10 -15 75 -15 -75 N
+P 2 0 1 0 0 0 -10 0 N
+P 2 0 1 0 25 0 50 0 N
+X 1 1 -200 0 100 R 50 50 1 1 P
+X 2 2 100 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # ADC121C021CIMM/NOPB
 #
 DEF ADC121C021CIMM/NOPB U 0 0 Y N 1 F N
@@ -31,6 +158,21 @@ X Vs+ 5 -300 300 100 R 50 50 1 1 I
 X ADR1 6 -300 -300 100 R 50 50 1 1 I
 X GND 7 400 -300 100 L 50 50 1 1 I
 X SDA 8 400 100 100 L 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# AGND
+#
+DEF AGND #PWR 0 0 N N 1 F P
+F0 "#PWR" 0 -170 50 H I C CNN
+F1 "AGND" 0 -100 50 H V C CNN
+F2 "" 0 100 60 H V C CNN
+F3 "" -20 -90 60 H V C CNN
+DRAW
+P 2 0 1 0 0 0 50 0 N
+P 3 0 1 0 -50 0 0 -60 50 0 f
+P 3 0 1 0 0 100 0 0 -50 0 N
+X AGND 1 0 100 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
@@ -108,6 +250,21 @@ X Vin 5 -300 200 100 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
+# BGND
+#
+DEF BGND #PWR 0 0 N N 1 F P
+F0 "#PWR" 0 -170 50 H I C CNN
+F1 "BGND" 0 -100 50 H V C CNN
+F2 "" 0 100 60 H V C CNN
+F3 "" -20 -90 60 H V C CNN
+DRAW
+P 2 0 1 0 0 0 50 0 N
+P 3 0 1 0 -50 0 0 -60 50 0 f
+P 3 0 1 0 0 100 0 0 -50 0 N
+X BGND 1 0 100 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
 # CPH6347-TL-W
 #
 DEF CPH6347-TL-W Q 0 0 N N 1 F N
@@ -153,6 +310,46 @@ X D 6 200 300 100 D 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
+# Header_Male_Pin_2.54mm_1X2_,_Unshrouded
+#
+DEF ~Header_Male_Pin_2.54mm_1X2_,_Unshrouded J 0 0 Y N 1 F N
+F0 "J" -50 200 60 H V C CNN
+F1 "Header_Male_Pin_2.54mm_1X2_,_Unshrouded" 0 -320 50 H I C CNN
+F2 "Connectors:Headers_2.54mm_1X2" 0 -910 30 H I C CNN
+F3 "D" 0 -960 30 H I C CNN
+F4 "Ebay" 0 -510 60 H I C CNN "Supplier"
+F5 "Pin Male Single Row Pin Header Strip" 0 -410 60 H I C CNN "Supplier Part Number"
+F6 "Manufacturer" 0 -610 60 H I C CNN "Manufacturer"
+F7 "Manufacturer Part Number" 0 -710 60 H I C CNN "Manufacturer Part Number"
+F8 "Pin Male Single Row Pin Header Strip" 0 -810 60 H I C CNN "Description"
+DRAW
+S -150 150 0 -50 0 0 0 f
+X ~ 1 100 0 100 L 50 40 1 1 P
+X ~ 2 100 100 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Header_Male_Pin_2.54mm_1X4_,_Unshrouded
+#
+DEF ~Header_Male_Pin_2.54mm_1X4_,_Unshrouded J 0 0 Y N 1 F N
+F0 "J" -50 400 60 H V C CNN
+F1 "Header_Male_Pin_2.54mm_1X4_,_Unshrouded" 0 -320 50 H I C CNN
+F2 "Connectors:Headers_2.54mm_1X4" 0 -910 30 H I C CNN
+F3 "D" 0 -960 30 H I C CNN
+F4 "Ebay" 0 -510 60 H I C CNN "Supplier"
+F5 "Pin Male Single Row Pin Header Strip" 0 -410 60 H I C CNN "Supplier Part Number"
+F6 "Manufacturer" 0 -610 60 H I C CNN "Manufacturer"
+F7 "Manufacturer Part Number" 0 -710 60 H I C CNN "Manufacturer Part Number"
+F8 "Pin Male Single Row Pin Header Strip" 0 -810 60 H I C CNN "Description"
+DRAW
+S -150 350 0 -50 0 0 0 f
+X ~ 1 100 0 100 L 50 40 1 1 P
+X ~ 2 100 100 100 L 50 50 1 1 P
+X ~ 3 100 200 100 L 50 50 1 1 P
+X ~ 4 100 300 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # LTV-816S
 #
 DEF LTV-816S U 0 0 N N 1 F N
@@ -186,6 +383,112 @@ X Anode 1 -200 200 100 R 50 50 1 1 I
 X Cathode 2 -200 -100 100 R 50 50 1 1 I
 X E 3 300 -100 100 L 50 50 1 1 I
 X C 4 300 200 100 L 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# RC0805JR-07100RL
+#
+DEF ~RC0805JR-07100RL R 0 0 N N 1 F N
+F0 "R" 0 80 60 H V C CNN
+F1 "RC0805JR-07100RL" 0 -300 50 H I C CNN
+F2 "Resistors:R0805" 0 -900 30 H I C CNN
+F3 "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf" 0 -950 30 H I C CNN
+F4 "Digikey" 0 -400 60 H I C CNN "Supplier"
+F5 "311-100ARCT-ND" 0 -500 60 H I C CNN "Supplier Part Number"
+F6 "Yageo" 0 -600 60 H I C CNN "Manufacturer"
+F7 "RC0805JR-07100RL" 0 -700 60 H I C CNN "Manufacturer Part Number"
+F8 "RES SMD 100 OHM 5% 1/8W 0805" 0 -800 60 H I C CNN "Description"
+F9 "100" 0 -70 50 H V C CNN "Resistance (Ohms)"
+F10 "±5%" 410 -80 50 H I C CNN "Tolerance (%)"
+F11 "1/8W" 0 -140 50 H I C CNN "Puissance (Watts)"
+DRAW
+S -120 0 -150 0 0 1 0 N
+S 150 0 120 0 0 1 0 N
+P 13 0 1 0 -120 0 -100 30 -80 0 -60 -30 -40 0 -20 30 0 0 20 -30 40 0 60 30 80 0 100 -30 120 0 N
+X 1 1 -200 0 50 R 50 50 1 1 P
+X 2 2 200 0 50 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# RC0805JR-074K7L
+#
+DEF ~RC0805JR-074K7L R 0 0 N N 1 F N
+F0 "R" 0 80 60 H V C CNN
+F1 "RC0805JR-074K7L" 0 -300 50 H I C CNN
+F2 "Resistors:R0805" 0 -900 30 H I C CNN
+F3 "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf" 0 -950 30 H I C CNN
+F4 "Digikey" 0 -400 60 H I C CNN "Supplier"
+F5 "311-4.7KARCT-ND" 0 -500 60 H I C CNN "Supplier Part Number"
+F6 "Yageo" 0 -600 60 H I C CNN "Manufacturer"
+F7 "RC0805JR-074K7L" 0 -700 60 H I C CNN "Manufacturer Part Number"
+F8 "RES SMD 4.7K OHM 5% 1/8W 0805" 0 -800 60 H I C CNN "Description"
+F9 "4.7k" 0 -70 50 H V C CNN "Resistance (Ohms)"
+F10 "±5%" 200 -100 50 H I C CNN "Tolerance (%)"
+F11 "1/8W" 0 -140 50 H I C CNN "Puissance (Watts)"
+DRAW
+S -120 0 -150 0 0 1 0 N
+S 150 0 120 0 0 1 0 N
+P 13 0 1 0 -120 0 -100 30 -80 0 -60 -30 -40 0 -20 30 0 0 20 -30 40 0 60 30 80 0 100 -30 120 0 N
+X 1 1 -200 0 50 R 50 50 1 1 P
+X 2 2 200 0 50 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# SI8602AC-B-IS
+#
+DEF SI8602AC-B-IS U 0 0 Y N 1 F N
+F0 "U" 0 400 60 H V C CNN
+F1 "SI8602AC-B-IS" 0 -400 60 H V C CNN
+F2 "IC:SOIC-8" 0 -1200 60 H I C CNN
+F3 "http://www.silabs.com/documents/public/data-sheets/Si860x.pdf" 0 -1300 60 H I C CNN
+F4 "Digikey" 0 -700 60 H I C CNN "Supplier"
+F5 "336-2050-5-ND" 0 -800 60 H I C CNN "Supplier Part Number"
+F6 "Silicon Labs" 0 -900 60 H I C CNN "Manufacturer"
+F7 "SI8602AC-B-IS" 0 -1000 60 H I C CNN "Manufacturer Part Number"
+F8 "DGTL ISO 3.75KV 2CH I2C 8SOIC" 0 -1100 60 H I C CNN "Description"
+DRAW
+T 0 -270 -300 50 0 0 0 AGND Normal 0 C C
+T 0 -280 -100 50 0 0 0 ASCL Normal 0 C C
+T 0 -280 100 50 0 0 0 ASDA Normal 0 C C
+T 0 -280 300 50 0 0 0 AVDD Normal 0 C C
+T 0 280 -300 50 0 0 0 BGND Normal 0 C C
+T 0 280 -100 50 0 0 0 BSCL Normal 0 C C
+T 0 280 100 50 0 0 0 BSDA Normal 0 C C
+T 0 280 300 50 0 0 0 BVDD Normal 0 C C
+P 2 0 0 0 -100 -100 100 -100 N
+P 2 0 0 0 -100 100 100 100 N
+P 2 0 0 0 0 -250 0 -300 N
+P 2 0 0 0 0 -150 0 -200 N
+P 2 0 0 0 0 50 0 -50 N
+P 2 0 0 0 0 200 0 150 N
+P 2 0 0 0 0 300 0 250 N
+P 4 0 0 0 -100 100 -70 120 -70 80 -100 100 F
+P 4 0 0 0 100 -100 70 -80 70 -120 100 -100 F
+P 4 0 0 0 100 100 70 120 70 80 100 100 F
+P 5 0 0 0 -400 350 400 350 400 -350 -400 -350 -400 350 f
+X AVDD 1 -500 300 100 R 50 50 1 1 I
+X ASDA 2 -500 100 100 R 50 50 1 1 I
+X ASCL 3 -500 -100 100 R 50 50 1 1 I
+X AGND 4 -500 -300 100 R 50 50 1 1 I
+X BGND 5 500 -300 100 L 50 50 1 1 I
+X BSCL 6 500 -100 100 L 50 50 1 1 I
+X BSDA 7 500 100 100 L 50 50 1 1 I
+X BVDD 8 500 300 100 L 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# VDD
+#
+DEF VDD #PWR 0 0 N N 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "VDD" -10 140 50 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 -150 60 H V C CNN
+DRAW
+P 2 0 1 0 -70 100 0 100 N
+P 2 0 1 0 0 0 0 100 N
+P 2 0 1 0 0 100 70 100 N
+X VDD 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #

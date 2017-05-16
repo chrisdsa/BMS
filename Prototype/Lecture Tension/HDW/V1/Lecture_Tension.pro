@@ -1,4 +1,4 @@
-update=Tue 16 May 2017 12:48:41 PM EDT
+update=Tue 16 May 2017 03:04:12 PM EDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -50,3 +50,13 @@ LibName20=Transformers/Transformers
 LibName21=Transistors/Transistors
 [general]
 version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=Project_Template.kicad_wks
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
