@@ -50,6 +50,32 @@ X 5V 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
+# 885012107014
+#
+DEF ~885012107014 C 0 0 N N 1 F N
+F0 "C" -50 160 60 H V C CNN
+F1 "885012107014" -50 -350 60 H I C CNN
+F2 "Capacitors:C0805" -50 -950 60 H I C CNN
+F3 "D" -50 -1050 60 H I C CNN
+F4 "Digikey" -50 -450 60 H I C CNN "Supplier"
+F5 "732-7624-1-ND" -50 -550 60 H I C CNN "Supplier Part Number"
+F6 "Wurth Electronics Inc." -50 -650 60 H I C CNN "Manufacturer"
+F7 "885012007027" -50 -750 60 H I C CNN "Manufacturer Part Number"
+F8 "CAP CER 10UF 16V X5R 0805" -50 -850 60 H I C CNN "Description"
+F9 "10µF" -50 -120 50 H V C CNN "Capacitance (Farad)"
+F10 "±20%" 210 -120 50 H I C CNN "Tolerance (%)"
+F11 "16V" -50 -190 50 H I C CNN "Voltage Rated (Volt)"
+DRAW
+P 2 0 1 0 -100 0 -90 0 N
+P 2 0 1 10 -85 75 -85 -75 N
+P 2 0 1 10 -15 75 -15 -75 N
+P 2 0 1 0 0 0 -10 0 N
+P 2 0 1 0 25 0 50 0 N
+X 1 1 -200 0 100 R 50 50 1 1 P
+X 2 2 100 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # 885012107015
 #
 DEF ~885012107015 C 0 0 N N 1 F N
@@ -350,6 +376,54 @@ X ~ 4 100 300 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# LBC3225T101KR
+#
+DEF ~LBC3225T101KR L 0 0 N N 1 F N
+F0 "L" 0 100 60 H V C CNN
+F1 "LBC3225T101KR" 0 -350 60 H I C CNN
+F2 "Inductors:LBC3225" 0 -950 60 H I C CNN
+F3 "http://www.yuden.co.jp/productdata/catalog/en/wound01_e.pdf" 0 -1050 60 H I C CNN
+F4 "Digikey" 0 -450 60 H I C CNN "Supplier"
+F5 "587-2422-1-ND" 0 -550 60 H I C CNN "Supplier Part Number"
+F6 "Taiyo Yuden" 0 -650 60 H I C CNN "Manufacturer"
+F7 "LBC3225T101KR" 0 -750 60 H I C CNN "Manufacturer Part Number"
+F8 "FIXED IND 100UH 150MA 1.4 OHM" 0 -850 60 H I C CNN "Description"
+F9 "100µH" 0 -50 50 H V C CNN "Inductance (Henry)"
+F10 "150mA" 0 -120 50 H V C CNN "Current Rating (Ampere)"
+DRAW
+A -80 0 40 1 1799 0 1 0 N -40 0 -120 0
+A 0 0 40 1 1799 0 1 0 N 40 0 -40 0
+A 80 0 40 1 1799 0 1 0 N 120 0 40 0
+X 1 1 -200 0 80 R 50 50 1 1 P
+X 2 2 200 0 80 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# LQM31PN4R7M00L
+#
+DEF ~LQM31PN4R7M00L L 0 0 N N 1 F N
+F0 "L" -10 160 60 H V C CNN
+F1 "LQM31PN4R7M00L" 0 -300 60 H I C CNN
+F2 "Inductors:I1206" 0 -900 60 H I C CNN
+F3 "http://search.murata.co.jp/Ceramy/image/img/P02/JELF243B-0013.pdf" 0 -1000 60 H I C CNN
+F4 "Digikey" 0 -400 60 H I C CNN "Supplier"
+F5 "490-6706-1-ND" 0 -500 60 H I C CNN "Supplier Part Number"
+F6 "Murata Electronics North America" 0 -600 60 H I C CNN "Manufacturer"
+F7 "LQM31PN4R7M00L" 0 -700 60 H I C CNN "Manufacturer Part Number"
+F8 "FIXED IND 4.7UH 700MA 300 MOHM" 0 -800 60 H I C CNN "Description"
+F9 "4.7µH" 0 -50 50 H V C CNN "Inductance (Henry)"
+F10 "700mA" -10 -120 50 H V C CNN "Current Rating (Ampere)"
+DRAW
+A -80 0 40 1 1799 0 1 0 N -40 0 -120 0
+A 0 0 40 1 1799 0 1 0 N 40 0 -40 0
+A 80 0 40 1 1799 0 1 0 N 120 0 40 0
+P 2 0 1 0 -120 60 120 60 N
+P 2 0 1 0 -120 80 120 80 N
+X 1 1 -200 0 80 R 50 50 1 1 P
+X 2 2 200 0 80 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # LTV-816S
 #
 DEF LTV-816S U 0 0 N N 1 F N
@@ -386,6 +460,27 @@ X C 4 300 200 100 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
+# NSR0530HT1G
+#
+DEF NSR0530HT1G D 0 0 N N 1 F N
+F0 "D" -50 150 60 H V C CNN
+F1 "NSR0530HT1G" 0 -150 60 H V C CNN
+F2 "Diodes:SOD-323" -20 -1000 60 H I C CNN
+F3 "http://www.onsemi.com/pub/Collateral/NSR0530H-D.PDF" -20 -1100 60 H I C CNN
+F4 "Digikey" -20 -500 60 H I C CNN "Supplier"
+F5 "NSR0530HT1GOSCT-ND" -20 -600 60 H I C CNN "Supplier Part Number"
+F6 "ON Semiconductor" -20 -700 60 H I C CNN "Manufacturer"
+F7 "NSR0530HT1G" -20 -800 60 H I C CNN "Manufacturer Part Number"
+F8 "DIODE SCHOTTKY 30V 500MA SOD323" -20 -900 60 H I C CNN "Description"
+DRAW
+P 3 0 1 10 0 -60 -25 -60 -25 -40 N
+P 4 0 1 10 -100 50 -100 -50 0 0 -100 50 f
+P 4 0 1 10 0 -60 0 60 25 60 25 40 N
+X Cathode 1 100 0 100 L 50 50 1 1 I
+X Anode 2 -200 0 100 R 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
 # RC0805JR-07100RL
 #
 DEF ~RC0805JR-07100RL R 0 0 N N 1 F N
@@ -399,6 +494,78 @@ F6 "Yageo" 0 -600 60 H I C CNN "Manufacturer"
 F7 "RC0805JR-07100RL" 0 -700 60 H I C CNN "Manufacturer Part Number"
 F8 "RES SMD 100 OHM 5% 1/8W 0805" 0 -800 60 H I C CNN "Description"
 F9 "100" 0 -70 50 H V C CNN "Resistance (Ohms)"
+F10 "±5%" 410 -80 50 H I C CNN "Tolerance (%)"
+F11 "1/8W" 0 -140 50 H I C CNN "Puissance (Watts)"
+DRAW
+S -120 0 -150 0 0 1 0 N
+S 150 0 120 0 0 1 0 N
+P 13 0 1 0 -120 0 -100 30 -80 0 -60 -30 -40 0 -20 30 0 0 20 -30 40 0 60 30 80 0 100 -30 120 0 N
+X 1 1 -200 0 50 R 50 50 1 1 P
+X 2 2 200 0 50 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# RC0805JR-0710KL
+#
+DEF ~RC0805JR-0710KL R 0 0 N N 1 F N
+F0 "R" 0 80 60 H V C CNN
+F1 "RC0805JR-0710KL" 0 -300 50 H I C CNN
+F2 "Resistors:R0805" 0 -900 30 H I C CNN
+F3 "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf" 0 -950 30 H I C CNN
+F4 "Digikey" 0 -400 60 H I C CNN "Supplier"
+F5 "311-10KARCT-ND" 0 -500 60 H I C CNN "Supplier Part Number"
+F6 "Yageo" 0 -600 60 H I C CNN "Manufacturer"
+F7 "RC0805JR-0710KL" 0 -700 60 H I C CNN "Manufacturer Part Number"
+F8 "RES SMD 10K OHM 5% 1/8W 0805" 0 -800 60 H I C CNN "Description"
+F9 "10k" 0 -70 50 H V C CNN "Resistance (Ohms)"
+F10 "±5%" 410 -80 50 H I C CNN "Tolerance (%)"
+F11 "1/8W" 0 -140 50 H I C CNN "Puissance (Watts)"
+DRAW
+S -120 0 -150 0 0 1 0 N
+S 150 0 120 0 0 1 0 N
+P 13 0 1 0 -120 0 -100 30 -80 0 -60 -30 -40 0 -20 30 0 0 20 -30 40 0 60 30 80 0 100 -30 120 0 N
+X 1 1 -200 0 50 R 50 50 1 1 P
+X 2 2 200 0 50 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# RC0805JR-07330RL
+#
+DEF ~RC0805JR-07330RL R 0 0 N N 1 F N
+F0 "R" 0 80 60 H V C CNN
+F1 "RC0805JR-07330RL" 0 -300 50 H I C CNN
+F2 "Resistors:R0805" 0 -900 30 H I C CNN
+F3 "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf" 0 -950 30 H I C CNN
+F4 "Digikey" 0 -400 60 H I C CNN "Supplier"
+F5 "311-330ARCT-ND" 0 -500 60 H I C CNN "Supplier Part Number"
+F6 "Yageo" 0 -600 60 H I C CNN "Manufacturer"
+F7 "RC0805JR-07330RL" 0 -700 60 H I C CNN "Manufacturer Part Number"
+F8 "RES SMD 330 OHM 5% 1/8W 0805" 0 -800 60 H I C CNN "Description"
+F9 "330" 0 -70 50 H V C CNN "Resistance (Ohms)"
+F10 "±5%" 410 -80 50 H I C CNN "Tolerance (%)"
+F11 "1/8W" 0 -140 50 H I C CNN "Puissance (Watts)"
+DRAW
+S -120 0 -150 0 0 1 0 N
+S 150 0 120 0 0 1 0 N
+P 13 0 1 0 -120 0 -100 30 -80 0 -60 -30 -40 0 -20 30 0 0 20 -30 40 0 60 30 80 0 100 -30 120 0 N
+X 1 1 -200 0 50 R 50 50 1 1 P
+X 2 2 200 0 50 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# RC0805JR-07470KL
+#
+DEF ~RC0805JR-07470KL R 0 0 N N 1 F N
+F0 "R" 0 80 60 H V C CNN
+F1 "RC0805JR-07470KL" 0 -300 50 H I C CNN
+F2 "Resistors:R0805" 0 -900 30 H I C CNN
+F3 "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf" 0 -950 30 H I C CNN
+F4 "Digikey" 0 -400 60 H I C CNN "Supplier"
+F5 "311-470KARCT-ND" 0 -500 60 H I C CNN "Supplier Part Number"
+F6 "Yageo" 0 -600 60 H I C CNN "Manufacturer"
+F7 "RC0805JR-07470KL" 0 -700 60 H I C CNN "Manufacturer Part Number"
+F8 "RES SMD 470K OHM 5% 1/8W 0805" 0 -800 60 H I C CNN "Description"
+F9 "470k" 0 -70 50 H V C CNN "Resistance (Ohms)"
 F10 "±5%" 410 -80 50 H I C CNN "Tolerance (%)"
 F11 "1/8W" 0 -140 50 H I C CNN "Puissance (Watts)"
 DRAW
