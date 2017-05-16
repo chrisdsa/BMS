@@ -225,3 +225,31 @@ TSWLatexianTemp*
 
 # End of https://www.gitignore.io/api/latex
 
+
+# Created by https://www.gitignore.io/api/kicad
+
+### KiCad ###
+# For PCBs designed using KiCad: http://www.kicad-pcb.org/
+
+# Temporary files
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*~
+_autosave-*
+*.tmp
+
+# Netlist files (exported from Eeschema)
+*.net
+
+# Autorouter files (exported from Pcbnew)
+*.dsn
+*.ses
+
+# Exported BOM files
+*.xml
+*.csv
+
+# End of https://www.gitignore.io/api/kicad
+
