@@ -336,6 +336,34 @@ X D 6 200 300 100 D 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
+# CT6EP103
+#
+DEF ~CT6EP103 VR 0 0 Y N 1 F N
+F0 "VR" -160 140 60 H V C CNN
+F1 "CT6EP103" 0 -320 50 H I C CNN
+F2 "Resistors:CT6EP" 0 -910 30 H I C CNN
+F3 "https://www.nidec-copal-electronics.com/e/catalog/trimmer/ct-6.pdf" 0 -960 30 H I C CNN
+F4 "Digikey" 0 -510 60 H I C CNN "Supplier"
+F5 "CT6EP103-ND" 0 -410 60 H I C CNN "Supplier Part Number"
+F6 "Copal Electronics Inc." 0 -610 60 H I C CNN "Manufacturer"
+F7 "CT6EP103" 0 -710 60 H I C CNN "Manufacturer Part Number"
+F8 "TRIMMER 10K OHM 0.5W TH" 0 -810 60 H I C CNN "Description"
+F9 "10k" -150 50 50 H V C CNN "Resistance (Ohms)"
+F10 "0.5W" 300 50 50 H I C CNN "Puissance (Watts)"
+F11 "±10%" 300 -50 50 H I C CNN "Tolerance (%)"
+DRAW
+T 0 110 0 50 0 0 0 CW Normal 0 C C
+P 5 0 0 0 110 -50 110 -200 90 -180 130 -180 110 -200 N
+S 0 -120 0 -150 0 1 0 N
+S 0 150 0 120 0 1 0 N
+P 5 0 1 0 -150 0 -45 0 -70 15 -70 -15 -45 0 F
+P 13 0 1 0 0 -120 30 -100 0 -80 -30 -60 0 -40 30 -20 0 0 -30 20 0 40 30 60 0 80 -30 100 0 120 N
+X 1 1 0 200 50 D 50 50 1 1 P
+X 2 2 -200 0 50 R 50 50 1 1 P
+X 3 3 0 -200 50 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Header_Male_Pin_2.54mm_1X2_,_Unshrouded
 #
 DEF ~Header_Male_Pin_2.54mm_1X2_,_Unshrouded J 0 0 Y N 1 F N
@@ -639,6 +667,54 @@ F7 "RC0805JR-074K7L" 0 -700 60 H I C CNN "Manufacturer Part Number"
 F8 "RES SMD 4.7K OHM 5% 1/8W 0805" 0 -800 60 H I C CNN "Description"
 F9 "4.7k" 0 -70 50 H V C CNN "Resistance (Ohms)"
 F10 "±5%" 200 -100 50 H I C CNN "Tolerance (%)"
+F11 "1/8W" 0 -140 50 H I C CNN "Puissance (Watts)"
+DRAW
+S -120 0 -150 0 0 1 0 N
+S 150 0 120 0 0 1 0 N
+P 13 0 1 0 -120 0 -100 30 -80 0 -60 -30 -40 0 -20 30 0 0 20 -30 40 0 60 30 80 0 100 -30 120 0 N
+X 1 1 -200 0 50 R 50 50 1 1 P
+X 2 2 200 0 50 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# RT0805BRD0712K7L
+#
+DEF ~RT0805BRD0712K7L R 0 0 N N 1 F N
+F0 "R" 0 80 60 H V C CNN
+F1 "RT0805BRD0712K7L" 0 -300 50 H I C CNN
+F2 "Resistors:R0805" 0 -900 30 H I C CNN
+F3 "http://www.yageo.com/documents/recent/PYu-RT_1-to-0.01_RoHS_L_7.pdf" 0 -950 30 H I C CNN
+F4 "Digikey" 0 -400 60 H I C CNN "Supplier"
+F5 "YAG1775CT-ND" 0 -500 60 H I C CNN "Supplier Part Number"
+F6 "Yageo" 0 -600 60 H I C CNN "Manufacturer"
+F7 "RT0805BRD0712K7L" 0 -700 60 H I C CNN "Manufacturer Part Number"
+F8 "RES SMD 12.7K OHM 0.1% 1/8W 0805" 0 -800 60 H I C CNN "Description"
+F9 "12.7k" 0 -70 50 H V C CNN "Resistance (Ohms)"
+F10 "±0.1%" 410 -80 50 H I C CNN "Tolerance (%)"
+F11 "1/8W" 0 -140 50 H I C CNN "Puissance (Watts)"
+DRAW
+S -120 0 -150 0 0 1 0 N
+S 150 0 120 0 0 1 0 N
+P 13 0 1 0 -120 0 -100 30 -80 0 -60 -30 -40 0 -20 30 0 0 20 -30 40 0 60 30 80 0 100 -30 120 0 N
+X 1 1 -200 0 50 R 50 50 1 1 P
+X 2 2 200 0 50 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# RT0805BRD0733KL
+#
+DEF ~RT0805BRD0733KL R 0 0 N N 1 F N
+F0 "R" 0 80 60 H V C CNN
+F1 "RT0805BRD0733KL" 0 -300 50 H I C CNN
+F2 "Resistors:R0805" 0 -900 30 H I C CNN
+F3 "http://www.yageo.com/documents/recent/PYu-RT_1-to-0.01_RoHS_L_7.pdf" 0 -950 30 H I C CNN
+F4 "Digikey" 0 -400 60 H I C CNN "Supplier"
+F5 "YAG1872CT-ND" 0 -500 60 H I C CNN "Supplier Part Number"
+F6 "Yageo" 0 -600 60 H I C CNN "Manufacturer"
+F7 "RT0805BRD0733KL" 0 -700 60 H I C CNN "Manufacturer Part Number"
+F8 "RES SMD 33K OHM 0.1% 1/8W 0805" 0 -800 60 H I C CNN "Description"
+F9 "33k" 0 -70 50 H V C CNN "Resistance (Ohms)"
+F10 "±0.1%" 410 -80 50 H I C CNN "Tolerance (%)"
 F11 "1/8W" 0 -140 50 H I C CNN "Puissance (Watts)"
 DRAW
 S -120 0 -150 0 0 1 0 N
