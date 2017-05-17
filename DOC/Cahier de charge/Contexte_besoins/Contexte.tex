@@ -1,20 +1,20 @@
 \section{Contexte et définition du problème}
 
-	\subsection{Danger des batteries Li-Ion}
+	\subsection{Danger des batteries Li-ion}
 	
 		\paragraph{}
-		L'avènement des énergies renouvelables et de l'électrification des transports comporte des défis importants. Notamment, celui d'emmagasiner l'énergie et d'être capable de délivrer des puissances de plus en plus élevées. Une des technologies privilégiées à cet effet est l'utilisation d'accumulateurs au lithium-ion. Ayant une densité énergétique intéressante, beaucoup de développement technologique est effectué dans ce domaine. Par contre, cette caractéristique recherchée est un couteau à deux tranchants. En effet, ce type d'accumulateurs nécessite des équipements de protections, sans quoi ils peuvent devenir instables et causer des dommages importants. Les accumulateurs doivent également opérer à l'intérieur des caractéristiques données par le manufacturier, ce qui n'est pas toujours évident à respecter lorsque plusieurs facteurs influencent ces caractéristiques. De plus, dans plusieurs applications, plusieurs centaines de ces accumulateurs sont reliés ensemble pour former une batterie, ajoutant des risques supplémentaires. C'est pourquoi un système de surveillance est nécessaire au bon fonctionnement de la batterie et pour éviter des événements catastrophiques.
+		L'avènement des énergies renouvelables et de l'électrification des transports comporte des défis importants. Notamment, celui d'emmagasiner l'énergie et d'être capable de délivrer des puissances de plus en plus élevées. Une des technologies privilégiées à cet effet est l'utilisation d'accumulateurs au lithium-ion. Ayant une densité énergétique intéressante, beaucoup de développement technologique est effectué dans ce domaine. Par contre, cette caractéristique recherchée est un couteau à deux tranchants. En effet, ce type d'accumulateurs nécessite des équipements de protection, sans quoi ils peuvent devenir instables et causer des dommages importants. Les accumulateurs doivent également opérer à l'intérieur des caractéristiques données par le manufacturier, ce qui n'est pas toujours évident à respecter lorsque plusieurs facteurs influencent ces caractéristiques. De plus, dans plusieurs applications, plusieurs centaines de ces accumulateurs sont reliés ensemble pour former une batterie, ajoutant des risques supplémentaires. C'est pourquoi un système de surveillance est nécessaire au bon fonctionnement de la batterie et pour éviter des événements catastrophiques.
 	
 	\subsection{Système de protection et de gestion de batterie}
 	
 		\paragraph{}
-		La protection et la gestion de batteries se font par un système électronique. Il est important de comprendre les différentes composantes formant le système de protection et de gestion de batterie.
+		La protection et la gestion de batterie se font par un système électronique. Il est important de comprendre les différentes composantes formant le système de protection et de gestion de batterie.
 		
 		\paragraph{}   \textbf{Cellule:}
 		 C'est la plus petite unité composant un système. Les cellules sont des accumulateurs chimiques pouvant avoir une forme cylindrique, prismatique ou en sachet.  
 		
 		\paragraph{}   \textbf{Module:}
-		 Les cellules sont regrouper en parallèles pour former des modules. De cette façon, on peut additionner le courant venant des cellules. Les modules peuvent être remplacés dans un système.
+		 Les cellules sont regrouper en parallèle pour former des modules. De cette façon, on peut additionner le courant venant des cellules. Les modules peuvent être remplacés dans un système.
 		
 		\paragraph{}   \textbf{Batterie:}
 		 On dispose les modules en série pour former la batterie. On augmente ainsi la tension pour l'application voulue.
@@ -23,7 +23,7 @@
 		 Cette composante effectue des mesures sur les modules. On mesure entre autres la tension, le courant et la température. Cela permet de savoir si les cellules opèrent à l'intérieur des caractéristiques fournies par le manufacturier des cellules. Il s'assure également que les modules soient balancés pour éviter une surtension des modules lors de la recharge. Il commande aussi les périphériques auxiliaires, tels que les ventilateurs de refroidissement.
 		
 		\paragraph{}   \textbf{Système de gestion:}
-		 Il est nécessaire de faire une bonne gestion pour s'assurer du bon fonctionnement de la batterie. Le système de gestion calcul donc l'état de charge, l'état de santé et les limites de puissances. Le système communique ces informations à d'autres systèmes avec un protocole de communication. Il gère également les contacteurs connectant la batterie avec la charge et la recharge.
+		 Il est nécessaire de faire une bonne gestion pour s'assurer du bon fonctionnement de la batterie. Le système de gestion calcule donc l'état de charge, l'état de santé et les limites de puissance. Le système communique ces informations à d'autres systèmes avec un protocole de communication. Il gère également les contacteurs connectant la batterie avec la charge et la recharge.
 	
 	\subsection{Projet spécial}
 
@@ -33,7 +33,7 @@
 	\subsection{Club étudiant Éclipse}
 	
 		\paragraph{}
-		Éclipse est un club étudiant composé d'une quarantaine d'étudiants en ingénierie qui ont pour objectif de construire un véhicule alimenter par l'énergie solaire à l'aide de panneaux photovoltaïques. Depuis sa fondation en 1992, neuf prototypes ont été construits en y intégrant les technologies de pointe disponibles au moment de leurs conceptions. Similaire aux voitures électriques, le véhicule solaire possède une chaîne de traction électrique comme moyenne de propulsion. Les moteurs roues sont alimentés par des entraînements électriques qui sont à leur tour alimentés par une batterie. Depuis quelques années, l'équipe s'est tournée vers l'utilisation d'accumulateurs au Li-ion. Il est donc nécessaire d'avoir un système de protection et de gestion de batterie.
+		Éclipse est un club étudiant composé d'une vingtaine d'étudiants en ingénierie qui ont pour objectif de construire un véhicule alimenter par l'énergie solaire à l'aide de panneaux photovoltaïques. Depuis sa fondation en 1992, neuf prototypes ont été construits en y intégrant les technologies de pointe disponibles au moment de leur conception. Similaire aux voitures électriques, le véhicule solaire possède une chaîne de traction électrique comme moyen de propulsion. Les moteurs-roues sont alimentés par des entraînements électriques qui sont à leur tour alimentés par une batterie. Depuis quelques années, l'équipe s'est tournée vers l'utilisation d'accumulateurs au Li-ion. Il est donc nécessaire d'avoir un système de protection et de gestion de batterie.
 		
 		\paragraph{}
 		Une des philosophies du club est de concevoir par les étudiants le plus de modules possible. Le temps de développement du dernier système de protection et de gestion de batterie a pris environ 7 ans et comme la conception d'un nouveau véhicule se fait tous les deux ans, la disposition des batteries change beaucoup. C'est pourquoi les deux derniers prototypes ont utilisé des systèmes achetés de compagnies externes. L'intégration de système provenant de compagnies externes accélère le temps de fabrications du véhicule, mais ne permet pas le contrôle total du système. L'expertise de conception de ces systèmes se perd également au sein du club puisqu'il y a un gros roulement d'étudiants. Il faut également des systèmes fiables et robustes, ce qui peut être difficile à concevoir lorsque ce système est aussi critique qu'un système de protection et de gestion de batterie. Une défaillance de ce système pourrait mener la destruction partielle ou totale du véhicule et la vie du pilote est en jeu. D'autant plus que le véhicule solaire sera soumis à plusieurs épreuves dans des conditions de route réelles et en circuit fermé durant les compétitions.
@@ -41,7 +41,7 @@
 	\subsection{Compétitions}
 
 		\paragraph{}
-		Les différentes compétitions dont participe Éclipse ont tous leurs particularités et leurs règlements spécifiques. Il est donc important de concevoir le système de protection et de contrôle de batterie pour qu'il soit compatible avec les différentes compétitions. Il est également important de corriger les défis rencontrés durant les compétitions passées afin de faciliter les compétitions suivantes. Éclipse prévoit participé à la Formula Sun Grand Prix (FSGP) et à l'American Solar Challenge (ASC), deux compétitions se déroulant aux États-Unis. Le club pourra participer à la World Solar Challenge (WSC), compétition se déroulant dans le désert de l'Australie, s'il se classe bien aux deux compétitions précédentes.
+		Les différentes compétitions dont participe Éclipse ont tous leurs particularités et leurs règlements spécifiques. Il est donc important de concevoir le système de protection et de contrôle de batterie pour qu'il soit compatible avec les différentes compétitions. Il est également important de corriger les défis rencontrés durant les compétitions passées afin de faciliter les compétitions suivantes. Éclipse prévoit participer à la Formula Sun Grand Prix (FSGP) et à l'American Solar Challenge (ASC), deux compétitions se déroulant aux États-Unis. Le club pourra participer à la World Solar Challenge (WSC), compétition se déroulant dans le désert de l'Australie, s'il se classe bien aux deux compétitions précédentes.
 		
 	\subsubsection{ASC2016}
 	
@@ -57,7 +57,7 @@
 		Il est important de se pencher sur les règlements des prochaines compétitions pour que le système soit conforme et pour que le club ne subisse pas de pénalité.
 	
 		\paragraph{}   \textbf{FSGP2017:}
-		Les règlements pour cette compétition sont les plus sévères puisque les équipes doivent passer les tests de vérifications. Ces tests comprennent la détection d'un dépassement de la tension au-dessus et en dessous des spécifications du manufacturier. Le système de protection doit aussi détecter lorsque le courant dépasse la limite permise. De plus, le système doit détecter lorsque la température atteint un niveau trop élevé. Les procédures de ce test sont disponibles dans le document Battery Protection System Test Procedure, document fourni par les responsables de la compétition. Également, l'article 5.4 Protection Circuitry, le système de protection doit être actif lorsque la chimie des cellules utilise du Li-Ion. C'est-à-dire qu'il doit actionner le relais principal lorsque les fautes mentionnées plus haut sont détectées. Le conducteur doit également en être avisé sur son tableau de bord. \cite{reg_fsgp2017}
+		Les règlements pour cette compétition sont les plus sévères puisque les équipes doivent passer les tests de vérification. Ces tests comprennent la détection d'un dépassement de la tension au-dessus et en dessous des spécifications du manufacturier. Le système de protection doit aussi détecter lorsque le courant dépasse la limite permise. De plus, le système doit détecter lorsque la température atteint un niveau trop élevé. Les procédures de ce test sont disponibles dans le document Battery Protection System Test Procedure, document fourni par les responsables de la compétition. Également, l'article 5.4 Protection Circuitry, le système de protection doit être actif lorsque la chimie des cellules utilise du Li-ion. C'est-à-dire qu'il doit actionner le relais principal lorsque les fautes mentionnées plus haut sont détectées. Le conducteur doit également en être avisé sur son tableau de bord. \cite{reg_fsgp2017}
 		
 		\paragraph{}   \textbf{ASC2018:}
 		Les règlements sont très similaires à la FSGP2017. L'article 8.3 de la règlementation détails les requis pour un système de protection de batterie. \cite{reg_asc2018}
