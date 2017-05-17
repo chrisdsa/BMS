@@ -1491,4 +1491,112 @@ F 11 "1/8W" H 3400 4560 50  0001 C CNN "Puissance (Watts)"
 	1    3400 4700
 	0    -1   -1   0   
 $EndComp
+$Comp
+L Header_Male_Pin_2.54mm_1X3_,_Unshrouded J?
+U 1 1 591CA9FD
+P 3300 6500
+F 0 "J?" H 3250 6800 60  0000 C CNN
+F 1 "Header_Male_Pin_2.54mm_1X3_,_Unshrouded" H 3300 6180 50  0001 C CNN
+F 2 "Connectors:Headers_2.54mm_1X3" H 3300 5590 30  0001 C CNN
+F 3 "D" H 3300 5540 30  0001 C CNN
+F 4 "Ebay" H 3300 5990 60  0001 C CNN "Supplier"
+F 5 "Pin Male Single Row Pin Header Strip" H 3300 6090 60  0001 C CNN "Supplier Part Number"
+F 6 "Manufacturer" H 3300 5890 60  0001 C CNN "Manufacturer"
+F 7 "Manufacturer Part Number" H 3300 5790 60  0001 C CNN "Manufacturer Part Number"
+F 8 "Pin Male Single Row Pin Header Strip" H 3300 5690 60  0001 C CNN "Description"
+	1    3300 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L +VRef #PWR?
+U 1 1 591CAC97
+P 3600 6200
+F 0 "#PWR?" H 3600 6050 50  0001 C CNN
+F 1 "+VRef" H 3590 6340 50  0000 C CNN
+F 2 "" H 3600 6200 60  0000 C CNN
+F 3 "" H 3600 6200 60  0000 C CNN
+	1    3600 6200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 6200 3600 6300
+Wire Wire Line
+	3600 6300 3400 6300
+$Comp
+L BGND #PWR?
+U 1 1 591CAE09
+P 3600 6700
+F 0 "#PWR?" H 3600 6530 50  0001 C CNN
+F 1 "BGND" H 3600 6600 50  0000 C CNN
+F 2 "" H 3600 6800 60  0000 C CNN
+F 3 "" H 3580 6610 60  0000 C CNN
+	1    3600 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 6500 3600 6500
+Wire Wire Line
+	3600 6500 3600 6600
+Wire Wire Line
+	3400 6400 3900 6400
+Text Label 3700 6400 0    60   ~ 0
+ADR0
+$Comp
+L Header_Male_Pin_2.54mm_1X3_,_Unshrouded J?
+U 1 1 591CB232
+P 3300 7500
+F 0 "J?" H 3250 7800 60  0000 C CNN
+F 1 "Header_Male_Pin_2.54mm_1X3_,_Unshrouded" H 3300 7180 50  0001 C CNN
+F 2 "Connectors:Headers_2.54mm_1X3" H 3300 6590 30  0001 C CNN
+F 3 "D" H 3300 6540 30  0001 C CNN
+F 4 "Ebay" H 3300 6990 60  0001 C CNN "Supplier"
+F 5 "Pin Male Single Row Pin Header Strip" H 3300 7090 60  0001 C CNN "Supplier Part Number"
+F 6 "Manufacturer" H 3300 6890 60  0001 C CNN "Manufacturer"
+F 7 "Manufacturer Part Number" H 3300 6790 60  0001 C CNN "Manufacturer Part Number"
+F 8 "Pin Male Single Row Pin Header Strip" H 3300 6690 60  0001 C CNN "Description"
+	1    3300 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L +VRef #PWR?
+U 1 1 591CB238
+P 3600 7200
+F 0 "#PWR?" H 3600 7050 50  0001 C CNN
+F 1 "+VRef" H 3590 7340 50  0000 C CNN
+F 2 "" H 3600 7200 60  0000 C CNN
+F 3 "" H 3600 7200 60  0000 C CNN
+	1    3600 7200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 7200 3600 7300
+Wire Wire Line
+	3600 7300 3400 7300
+$Comp
+L BGND #PWR?
+U 1 1 591CB240
+P 3600 7700
+F 0 "#PWR?" H 3600 7530 50  0001 C CNN
+F 1 "BGND" H 3600 7600 50  0000 C CNN
+F 2 "" H 3600 7800 60  0000 C CNN
+F 3 "" H 3580 7610 60  0000 C CNN
+	1    3600 7700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 7500 3600 7500
+Wire Wire Line
+	3600 7500 3600 7600
+Wire Wire Line
+	3400 7400 3900 7400
+Text Label 3700 7400 0    60   ~ 0
+ADR1
+Wire Wire Line
+	5200 5800 5500 5800
+Text Label 5200 5800 0    60   ~ 0
+ADR0
+Wire Wire Line
+	5200 6000 5500 6000
+Text Label 5200 6000 0    60   ~ 0
+ADR1
 $EndSCHEMATC

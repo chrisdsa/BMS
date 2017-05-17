@@ -383,6 +383,26 @@ X ~ 2 100 100 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Header_Male_Pin_2.54mm_1X3_,_Unshrouded
+#
+DEF ~Header_Male_Pin_2.54mm_1X3_,_Unshrouded J 0 0 Y N 1 F N
+F0 "J" -50 300 60 H V C CNN
+F1 "Header_Male_Pin_2.54mm_1X3_,_Unshrouded" 0 -320 50 H I C CNN
+F2 "Connectors:Headers_2.54mm_1X3" 0 -910 30 H I C CNN
+F3 "D" 0 -960 30 H I C CNN
+F4 "Ebay" 0 -510 60 H I C CNN "Supplier"
+F5 "Pin Male Single Row Pin Header Strip" 0 -410 60 H I C CNN "Supplier Part Number"
+F6 "Manufacturer" 0 -610 60 H I C CNN "Manufacturer"
+F7 "Manufacturer Part Number" 0 -710 60 H I C CNN "Manufacturer Part Number"
+F8 "Pin Male Single Row Pin Header Strip" 0 -810 60 H I C CNN "Description"
+DRAW
+S -150 250 0 -50 0 0 0 f
+X ~ 1 100 0 100 L 50 40 1 1 P
+X ~ 2 100 100 100 L 50 50 1 1 P
+X ~ 3 100 200 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Header_Male_Pin_2.54mm_1X4_,_Unshrouded
 #
 DEF ~Header_Male_Pin_2.54mm_1X4_,_Unshrouded J 0 0 Y N 1 F N
