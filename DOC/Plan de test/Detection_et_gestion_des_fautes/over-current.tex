@@ -1,0 +1,28 @@
+
+\section{Détection et gestion d'un courant trop élevé}
+
+% Objectif et critère de réussite
+\begin{description}
+	\item[Objectif :] Détecter le courant trop élevé.
+	\item[Critère de réussite :] Détecter le courant trop élevé dans un délais de $200\text{ms}$.
+\end{description}
+
+% Équipement nécessaire
+\subsection*{Équipements nécessaire}
+\begin{enumerate}
+	\item Source de tension ajustable;
+	\item Multimètre avec une précision d'au moins 1mV;
+	\item Diviseur de tension
+\end{enumerate}	
+
+% Procédure de test
+\subsection*{Procédure de test}
+\begin{enumerate}
+	\item Remplacer la résistance "shunt" par les deux bornes inférieur du diviseur de tension; 
+	\item Connecter la source de tension à 0V au diviseur de tension;
+	\item Connecter une source de tension à l'entrée du relais.
+	\item Connecter l'oscilloscope et une charge à la sortie du relais.
+	\item Varier la tension de la source branché au diviseur de tension. Noter la valeur de la source et celle donné par le système de protection de batterie lorsque la batterie est sécurisé. La batterie est considéré sécurisé lorsque la sortie du relais est à 0V.
+	\item Inverser les bornes de la source connecté au diviseur de tension.
+	\item Répété le points 5.
+\end{enumerate}

@@ -1,0 +1,26 @@
+
+\section{Détection et gestion d'une surtension d'un module}
+
+% Objectif et critère de réussite
+\begin{description}
+	\item[Objectif :] Détecter la surtension du module.
+	\item[Critère de réussite :] Détecter la surtension du module dans un délais de $200\text{ms}$.
+\end{description}
+
+% Équipement nécessaire
+\subsection*{Équipements nécessaire}
+\begin{enumerate}
+	\item Source de tension ajustable de 0V à 5V ou plus;
+	\item Multimètre avec une précision d'au moins 1mV;
+	\item Oscilloscope
+\end{enumerate}	
+
+% Procédure de test
+\subsection*{Procédure de test}
+\begin{enumerate}
+	\item Connecter la source de tension à 3V et le multimètre aux bornes du circuit de lecture de tension d'un module;
+	\item Connecter une source de tension à l'entrée du relais.
+	\item Connecter l'oscilloscope et une charge à la sortie du relais.
+	\item Faire varier lentement la source de 0V à 4.8V, noter la valeur de la source et celle donné par le système de protection de batterie lorsque la batterie est sécurisé. La batterie est considéré sécurisé lorsque la sortie du relais est à 0V. 
+	\item Noter le temps que le système à pris pour sécuriser la batterie.
+\end{enumerate}

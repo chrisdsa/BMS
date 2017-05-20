@@ -1,0 +1,61 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,allcolors=black}
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{hhline}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{multicol}
+\usepackage{graphicx}
+\graphicspath{}
+\hyphenpenalty=100
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{float}
+\floatstyle{plaintop}
+\restylefloat{table}
+
+\begin{document}
+	
+%====== Page de presentation ======%
+	\hypersetup{pageanchor=false}
+	\input{./page_presentation.tex}
+	\newpage
+%====== Table des matieres ======%
+	\pagenumbering{roman}
+	%\tableofcontents
+	%\listoftables
+	%\listoffigures	
+	%\newpage
+	
+
+%====================== INCLUSION DES PARTIES ======================
+	\pagenumbering{arabic}
+	% Test de la polarité inverse du module
+	\input{./Detection_et_gestion_des_fautes/polarite_inverse_module.tex}
+	% Lecture de la tension des modules
+	\input{./Lecture_parametres/lecture_tension.tex}
+	% Lecture du courant
+	\input{./Lecture_parametres/lecture_courant.tex}
+	% Lecture de la température
+	\input{./Lecture_parametres/lecture_temperature.tex}
+	% Détection de surtension
+	\input{./Detection_et_gestion_des_fautes/over-voltage.tex}
+	% Détection de sous-tension
+	\input{./Detection_et_gestion_des_fautes/under-voltage.tex}
+	% Détection de température trop élevé
+	\input{./Detection_et_gestion_des_fautes/over-temperature.tex}
+	% Détection de courant excessif
+	\input{./Detection_et_gestion_des_fautes/over-current.tex}
+	
+	
+
+
+\end{document}
+
+
