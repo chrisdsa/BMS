@@ -1,0 +1,28 @@
+
+\section{Précharge}
+
+% Objectif et critère de réussite
+\begin{description}
+	\item[Objectif :] Valider la séquence de précharge.
+	\item[Critère de réussite :] Le contacteur sur la borne positive de la batterie est enclenché lorsque la tension à ses bornes est nulle, le tout dans un délai ne dépassant pas 10 secondes.
+\end{description}
+
+% Équipement nécessaire
+\subsection*{Équipements nécessaires}
+\begin{enumerate}
+	\item Source de tension au voltage de la batterie;
+	\item Oscilloscope;
+	\item Charge capacitive représentant la capacité de l'ensemble des circuits de la voiture.
+\end{enumerate}	
+
+% Procédure de test
+\subsection*{Procédure de test}
+\begin{enumerate}
+	\item Brancher l'entrée des 2 contacteurs sur les deux bornes de la source d'alimentation;
+	\item Brancher le circuit de précharge;
+	\item Brancher la charge et l'oscilloscope aux sorties des contacteurs et du circuit de précharge;
+	\item Brancher l'oscilloscope au signal logique du circuit de précharge et du contacteur sur le positif.
+	\item Brancher le système de protection sur les signaux de contrôle des deux contacteurs et du circuit de précharge;
+	\item Envoyer un message CAN pour enclencher la précharge;
+	\item Noter le résultat; 
+\end{enumerate}

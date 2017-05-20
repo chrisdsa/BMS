@@ -1,0 +1,28 @@
+
+\section{Détection et gestion d'une erreur lors de la précharge}
+
+	% Objectif et critère de réussite
+	\begin{description}
+		\item[Objectif :] Détecter et gérer une erreur lors de la séquence de précharge.
+		\item[Critère de réussite :] La séquence doit être annulée, le contacteur positif ne doit pas être enclenché et le circuit de précharge doit être déclenché.
+	\end{description}
+	
+	% Équipement nécessaire
+	\subsection*{Équipements nécessaires}
+	\begin{enumerate}
+		\item Source de tension au voltage de la batterie;
+		\item Oscilloscope;
+		\item Charge capacitive représentant la capacité de l'ensemble des circuits de la voiture et une grande résistance en série.
+	\end{enumerate}	
+	
+	% Procédure de test
+	\subsection*{Procédure de test}
+	\begin{enumerate}
+		\item Brancher l'entrée des 2 contacteurs sur les deux bornes de la source d'alimentation;
+		\item Brancher le circuit de précharge;
+		\item Brancher la charge et l'oscilloscope aux sorties des contacteurs et du circuit de précharge;
+		\item Brancher l'oscilloscope au signal logique du circuit de précharge et du contacteur sur le positif.
+		\item Brancher le système de protection sur les signaux de contrôle des deux contacteurs et du circuit de précharge;
+		\item Envoyer un message CAN pour enclencher la précharge;
+		\item Noter le résultat; 
+	\end{enumerate}
