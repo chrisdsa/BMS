@@ -1,0 +1,26 @@
+
+\section{Contrôle du contacteur}
+
+	% Objectif et critère de réussite
+	\begin{description}
+		\item[Objectif :] Valider le contrôle des contacteurs.
+		\item[Critère de réussite :] Les contacteurs changent d'état sans vibration sur les contacts.
+	\end{description}
+	
+	% Équipement nécessaire
+	\subsection*{Équipements nécessaires}
+	\begin{enumerate}
+		\item Source de tension;
+		\item Oscilloscope;
+		\item Charge.
+	\end{enumerate}	
+	
+	% Procédure de test
+	\subsection*{Procédure de test}
+	\begin{enumerate}
+		\item Brancher l'entrée des 2 contacteurs sur les deux bornes de la source d'alimentation;
+		\item Brancher la charge et l'oscilloscope aux sorties des contacteurs;
+		\item Brancher le système de protection sur les signaux de contrôle des deux contacteurs;
+		\item Envoyer un message CAN pour enclencher les contacteurs;
+		\item Noter le résultat;
+	\end{enumerate}
