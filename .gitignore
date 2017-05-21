@@ -5,6 +5,7 @@
 
 # Draw
 *.fodg#
+*.odg#
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
