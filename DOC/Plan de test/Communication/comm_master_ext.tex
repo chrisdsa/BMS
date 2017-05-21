@@ -1,0 +1,34 @@
+
+\section{Communication des modules esclaves}
+
+% Objectif et critère de réussite
+\begin{description}
+	\item[Objectif :] Tester la communication des modules esclaves.
+	\item[Critère de réussite :] Nombres d'erreurs inférieur à la limite permise et une vitesse de transmission à l'intérieur de la tolérance permise.
+\end{description}
+
+% Équipement nécessaire
+\subsection*{Équipements nécessaires}
+\begin{enumerate}
+	\item Source de tension;
+	\item CANanalyseur;
+	\item Ordinateur;		
+\end{enumerate}	
+
+% Procédure de test
+\subsection*{Procédure de test}
+\begin{enumerate}
+	\item Brancher la source de tension au module maître pour l'alimenter;
+	\item Brancher le CANanalyzer à l'ordinateur;
+	\item Brancher le CANanalyzer sur le module maître pour la communication des modules esclaves;
+	\item Envoyer une communication test vers le module maître pour simuler un module esclave;
+	\item Recevoir une réponse du module maître pour chaque message;
+	\item Noter le nombre d'erreur; 
+	\item Noter la vitesse de transfert;
+	\item Brancher le CANanalyzer sur le module maître pour la communication avec le reste du véhicule;
+	\item Envoyer une communication test vers le module maître pour simuler une communication avec le reste du véhicule;
+	\item Recevoir une réponse du module maître pour chaque message;
+	\item Noter le nombre d'erreurs; 
+	\item Noter la vitesse de transfert;
+	
+\end{enumerate}
