@@ -4,7 +4,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[frenchb]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[margin=0.75in]{geometry}
+\usepackage{ae,aecompl}
+\usepackage{pslatex}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 \usepackage{hhline}
 \usepackage{amsmath}
 \usepackage{pgfplots}
@@ -12,13 +14,14 @@
 \usepackage{multicol}
 \usepackage{graphicx}
 \graphicspath{}
-\hyphenpenalty=50
+\hyphenpenalty=100
 \usepackage{caption}
 \usepackage{enumitem}
 \usepackage{textcomp}
 % Pour multicol (Align top)
 \raggedcolumns
-
+% Pour enlever l'indentation et avoir un espace entre les paragraphes
+%\usepackage[parfill]{parskip}
 \usepackage{float}
 \floatstyle{plaintop}
 \restylefloat{table}
@@ -40,12 +43,27 @@
 
 %====================== INCLUSION DES PARTIES ======================
 	\pagenumbering{arabic}	
-%===== Lecture de tension des modules =====
-	\input{./Lecture/Lecture_tension_module.tex}
-%===== Balancement =====	
-	\input{./Balancement/Balancement.tex}
-%===== Detection des fautes =====
-	\input{./Detection_Fautes/Detection_Fautes.tex}
+	
+	%====== Objectif : Protection des modules ======%
+	
+	%====== Fonctionnalité : Lecture de la tension des modules  ======%
+	
+	%====== Fonctionnalité : Lecture de du courant  ======%
+	
+	%====== Fonctionnalité : Lecture de la température  ======%
+	
+	%====== Fonctionnalité : Détection des seuils et action  ======%
+	
+	
+	%====== Objectif : Balancement des modules ======%
+	
+
+	%====== Objectif : Compatibilité avec le BMS présentement utilisé ======%
+	
+	
+	%====== Objectif : Facilité les manipulations lors des vérifications techniques ======%
+	
+
 
 
 \end{document}
