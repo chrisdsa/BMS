@@ -26,6 +26,7 @@
 \floatstyle{plaintop}
 \restylefloat{table}
 
+
 \begin{document}
 	
 	%====== Page de presentation ======%
@@ -35,17 +36,17 @@
 	%====== Table des matieres ======%
 	\pagenumbering{roman}
 	\hypersetup{pageanchor=true}
-	\tableofcontents
-	\listoftables
-	\listoffigures	
-	\newpage
+	%\tableofcontents
+	%\listoftables
+	%\listoffigures	
+	%\newpage
 
 
 %====================== INCLUSION DES PARTIES ======================
-	\pagenumbering{arabic}	
+	\pagenumbering{arabic}
 	
 	%====== Objectif : Protection des modules ======%
-
+	\input{Objectifs/Protection_modules.tex}
 	%====== Fonctionnalité : Lecture de la tension des modules  ======%
 	
 	%====== Fonctionnalité : Lecture de du courant  ======%
@@ -62,7 +63,16 @@
 	
 	
 	%====== Objectif : Facilité les manipulations lors des vérifications techniques ======%
+
+%====================== Bibliographie ======================
+
+	\begin{thebibliography}{10}
 	
+	\bibitem{cahier_charge} 
+	Christian Daigneault-St-Arnaud, Julien Gagnon-Bourassa, Olivier Cusson-Larocque. \textit{Cahier des charges, Système de protection et de gestion de batterie Li-ion}. \par		
+
+	
+	\end{thebibliography}	
 	
 \end{document}
 
