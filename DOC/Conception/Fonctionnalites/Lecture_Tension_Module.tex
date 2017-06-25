@@ -1,0 +1,23 @@
+
+\subsection{Lecture de tension des modules}
+	\paragraph*{}
+	Nous désirons avoir une lecture de tension très précise sur toute la plage d'utilisation des modules. Le circuit doit consommer un minimum de courant, être robuste, modulable et précis. Le circuit doit aussi faciliter la vérification technique.
+	
+	\subsubsection*{Solution commercial}
+	\paragraph*{}
+	Il existe sur le marché plusieurs circuit qui s'occupe de lire la tension des modules et de communiquer l'information à un microcontrôleur. Les fonctionnalités et le nombre de modules supportés varient d'un vendeur à l'autre. Les points communs sont : 
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item[$\bullet$] Le circuit peut être alimenté par les modules;
+			\item[$\bullet$] Consommation de courant de quelque mA lorsque le circuit prend les mesures et quelque $\mu$A lorsqu'il est en veille;
+			\item[$\bullet$] Solution compacte;
+			\item[$\bullet$] Lecture précise;
+			\item[$\bullet$] Les modules doivent être branchés dans l'ordre
+			\item[$\bullet$] Économique
+			\item[$\bullet$] Fonctionnement bien documenté
+		\end{itemize}
+	\end{multicols}
+
+	\paragraph*{}
+	Cette solution est réalisable et demande surtout de bien lire et comprendre la documentation. Le LTC6804 de Linear Technology a été retenu pour son nombre de modules maximum, son prix et sa simplicité d'implémentation. Cette solution répond à la majorité des spécifications mais elle n'apporte cependant rien de nouveau au système présentement utilisé et elle ne facilite pas la vérification technique. 
