@@ -61,15 +61,42 @@
 		\label{fig:HCNR201}
 	\end{figure}
 
+
+	\newpage
 	\subsubsection*{Lecture d'un voltage de référence avec un ADC}
 	\paragraph*{}	
+	Pour éliminé l'erreur causé par l'amplificateur et l'isolateur tout en réduisant au maximum le nombre de composants, l'ADC mesurerait un voltage de référence alors qu'il serait alimenté par le module comme présenté à la figure \ref{fig:adc_vref}. Puisque le voltage à l'entrée est connu, la tension du module est donné par l'équation \ref{eq:vref}.
 	
+	\begin{align}
+		V_{Module} = \dfrac{V_{REF}}{Valeur~ADC} \cdot 2^{~nb~Bits~adc}
+		\label{eq:vref}
+	\end{align}
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{Images/Voltage_reference.png}
+		\caption{Lecture d'un voltage de référence avec un ADC}
+		\label{fig:adc_vref}
+	\end{figure}
 	
+	\paragraph*{}
+	Le circuit mesure le LSB qui est donné par $V_{Module} / 2^{~nb~Bits~adc}$ pour  trouver la tension du module. Bien que cette technique fonctionne, les courbes de la tension du module et de la résolution ne sont pas linéaire par rapport au résultat du ADC. La valeur du voltage de référence à un impacte sur la courbe de la résolution. Plus il est bas, moins la courbe est linéaire et la résolution est moins bonne. Les figures \ref{fig:vmodule_vref} et \ref{fig:res_vref} montre les performances idéal du circuit à la figure \ref{fig:adc_vref} avec une référence de 2.048V et une plage de 2V à 4.2V pour la tension du module.
 	
-	
-	
-	
+	\begin{figure}[H]
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.4]{Images/Vmodule_REF_2V.jpg}
+			\caption{Tension du module en fonction des valeurs du ADC}
+			\label{fig:vmodule_vref}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.4]{Images/RES_REF_2V.jpg}
+			\caption{Résolution en fonction des valeurs du ADC}
+			\label{fig:res_vref}
+		\end{minipage}	
+	\end{figure}	
 	
 	
 	

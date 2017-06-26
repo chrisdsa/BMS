@@ -7,7 +7,7 @@ adc_bit = 12;
 Vbat_min = 2.0;
 Vbat_max = 4.2;
 adc_val = linspace(0,2^adc_bit,2^adc_bit-2);
-Vref = 2 * ones((size(adc_val)));
+Vref = 1.2 * ones((size(adc_val)));
 adc_val_min = Vref(1) / Vbat_max * 2^adc_bit;
 adc_val_max = Vref(1) / Vbat_min * 2^adc_bit;
 
