@@ -48,7 +48,7 @@
 	\end{itemize}
 	
 	\paragraph*{}
-	Ces différents désavantage ne sont pas majeur dans le contexte d'Éclipse, la consommation de courant reste insignifiante comparé à ce que le moteur et le reste des circuits consomment. Le nombre de composant peut être limité en utilisant la bonne topologie et le prix de la carte peut être plus élevé tant qu'il respecte le budget. 
+	Ces différents désavantages ne sont pas majeurs dans le contexte d'Éclipse, la consommation de courant reste insignifiante comparé à ce que le moteur et le reste des circuits consomment. Le nombre de composant peut être limité en utilisant la bonne topologie et le prix de la carte peut être plus élevé tant qu'il respecte le budget. 
 	
 	\subsubsection*{Circuit analogique}
 	\paragraph*{}
@@ -97,6 +97,38 @@
 			\label{fig:res_vref}
 		\end{minipage}	
 	\end{figure}	
+	
+	\paragraph*{}
+	L'écart maximal entre 2 bits est de 2.15 mA. Avec un ADC performant qui a une erreur de $\pm 1$ LSB, la lecture de tension à une erreur maximal de $\pm $ 2.15 mA lorsque le module est à 4.2V. Cette méthode correspond à la spécification qui demande d'être à $\pm $ 10 mA. L'ADC consomme et la tension de référence consomme très peu de courant, ils nécessitent très peu de composants externe et ils sont abordable. Afin d'avoir une très bonne précision, il est nécessaire de faire une calibration puisque la tolérance de la référence ($\pm$ 0.5 \%) est plus grande que celle de la spécification ($\pm 0.238 \% = \pm 10mV / 4.2V \cdot 100 \%$). Il existe des références avec des tolérances plus petite que $\pm 0.238$ mais elles sont beaucoup trop dispendieuse pour le projet puisqu'il faut en avoir une pour chaque module.    
+	
+	\paragraph*{}
+	L'isolation de la mesure ce fait au niveau de la communication puisqu'il n'y a aucune erreur causé par l'isolateur de cette façon, contrairement à l'optocoupleur de la solution analogique. L'alimentation de l'isolateur et du ADC doivent dépasser la plage de lecture du module qui est de 2V à 4.5V.
+	
+	\paragraph*{}
+	Cette solution est viable, elle respecte les spécifications et elle ne demande pas beaucoup de composantes. Le choix des circuits intégrés avec une alimentation qui va de moins de 2V à plus de 5V est toutefois très restreint. Le prix de l'isolateur et de l'ADC sont donc élevé et il est plus difficile de trouver un remplacement dans le cas ou un composant n'est plus manufacturé.   
+	
+	\subsubsection*{Configuration classique de l'ADC}
+	\paragraph*{}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
