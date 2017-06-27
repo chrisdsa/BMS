@@ -26,17 +26,25 @@
 \floatstyle{plaintop}
 \restylefloat{table}
 
+% Page de garde
+\newcommand{\blankpage}{
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	\newpage
+}
 
 \begin{document}
 	
 	%====== Page de presentation ======%
 	\hypersetup{pageanchor=false}
 	\input{./page_presentation.tex}
-	\newpage
+	%Page de garde
+	\blankpage
 	%====== Table des matieres ======%
 	\pagenumbering{roman}
 	\hypersetup{pageanchor=true}
-	\tableofcontents
+	%\tableofcontents
 	%\listoftables
 	%\listoffigures	
 	%\newpage
@@ -50,7 +58,7 @@
 	%====== Fonctionnalité : Lecture de la tension des modules  ======%
 	\input{Fonctionnalites/Lecture_Tension_Module.tex}
 	%====== Fonctionnalité : Lecture de du courant  ======%
-	
+	\input{Fonctionnalites/Lecture_Courant.tex}
 	%====== Fonctionnalité : Lecture de la température  ======%
 	
 	%====== Fonctionnalité : Détection des seuils et sécurisation de la batterie  ======%
