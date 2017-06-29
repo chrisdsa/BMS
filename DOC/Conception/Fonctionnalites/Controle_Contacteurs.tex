@@ -7,9 +7,9 @@
 	\paragraph*{}
 	Le système est composé de trois contacteurs, soient deux contacteurs principaux et un pour les MPPTs. L'un des contacteurs principaux est connecter à la borne positive de la batterie et l'autre à la borne négative. On peut voir à la figure suivante un schéma générale de la disposition des contacteurs. 
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
-		\fbox{\includegraphics[width=0.7\linewidth]{Images/LithiumBalanceContactorDiagram}}
+		\fbox{\includegraphics[width=0.6\linewidth]{Images/LithiumBalanceContactorDiagram}}
 		\caption[Diagramme général des contacteurs]{Image tirée du guide utilisateur du BMS de LithiumBalance}
 		\label{fig:lithiumbalancecontactordiagram}
 	\end{figure}
@@ -76,25 +76,47 @@
 		
 		Le prix de ces composantes est similaire et leur courant de charge est assez robust. Le choix s'est donc faite sur les CPC17907B en raison de leur profil plat qui était plus avantageux avec le placement des pièces sur le module maître.
 		
+		\begin{figure}[H]
+			\centering
+			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSol1}}
+			\caption[Solution 1]{Schéma solution 1}
+			\label{fig:contactorsol1}
+		\end{figure}
+		
 		
 		\paragraph*{Solution 2: Contrôle par Mosfet en série}
 		Une façon d'assurer la protection d'un circuit est de rajouter de la redondance. Plusieurs Mosfet sont misent en série pour augmenter les chances d'ouverture de circuit en cas de défaillances. Plus il y a de composantes en série, meilleures sont les chances mais on augmente aussi le prix en composantes. Chaque Mosfet doit être contrôllé individuellement par une patte du micro-contrôleur. Aussi, il est important de s'assurer que la résistance interne des Mosfets soit constante d'une composante à l'autre. C'est pour éviter l'échauffement du Mosfet ayant la résistance interne la plus élevée, pouvant causer des défaillances.
+		
+		\begin{figure}[H]
+			\centering
+			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSol2}}
+			\caption[Solution 2]{Schéma solution 2}
+			\label{fig:contactorsol2}
+		\end{figure}
+		
+		
 
 		\paragraph*{Solution 3: Circuit d'alimentation à double actionneurs}
 		Cette solution provient du livre A systems approach to Lithium-Ion Battery Management (Référence). Le livre propose d'utiliser circuit d'alimentation à double actionneurs, soit un actionneurs sur le pôle négatif et un sur le pôle positif. Un Mosfet de type-P alimente le côté positif (High-side) et un mosfet de type-N est ferme le circuit du côté négatif (low-side) ce qui offre une sécurité supplémentaire si une des deux composantes vennait à faillir. Puisqu'il y a trois contacteurs dans le système, cette solution requiert d'utiliser un seul Mosfet type-P pour alimenter le côté positif des contacteurs et trois Mosfet type-N pour le côté négatif de chaque relais.
 
-		\begin{figure}
+		\begin{figure}[H]
 			\centering
-			\fbox{\includegraphics[width=0.7\linewidth]{Images/DualContactorDrive}}
-			\caption[Circuit d'alimentation des contacteurs à double actionneurs]{Tirée du livre A systems approach to Lithium-Ion Battery Management}
-			\label{fig:dualcontactordrive}
+			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSol3}}
+			\caption[Solution 3]{Schéma solution 3}
+			\label{fig:contactorsol3}
 		\end{figure}
 
 		
 		\paragraph*{Choix final}
 		La solution retenue est un mélange de la solution 1 et de la solution 3. En ayant un circuit d'alimentatioin à double actionneurs, on évite d'avoir de la redondance. On remplace ainsi les mosfets de cette solution par les optpocoupleurs de la solution 1. De cette façon, on s'assure de la plus haute protection tout en ayant le minimum de composantes. Puis, puisqu'on veut éviter de tirer trop de courant du micro-contrôleur, on utilise un transistor BJT s'activant avec un faible courant. Le BJT peut ensuite alimenter l'optocoupleur avec l'alimentation 3.3V directement.
 
-
+		\begin{figure}[H]
+			\centering
+			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSolFinal}}
+			\caption[Choix final]{Choix final}
+			\label{fig:contactorsolfinal}
+		\end{figure}
+		
 
 
 	\subsubsection*{Circuit de précharge:}
