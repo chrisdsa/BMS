@@ -1,0 +1,109 @@
+
+\subsection{Contrôle des contacteurs}
+
+	\paragraph*{}
+	Pour amener la batterie dans un état sécuritaire, il faut pouvoir la débrancher de l'alimentation. Le système utilise donc des contacteurs à haute puissance pour contrôler la connection de la batterie avec le reste des charges. Le module maître se charge de contrôler ces contacteurs. Il s'occupe d'enclencher les contacteurs lors de la mise en marche du système lorsqu'aucune faute n'est détectée. De plus, lorsque le module maître reçoit un message d'erreur, il doit s'assurer de déconnecter la batterie pour protéger les modules en cas de fautes.
+
+	\paragraph*{}
+	Le système est composé de trois contacteurs, soient deux contacteurs principaux et un pour les MPPTs. L'un des contacteurs principaux est connecter à la borne positive de la batterie et l'autre à la borne négative. On peut voir à la figure suivante un schéma générale de la disposition des contacteurs. 
+	
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=0.7\linewidth]{Images/LithiumBalanceContactorDiagram}}
+		\caption[Diagramme général des contacteurs]{Image tirée du guide utilisateur du BMS de LithiumBalance}
+		\label{fig:lithiumbalancecontactordiagram}
+	\end{figure}
+
+	\paragraph*{}
+	L'enclenchement des contacteurs se fait avec une tension de 12V, qui doit être appliquée à ses bornes. Puisque c'est le microcontrôleur qui envoit la commande d'ouverture ou de fermeture, il doit y avoir une interface de protection entre le 12V aux bornes du contacteur et le 3.3V de la patte GPIO. De façon générale, il n'est pas conseillé d'utiliser des actionneurs mécanique, tel qu'un relais, pour activer les contecateurs puisqu'ils sont souvent victimes de défaille. 	 
+
+	\subsubsection*{Choix des contacteurs:}
+		\paragraph*{}
+		Une commandite d'Autobus Lion a permis au club Éclipse de se procurer trois contacteurs de marque GIGAVAC\_HX21. Il faut donc que le module maître puisse interfacer ces contacteurs. Le système de batterie d'Éclipse 9 utilise des contacteurs EV200 et ceux-ci seront utilisés comme pièce de remplacement. La conception du circuit de contrôle doit être compatible avec les deux modèles.
+
+		\paragraph*{}
+		Les spécifications des contacteurs Gigavac montrent que le courant consommé lors de l'ouverture de l'inductance est de 4.3 A. En ajoutant une marge de protection d'un facteur de 1.2, les composantes doivent soutenir un courant de jusqu'à 5.16 A pendant 75 ms. 
+
+		\paragraph*{}
+		De plus, ce modèle de contacteur possède un deuxième relais interne qui peut être utilisé pour l'interverrouillages (interlock), beaucoup utilisé dans le domaine des véhicules. Dans le cas du présent système, ce relais sera utilisé pour activer un témoin lumineux afin d'avertir l'utilisateur de l'état des contacteurs. Avec les contacteurs EV-200, il faudra court-circuitter deux positions sur le connecteur allant sur le module maître pour activer les témoins lumineux.
+
+		\paragraph*{}
+		Également, le circuit de contrôle doit répondre aux critères suivants afin d'être jugés sécuritaires. (source: A systems approach to Lithium-Ion Battery Management )
+
+
+		\begin{itemize}
+			\item Prévenir les défaillances qui causent les contacteurs à ouvrir alors qu'ils devraient être fermés
+			\item Prévenir les défaillances qui causent les contacteurs à fermer alors qu'ils devraient être ouverts
+			\item Prévenir les défaillances qui causent une connection de la batteries à travers une charge	capacitive	
+		\end{itemize}
+
+
+	\subsubsection*{Choix du circuit de contrôle:}
+		\paragraph*{}
+		Plusieurs solutions ont été évalué pour contrôler les contacteurs. Parce que cette section est très critique et qu'il ne faut absolument pas que durant la compétition, une défaillance met en panne la voiture solaire. C'est pourquoi le budget n'est pas un critère de sélection mais plutôt une solution qui est le plus sécuritaire possible.
+
+		Schéma général d'un contacteur 
+
+		\paragraph*{Solution 1: Contrôle par optocoupleurs}
+			
+		Puisque les activateurs ne doit pas être de nature mécanique. On peut utiliser des optocoupleurs (Solid State Relays) puisqu'ils sont isolés mécaniquement. Le microcontrôleur doit seulement alimenter une DEL de l'optocoupleur pour l'enclencher. Aussi, dans l'éventualité que le micro-contrôleur ait une défaillance, l'optocoupleur s'ouvrira, empêchant ainsi le contacteur de rester fermé. Il faut par contre. choisir un optocoupleur qui puissent accepter jusqu'à 5.16 A, ce qui limite beaucoup le choix de composantes.
+		
+		\begin{table}[H]
+			\centering
+			\caption{Comparaison des optocoupleurs}
+			\label{my-label}
+			\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+				\hline
+				\textbf{Optocoupleurs} & \textbf{Courant de charge} & \textbf{Résistance} & \textbf{Prix}
+				\\ \hhline{|=|=|=|=|}
+				CPC1907B &
+				6 A &
+				60 mOhm &
+				9.01 \$
+				\\ \hline
+				CPC1709J &
+				10 A &
+				50 mOhm &
+				10 \$
+				\\ \hline
+				CPC1918J &
+				5.25 A &
+				100 mOhm &
+				14.83 \$ 		
+				\\ \hline
+			\end{tabular}
+		\end{table}
+		
+		Le prix de ces composantes est similaire et leur courant de charge est assez robust. Le choix s'est donc faite sur les CPC17907B en raison de leur profil plat qui était plus avantageux avec le placement des pièces sur le module maître.
+		
+		
+		\paragraph*{Solution 2: Contrôle par Mosfet en série}
+		Une façon d'assurer la protection d'un circuit est de rajouter de la redondance. Plusieurs Mosfet sont misent en série pour augmenter les chances d'ouverture de circuit en cas de défaillances. Plus il y a de composantes en série, meilleures sont les chances mais on augmente aussi le prix en composantes. Chaque Mosfet doit être contrôllé individuellement par une patte du micro-contrôleur. Aussi, il est important de s'assurer que la résistance interne des Mosfets soit constante d'une composante à l'autre. C'est pour éviter l'échauffement du Mosfet ayant la résistance interne la plus élevée, pouvant causer des défaillances.
+
+		\paragraph*{Solution 3: Circuit d'alimentation à double actionneurs}
+		Cette solution provient du livre A systems approach to Lithium-Ion Battery Management (Référence). Le livre propose d'utiliser circuit d'alimentation à double actionneurs, soit un actionneurs sur le pôle négatif et un sur le pôle positif. Un Mosfet de type-P alimente le côté positif (High-side) et un mosfet de type-N est ferme le circuit du côté négatif (low-side) ce qui offre une sécurité supplémentaire si une des deux composantes vennait à faillir. Puisqu'il y a trois contacteurs dans le système, cette solution requiert d'utiliser un seul Mosfet type-P pour alimenter le côté positif des contacteurs et trois Mosfet type-N pour le côté négatif de chaque relais.
+
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=0.7\linewidth]{Images/DualContactorDrive}}
+			\caption[Circuit d'alimentation des contacteurs à double actionneurs]{Tirée du livre A systems approach to Lithium-Ion Battery Management}
+			\label{fig:dualcontactordrive}
+		\end{figure}
+
+		
+		\paragraph*{Choix final}
+		La solution retenue est un mélange de la solution 1 et de la solution 3. En ayant un circuit d'alimentatioin à double actionneurs, on évite d'avoir de la redondance. On remplace ainsi les mosfets de cette solution par les optpocoupleurs de la solution 1. De cette façon, on s'assure de la plus haute protection tout en ayant le minimum de composantes. Puis, puisqu'on veut éviter de tirer trop de courant du micro-contrôleur, on utilise un transistor BJT s'activant avec un faible courant. Le BJT peut ensuite alimenter l'optocoupleur avec l'alimentation 3.3V directement.
+
+
+
+
+	\subsubsection*{Circuit de précharge:}
+	
+	Le contacteur principal sur le pôle positif de la batterie, ainsi que le contacteur du MPPT, possèdent un circuit de précharge.
+
+	Prévenir que les contacteurs se soudent.
+	Pour protéger le circuit de contrôle d'un retour de courant (back EMF), venant de la nature inductive du contacteurs, le circuit doit posséder une diode de roue libre. 
+
+
+	
+	
