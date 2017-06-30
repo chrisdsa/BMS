@@ -26,25 +26,17 @@
 \floatstyle{plaintop}
 \restylefloat{table}
 
-% Page de garde
-\newcommand{\blankpage}{
-	\newpage
-	\thispagestyle{empty}
-	\mbox{}
-	\newpage
-}
 
 \begin{document}
 	
 	%====== Page de presentation ======%
 	\hypersetup{pageanchor=false}
 	\input{./page_presentation.tex}
-	%Page de garde
-	\blankpage
+	\newpage
 	%====== Table des matieres ======%
 	\pagenumbering{roman}
 	\hypersetup{pageanchor=true}
-	%\tableofcontents
+	\tableofcontents
 	%\listoftables
 	%\listoffigures	
 	%\newpage
@@ -59,12 +51,17 @@
 	\input{Fonctionnalites/Lecture_Tension_Module.tex}
 	%====== Fonctionnalité : Lecture de du courant  ======%
 	\input{Fonctionnalites/Lecture_Courant.tex}
+	%====== Fonctionnalité : Controle Contacteur  ======%
+	\input{Fonctionnalites/Controle_Contacteurs.tex}
 	%====== Fonctionnalité : Lecture de la température  ======%
 	
 	%====== Fonctionnalité : Détection des seuils et sécurisation de la batterie  ======%
-	
+
+	%====== Fonctionnalité : Avertir l'utilisateur  ======%
+	\input{Fonctionnalites/AvertieLutilisateur.tex}
+		
 	%====== Fonctionnalité : Réinitialisation  ======%
-	
+	\input{Fonctionnalites/ReinitialisationSystème.tex}
 	
 	%====== Objectif : Balancement des modules ======%
 	
@@ -73,6 +70,12 @@
 	
 	
 	%====== Objectif : Facilité les manipulations lors des vérifications techniques ======%
+
+	%====== Architecture ======%
+	\input{Architecture/Architecture.tex}
+	\input{Architecture/Choix_Technologiques.tex}
+	\input{Architecture/Logiciel.tex}
+	\input{Architecture/Diagrammes_Fonctionnels.tex}
 
 %====================== Bibliographie ======================
 
