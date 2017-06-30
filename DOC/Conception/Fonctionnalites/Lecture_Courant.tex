@@ -20,6 +20,13 @@
 	\paragraph*{}
 	Pour avoir une bonne lecture avec un minimum de bruit, une configuration avec l'amplificateur avec une sortie différentiel connecté à un ADC avec une entrée différentiel serait la plus robuste et précise puisque le signal sera au dessus du bruit de fond (noise floor). L'amplificateur PGA281 et le convertisseur analogue à numérique ADC141S626 de Texas Instrument possède les différentes caractéristiques recherchées. La résistance de 250 $\mu \Omega$ d'Éclipse IX serait réutilisée pour Éclipse X.
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale = 0.4]{Images/current_sense_shunt.png}
+		\caption{Configuration de l'amplificateur et de l'ADC.}
+		\label{fig:current_sense_shunt}
+	\end{figure}
+	
 	\subsubsection*{Senseur à effet Hall}
 	\paragraph*{}	
 	Un capteur à effet Hall à l'avantage de ne pas être intrusif et d'être isolé. Les senseur ratiométrique en boucle ouverte ont une bonne précision qui correspond aux spécifications, il ne sont pas dispendieux et ils sont très facile à interfacer. Le HO 100-S de LEM n'a pas besoin d'amplificateur et peut ainsi être branché directement sur l'entrée du ADC. Les effets Hall on besoin de calibration pour éliminer le décalage lorsqu'il n'y a aucun courant. Ces senseurs ont aussi le désavantage d'avoir certaines non-linéarité dans le gain et un hystérésis. Une bonne caractérisation et calibration du senseur réduirait grandement ces inconvénient.
