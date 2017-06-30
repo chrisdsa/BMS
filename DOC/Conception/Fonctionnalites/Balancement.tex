@@ -33,7 +33,14 @@ Pour remédier à ce problème, un MOSFET contrôlé par un comparateur est mis 
 
 \subsubsection*{Balancement actif}
 \paragraph*{}
+Le balancement actif permet non seulement d'amener l'état de charge à 100\% mais aussi de l'amener à 0\%. Les modules qui ont une capacité supérieur peuvent transmettre l'énergie excédentaire aux modules avec une plus petite capacité. L'utilisation de la batterie est ainsi optimisée. Plusieurs topologie existe pour transféré l'énergie tel que des capacitances commuté, deux matrices qui connecte deux différents module sur un convertisseur DC-DC, l'utilisation d'inductance couplé pour faire un "Flyback" et plusieurs autres variantes. 
 
+\paragraph*{}
+L'utilisation d'un convertisseur DC-DC "Flyback", avec le primaire au borne de chaque module et le secondaire aux borne de la batterie, est la topologie qui s'intègre le mieux pour son nombre de composant limité et sa simplicité d'utilisation. Le balancement actif est surtout utilisé pour des batteries qui ont des modules avec des performances très inégale et/ou des batterie qui ont une très grande durée de vie. Cette solution est plus robuste, puisqu'il suffit d'une fuse en série avec le bobinage primaire pour protégé la batterie d'une défaillance du MOSFET. Le courant de balancement peut aussi être beaucoup plus élevé étant donné qu'il n'y a pas beaucoup de perte.
+
+\subsubsection*{Choix final}
+\paragraph*{}
+Le balancement dissipatif est la stratégie qui concorde le mieux aux besoin d'Éclipse X. La grosseur des transformateurs, l'ajout des fils pour connecter les bobinages secondaires, le manque de temps pour implémenter la solution et le faible gain de performance du balancement actif rendent cette solution impossible à utiliser pour le projet. La batterie d'Éclipse à seulement une durée de vie utile de 4 semaines en plus d'être construite avec des modules caractérisé qui ont des performances très semblable. Le balancement actif n'a pas de grande valeur ajouté par rapport au balancement dissipatif.
 
 
 
