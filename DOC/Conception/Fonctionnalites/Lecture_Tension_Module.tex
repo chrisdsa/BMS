@@ -1,4 +1,3 @@
-
 \subsection{Lecture de tension des modules}
 	\paragraph*{}
 	La majorité de l'information sur la batterie provient de la tension des modules, c'est pourquoi cette mesure doit être très précise et robuste sur toute la plage d'utilisation des modules. Le circuit doit consommer un minimum de courant, être robuste, modulable et précis. Le circuit doit aussi faciliter la vérification technique.
@@ -80,7 +79,7 @@
 	\end{figure}
 	
 	\paragraph*{}
-	Le circuit mesure le LSB qui est donné par $V_{Module} / 2^{~nb~Bits~adc}$ pour  trouver la tension du module. Bien que cette technique fonctionne, les courbes de la tension du module et de la résolution ne sont pas linéaires par rapport au résultat du ADC. La valeur du voltage de référence à un impacte sur la courbe de la résolution. Plus il est bas, moins la courbe est linéaire et la résolution est moins bonne. Les figures \ref{fig:vmodule_vref} et \ref{fig:res_vref} montre les performances idéal du circuit à la figure \ref{fig:adc_vref} avec une référence de 2.048V et une plage de 2V à 4.2V pour la tension du module.
+	Le circuit mesure le LSB qui est donné par $V_{Module} / 2^{~nb~Bits~adc}$ pour  trouver la tension du module. Bien que cette technique fonctionne, les courbes de la tension du module et de la résolution ne sont pas linéaires par rapport au résultat du ADC. La valeur du voltage de référence à un impacte sur la courbe de la résolution. Plus il est bas, moins la courbe est linéaire et la résolution est moins bonne. Les figures \ref{fig:vmodule_vref} et \ref{fig:res_vref} montre les performances idéales du circuit à la figure \ref{fig:adc_vref} avec une référence de 2.048V et une plage de 2V à 4.2V pour la tension du module.
 	
 	\begin{figure}[H]
 		\begin{minipage}{0.45\textwidth}
@@ -105,7 +104,7 @@
 	L'isolation de la mesure se fait au niveau de la communication puisqu'il n'y a aucune erreur causée par l'isolateur de cette façon, contrairement à l'optocoupleur de la solution analogique. L'alimentation de l'isolateur et du ADC doit dépasser la plage de lecture du module qui est de 2V à 4.5V.
 	
 	\paragraph*{}
-	Cette solution est viable, elle respecte les spécifications et elle ne demande pas beaucoup de composantes. Le choix des ADC et des isolateurs numérique avec une alimentation qui va de moins de 2V à plus de 5V est toutefois très restreint. Les prix de l'isolateur et de l'ADC sont donc élevés et il est plus difficile de trouver un remplacement dans le cas ou un composant n'est plus disponible.   
+	Cette solution est viable, elle respecte les spécifications et elle ne demande pas beaucoup de composantes. Le choix des ADC et des isolateurs numériques avec une alimentation qui va de moins de 2V à plus de 5V est toutefois très restreint. Les prix de l'isolateur et de l'ADC sont donc élevés et il est plus difficile de trouver un remplacement dans le cas ou un composant n'est plus disponible.   
 	
 	\subsubsection*{Configuration classique d'un ADC}
 	\paragraph*{}

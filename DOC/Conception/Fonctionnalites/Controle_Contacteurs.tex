@@ -5,7 +5,7 @@
 	Pour amener la batterie dans un état sécuritaire, il faut pouvoir la débrancher de l'alimentation. Le système utilise donc des contacteurs à haute puissance pour contrôler la connexion de la batterie avec le reste des charges. Le module maître se charge de contrôler ces contacteurs. Il s'occupe d'enclencher les contacteurs lors de la mise en marche du système lorsqu'aucune faute n'est détectée. De plus, lorsque le module maître reçoit un message d'erreur, il doit s'assurer de déconnecter la batterie pour protéger les modules en cas de fautes.
 
 	\paragraph*{}
-	Le système est composé de trois contacteurs, soient deux contacteurs principaux et un pour les MPPTs. L'un des contacteurs principaux est connecter à la borne positive de la batterie et l'autre à la borne négative. On peut voir à la figure suivante un schéma générale de la disposition des contacteurs. 
+	Le système est composé de trois contacteurs, soient deux contacteurs principaux et un pour les MPPTs. L'un des contacteurs principaux est connecté à la borne positive de la batterie et l'autre à la borne négative. On peut voir à la figure suivante un schéma général de la disposition des contacteurs. 
 	
 	\begin{figure}[H]
 		\centering
@@ -15,7 +15,7 @@
 	\end{figure}
 
 	\paragraph*{}
-	L'enclenchement des contacteurs se fait avec une tension de 12V, qui doit être appliquée à ses bornes. Puisque c'est le micro-contrôleur qui envoi la commande d'ouverture ou de fermeture, il doit y avoir une interface de protection entre le 12V aux bornes du contacteur et le 3.3V de la patte GPIO. De façon générale, il n'est pas conseillé d'utiliser des actionneurs mécanique, tel qu'un relais, pour activer les contacteurs puisqu'ils sont souvent victimes de défaille. 	 
+	L'enclenchement des contacteurs se fait avec une tension de 12V, qui doit être appliquée à ses bornes. Puisque c'est le microcontrôleur qui envoie la commande d'ouverture ou de fermeture, il doit y avoir une interface de protection entre le 12V aux bornes du contacteur et le 3.3V de la patte GPIO. De façon générale, il n'est pas conseillé d'utiliser des actionneurs mécaniques, tel qu'un relais, pour activer les contacteurs puisqu'ils sont souvent victimes de défaille. 	 
 
 	\subsubsection*{Choix des contacteurs:}
 		\paragraph*{}
@@ -28,7 +28,7 @@
 		De plus, ce modèle de contacteur possède un deuxième relais interne qui pour faire de l'interverrouillage (interlock), beaucoup utilisé dans le domaine des véhicules. Dans le cas du présent système, ce relais sera utilisé pour activer un témoin lumineux afin d'avertir l'utilisateur de l'état des contacteurs. Avec les contacteurs EV-200, il faudra court-circuiter deux positions sur le connecteur allant sur le module maître pour activer les témoins lumineux.
 
 		\paragraph*{}
-		Également, le circuit de contrôle doit répondre aux critères suivants afin d'être jugés sécuritaires\cite{System_Approach}. 
+		Également, le circuit de contrôle doit répondre aux critères suivants afin d'être jugé sécuritaire\cite{System_Approach}. 
 
 		\begin{itemize}
 			\item Prévenir les défaillances qui causent les contacteurs à ouvrir alors qu'ils devraient être fermés
@@ -39,11 +39,11 @@
 
 	\subsubsection*{Choix du circuit de contrôle:}
 		\paragraph*{}
-		Plusieurs solutions ont été évalué pour contrôler les contacteurs. Parce que cette section est très critique et qu'il ne faut absolument pas que durant la compétition, une défaillance met en panne la voiture solaire. C'est pourquoi le budget n'est pas un critère de sélection mais plutôt une solution qui est le plus sécuritaire possible.
+		Plusieurs solutions ont été évaluées pour contrôler les contacteurs. Parce que cette section est très critique et qu'il ne faut absolument pas que durant la compétition, une défaillance met en panne la voiture solaire. C'est pourquoi le budget n'est pas un critère de sélection mais, plutôt une solution qui est le plus sécuritaire possible.
 
 		\paragraph*{Solution 1: Contrôle par optocoupleurs}
 			
-		Puisque les activateurs ne doit pas être de nature mécanique. On peut utiliser des optocoupleurs (Solid State Relays) puisqu'ils sont isolés mécaniquement. Le microcontrôleur doit seulement alimenter une DEL de l'optocoupleur pour l'enclencher. Aussi, dans l'éventualité que le micro-contrôleur ait une défaillance, l'optocoupleur s'ouvrira, empêchant ainsi le contacteur de rester fermé. Il faut par contre. choisir un optocoupleur qui puissent accepter jusqu'à 5.16 A, ce qui limite beaucoup le choix de composantes.
+		Puisque les activateurs ne doivent pas être de nature mécanique. On peut utiliser des optocoupleurs (Solid State Relays) puisqu'ils sont isolés mécaniquement. Le microcontrôleur doit seulement alimenter une DEL de l'optocoupleur pour l'enclencher. Aussi, dans l'éventualité que le microcontrôleur ait une défaillance, l'optocoupleur s'ouvrira, empêchant ainsi le contacteur de rester fermé. Il faut par contre choisir un optocoupleur capable d'accepter jusqu'à 5.16 A, ce qui limite beaucoup le choix de composantes.
 		
 		\begin{table}[H]
 			\centering
@@ -71,7 +71,7 @@
 		
 		\paragraph*{Solution 2: Contrôle par Mosfet en série}
 		\paragraph*{}
-		Une façon d'assurer la protection d'un circuit est de rajouter de la redondance. Plusieurs Mosfet sont misent en série pour augmenter les chances d'ouverture de circuit en cas de défaillances. Plus il y a de composantes en série, meilleures sont les chances mais on augmente aussi le prix en composantes. Chaque Mosfet doit être contrôlé individuellement par une patte du micro-contrôleur. Aussi, il est important de s'assurer que la résistance interne des Mosfets soit constante d'une composante à l'autre. C'est pour éviter l'échauffement du Mosfet ayant la résistance interne la plus élevée, pouvant causer des défaillances.
+		Une façon d'assurer la protection d'un circuit est de rajouter de la redondance. Plusieurs Mosfet sont mises en série pour augmenter les chances d'ouverture de circuit en cas de défaillances. Plus il y a de composantes en série, meilleures sont les chances, mais on augmente aussi le prix en composantes. Chaque Mosfet doit être contrôlé individuellement par une patte du microcontrôleur. Aussi, il est important de s'assurer que la résistance interne des Mosfets soit constante d'une composante à l'autre. C'est pour éviter l'échauffement du Mosfet ayant la résistance interne la plus élevée, pouvant causer des défaillances.
 		
 		\begin{figure}[H]
 			\centering
@@ -83,18 +83,18 @@
 
 		\paragraph*{Solution 3: Circuit d'alimentation à double actionneurs}
 		\paragraph*{}
-		Cette solution provient du livre A systems approach to Lithium-Ion Battery Management \cite{System_Approach}. L'auteur propose d'utiliser circuit d'alimentation à double actionneurs, soit un actionneur sur le pôle négatif et un sur le pôle positif. Un Mosfet de type-P alimente le côté positif (High-side) et un mosfet de type-N est ferme le circuit du côté négatif (low-side) ce qui offre une sécurité supplémentaire si une des deux composantes venait à faillir. Puisqu'il y a trois contacteurs dans le système, cette solution requiert d'utiliser un seul Mosfet type-P pour alimenter le côté positif des contacteurs et trois Mosfet type-N pour le côté négatif de chaque relais.
+		Cette solution provient du livre A systems approach to Lithium-Ion Battery Management \cite{System_Approach}. L'auteur propose d'utiliser circuit d'alimentation à doubles actionneurs, soit un actionneur sur le pôle négatif et un sur le pôle positif. Un Mosfet de type-P alimente le côté positif (High-side) et un mosfet de type-N est ferme le circuit du côté négatif (low-side) ce qui offre une sécurité supplémentaire si une des deux composantes venait à faillir. Puisqu'il y a trois contacteurs dans le système, cette solution requiert d'utiliser un seul Mosfet type-P pour alimenter le côté positif des contacteurs et trois Mosfet type-N pour le côté négatif de chaque relais.
 
 		\begin{figure}[H]
 			\centering
 			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSol3}}
-			\caption{Schéma solution 3: Circuit d'alimentation à double actionneurs}
+			\caption{Schéma solution 3: Circuit d'alimentation à doubles actionneurs}
 			\label{fig:contactorsol3}
 		\end{figure}
 		
 		\paragraph*{Choix final}
 		\paragraph*{}
-		La solution retenue est un mélange de la solution 1 et 3. En ayant un circuit d'alimentation à double actionneurs, on évite d'avoir de la redondance. On remplace ainsi les mosfets de cette solution par les optpocoupleurs de la solution 1. De cette façon, on s'assure de la plus haute protection tout en ayant le minimum de composantes. Puis, puisqu'on veut éviter de tirer trop de courant du micro-contrôleur, on utilise un transistor BJT s'activant avec un faible courant. Le BJT peut ensuite alimenter l'optocoupleur avec l'alimentation 3.3V directement.
+		La solution retenue est un mélange de la solution 1 et 3. En ayant un circuit d'alimentation à doubles actionneurs, on évite d'avoir de la redondance. On remplace ainsi les mosfets de cette solution par les optpocoupleurs de la solution 1. De cette façon, on s'assure de la plus haute protection tout en ayant le minimum de composantes. Puis, puisqu'on veut éviter de tirer trop de courant du microcontrôleur, on utilise un transistor BJT s'activant avec un faible courant. Le BJT peut ensuite alimenter l'optocoupleur avec l'alimentation 3.3V directement.
 
 		\begin{figure}[H]
 			\centering
@@ -105,13 +105,13 @@
 
 	\subsubsection*{Circuit de précharge:}
 		\paragraph*{}
-		Le contacteur du MPPT et le contacteur principal sur le pôle positif de la batterie possèdent un circuit de précharge. La précharge permet à la batterie de se connecter à une large charge capacitive. Si la batterie est connectée directement avec une charge capacitive déchargée, le courant transitoire sera limitée par l'impédance interne de la batterie, de la charge et des contacteurs. Cette limite ne sera généralement pas assez pour prévenir un courant potentiellement dangereux. Un contacteur qui s'enclenche lorsque la différence de potentiel est trop élevée pourrait le souder et empêcher son ouverture\cite{System_Approach}.
+		Le contacteur du MPPT et le contacteur principal sur le pôle positif de la batterie possèdent un circuit de précharge. La précharge permet à la batterie de se connecter à une large charge capacitive. Si la batterie est connectée directement avec une charge capacitive déchargée, le courant transitoire sera limité par l'impédance interne de la batterie, de la charge et des contacteurs. Cette limite ne sera généralement pas assez pour prévenir un courant potentiellement dangereux. Un contacteur qui s'enclenche lorsque la différence de potentiel est trop élevée pourrait le souder et empêcher son ouverture\cite{System_Approach}.
 		
 		\paragraph*{}
-		Pour prévenir ce problème, on ajoute une résistance en série avec un relais, installés en parallèle du contacteurs. Avant d'enclencher le contacteur, un courant limité passe par la résistance, et permet à la tension de monter de façon exponentielle. On compare ensuite la lecture de la charge avec la tension des batteries. Lorsque la tension sur la charge est assez élevée et que la différence de potentiel aux bornes du contacteurs est négligeable, le contacteur peut être fermé de façon sécuritaire\cite{System_Approach}.
+		Pour prévenir ce problème, on ajoute une résistance en série avec un relais, installés en parallèle du contacteur. Avant d'enclencher le contacteur, un courant limité passe par la résistance, et permet à la tension de monter de façon exponentielle. On compare ensuite la lecture de la charge avec la tension des batteries. Lorsque la tension sur la charge est assez élevée et que la différence de potentiel aux bornes du contacteur est négligeable, le contacteur peut être fermé de façon sécuritaire\cite{System_Approach}.
 		
 		\paragraph*{}		
-		La résistance de précharge est dimensionnée pour dissiper la puissance circulant dans la résistance. Pour trouver cette valeur il faut d'abord calculer la constante de temps.
+		La résistance de précharge est dimensionnée pour dissiper la puissance circulant dans la résistance. Pour trouver cette valeur, il faut d'abord calculer la constante de temps.
 	
 		\begin{align}
 			\tau =R \cdot C
@@ -210,7 +210,7 @@
 		\end{table}				
 		
 		\paragraph*{}			
-		Ensuite, pour éviter qu'un courant trop élevé ne vienne endommager les composantes, on ajoute une fusible de 2A à action retardée. 
+		Ensuite, pour éviter qu'un courant trop élevé ne vienne endommager les composantes, on ajoute un fusible de 2A à action retardée. 
 		
 		\paragraph*{}			
 		La topologie générale du circuit de précharge est présenté à la figure \ref{fig:circuitprecharge}.
