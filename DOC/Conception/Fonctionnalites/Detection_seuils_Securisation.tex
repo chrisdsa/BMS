@@ -1,0 +1,8 @@
+
+\subsection{Détection des erreurs}
+	\paragraph*{}
+	La tâche principale du système de protection est de détecter les erreurs de surcharge, décharge excessive, courant trop élevé et température trop élevé. Ces erreurs doivent être détectés et prise en charge le plus rapidement possible, mais il est encore plus important de ne pas lire une erreur et de sécuriser la batterie pour un faux positif. La modification des seuils doit être simple et rapide sans devoir à reprogrammer chaque module esclave. 
+
+	\paragraph*{}
+	Les seuils sont déterminés par le manufacturier des cellules lithium-ion. Éclipse n'a pas encore choisis quelle cellule va être utilisé, mais il est correct d'assumé que les seuils vont être près de 2.5V (voltage minimum), 4.2V (voltage maximum), 60A (courant maximum) et 60 $\degres$ (température maximal) pour la conception puisque ce sont les limites de la majorité des chimies. Pour éviter d'entraîner inutilement une sécurisation de la batterie, les différentes lectures devront être filtrer pour éliminer les lectures erronées et les conditions d'erreur extrêmement courte. Pour avoir une bonne flexibilité et pouvoir changer rapidement la fréquence de coupure, le filtre passe-bas doit être implémenté numériquement dans le microcontrôleur du module esclave. Le module esclave envoi les toutes les informations et les résultats de chaque mesures au module maître, mais c'est le module esclave qui envoi l'information qu'il y a une erreurs au module maître avec un paquet prioritaire sur le bus de communication. De cette façon, l'information qu'il y a une erreur est transmisse plus rapidement.
+ 
