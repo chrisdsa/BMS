@@ -120,12 +120,49 @@
 
 
 	\subsubsection*{Circuit de précharge:}
-	
-	Le contacteur principal sur le pôle positif de la batterie, ainsi que le contacteur du MPPT, possèdent un circuit de précharge.
+		\paragraph*{}
+		Le contacteur principal sur le pôle positif de la batterie, ainsi que le contacteur du MPPT, possèdent un circuit de précharge. La précharge permet à la batterie de se connecter à une large charge capacitive. Si la batterie est connectée directement avec une charge capacitive déchargée, le courant transitoire ne sera limitée que par l'impédance interne de la battery, de la charge et des contacteurs, ce qui ne sera généralement pas assez pour prévenir un courant potentiellement dangereux. Un contacteur qui s'enclenche lorsque la différence de potentiel est trop élevée pourrait le soudre et empêcher son ouverture.
+		
+		\paragraph*{}
+		Pour prévenir ce problème, on ajoute une résistance en série avec un relay, installés en parallèle du contacteurs. Avant d'enclencher le contacteur, un courant limité passe par la résistance, et permet à la tension de monter de façon exponentielle. On compare ensuite la lecture de la charge avec la tension des batteries. Lorsque le tension sur la charge est assez élevée et que la différence de potentiel aux bornes du contacteurs est négligeable, le contacteur peut être fermé de façon sécuritaire.
+		
 
-	Prévenir que les contacteurs se soudent.
-	Pour protéger le circuit de contrôle d'un retour de courant (back EMF), venant de la nature inductive du contacteurs, le circuit doit posséder une diode de roue libre. 
+		
+		\paragraph*{}		
+		La résistance de précharge est dimensionné pour dissiper la puissance circulant dans la résistance. La tension maximale de la batterie est de 160 V, et avec une résistance de 100 Ohm, on doit dissiper une puissance de 256 W avec un courant de 1.6 A. Une résistance dissipant autant de puissance risque d'être trop grosse. Pour réduire la puissance il faut mettre une résistance de 270 Ohm en série pour avoir un courant de une puissance de 94.81 W. Équippée d'un dissipateur de chaleur, une résistance de 100W doit être choisie.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{../Images/CalculPuissancePrecharge}
+		\end{figure}
+		
+		
+		Tableau de la sélection de la résistance
+		
+		AP101 270R J 
+		Ohmite
+		100 W
+		12.47 \$
+		
+		C247-025-1AE
+		Ohmite
+		TO-247
+		6.20 \$
 
+		\paragraph*{}		
+		Le temps de précharge doit être judicieusement choisi s'assurer que la charge capacitive est assez chargée. Pour ce faire, il faut calculer Tau=Résistance de précharge x la capacitance du circuit à haute tension. Puisqu'un condensateur est considéré chargé à 5 x tau, on trouve le temps total et on ajoute 0.5 seconde comme marge de sécurité. On obtient ainsi le temps minimum de précharge. En se fiant à ce calcul, une durée de 0.65 seconde sera nécessaire si l'on estime la charge capacitive à 3 uF.
 
+		Image précharge
+		
+		\paragraph*{}		
+		Le relais 160VDC courant de 0.6 A.
 	
-	
+		\paragraph*{}	
+		Pour éviter de polariser à l'inverse les contacteurs avec la précharge, une diode est ajoutée au circuit. Elle doit bloquer une tension minimum de 160 V et pouvoir supporter un courant d'au moins 0.6 A. 
+		
+		\paragraph*{}			
+		Ensuite, pour éviter qu'un courant trop élevé ne vienne endommager les composantes, on ajoute une fusible de 600mA à action retardée. Bien que la fusible est sur la limite, le temps 
+		
+		Schéma circuit résistance de précharge
+			
+		
