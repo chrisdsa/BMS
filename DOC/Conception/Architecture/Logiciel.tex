@@ -1,10 +1,10 @@
 \subsection{Logiciel}
 	\paragraph*{}
-	L'architecture logicielle des trois modules est présentée ici sous forme de pile montrant ainsi les inters dépendances entre chaque couche. La première couche est pour l'applicatif. On y trouve les différentes tâches que le module doit effectuer. Ensuite vient la couche des "middlewares", puis celle des services. Les services sont des librairies logicielles contextualisées qui utilisent les pilotes pour effectuer des tâches de plus haut niveau. Les trois dernières couches sont celles des pilotes, de l'abstraction matérielle et des périphériques matériels internes.
+	L'architecture logicielle des trois modules est présentée ici sous forme de pile montrant ainsi les interdépendances entre chaque couche. La première couche est pour l'applicatif. On y trouve les différentes tâches que le module doit effectuer. Ensuite viennent la couche des "middlewares", puis celle des services. Les services sont des librairies logicielles contextualisées qui utilisent les pilotes pour effectuer des tâches de plus haut niveau. Les trois dernières couches sont celles des pilotes, de l'abstraction matérielle et des périphériques matériels internes.
 	\subsubsection{Module maître}
 		\noindent
-		Interruption : Base de temps du HAL, base de temps du RTOS, CAN \#1 (Tx et Rx),  CAN \#2 (Tx et Rx) \\
-		Interrogation : ADC externe cellules (x8), ADC interne thermistor (x2), Bouton de reprise d’erreur
+		Interruptions : Base de temps du HAL, base de temps du RTOS, CAN \#1 (Tx et Rx),  CAN \#2 (Tx et Rx) \\
+		Interrogations : ADC interne thermistor (x1), Bouton de reprise d’erreur
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.5]{Images/Logiciel_Master.png}
@@ -13,8 +13,8 @@
 		\end{figure}
 	\subsubsection{Module esclave}
 		\noindent
-		Interruption : Base de temps du HAL, base de temps du RTOS, CAN \#1 (Tx et Rx) \\
-		Interrogation : ADC externe cellules (x8), ADC interne thermistor (x2)
+		Interruptions : Base de temps du HAL, base de temps du RTOS, CAN \#1 (Tx et Rx) \\
+		Interrogations : ADC externe cellules (x8), ADC interne thermistor (x2)
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.5]{Images/Logiciel_Slave.png}
@@ -23,8 +23,8 @@
 		\end{figure}
 	\subsubsection{Module de lecture de courant}
 		\noindent
-		Interruption : Base de temps du HAL, base de temps du RTOS, CAN \#1 (Tx et Rx) \\
-		Interrogation : ADC externe shunt
+		Interruptions : Base de temps du HAL, base de temps du RTOS, CAN \#1 (Tx et Rx) \\
+		Interrogations : ADC externe shunt
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.5]{Images/Logiciel_Current_Sense.png}
