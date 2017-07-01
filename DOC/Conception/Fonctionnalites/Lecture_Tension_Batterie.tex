@@ -2,6 +2,13 @@
 	\paragraph*{}
 	Pour valider qu'il n'y ait pas d'erreur avec la lecture de tension des modules, on compare leur somme avec la tension de la batterie. Si l'écart est trop grand entre les deux valeurs, une défaillance pourrait s'être produite. La mesure de la tension de la batterie sert également à estimer l'état de la charge et vérifier la tension durant la précharge. 
 	
+	\begin{figure}[H]
+		\centering
+		\fbox{\includegraphics[width=0.7\linewidth]{Images/SchemaLectureTension}}
+		\caption{Schéma du circuit de la lecture de tension de la batterie}
+		\label{fig:schemalecturetension}
+	\end{figure}	
+
 	\paragraph*{}
 	Tout d'abord, puisque cette lecture est effectuée sur de la haute tension, il est préférable d'isoler le circuit. De plus, chaque polarité de la batterie a son propre connecteur pour éviter l'inversement de polarité. Ils sont également distancés pour empêcher un arc électrique lors de la connexion ou la déconnexion des connecteurs.
 	
@@ -12,17 +19,10 @@
 	Une fois la tension réduite, on isole le signal avec un détecteur de tension de précision, isolé de façon optique. Le détecteur produit ensuite sur le côté non-isolé une tension proportionnelle à son alimentation de sortie.
 	
 	\paragraph*{}	
-	Puisque l'alimentation à l'entrée du détecteur doit être isolée, on utilise un convertisseur de courant continu. Le 12V de la partie non-isolée convertira à 5 V sur la partie isolée pour alimenter le détecteur.
+	Puisque l'alimentation à l'entrée du détecteur doit être isolée, on utilise un convertisseur de courant continu. Le 12V de la partie non-isolée est converti en 5 V sur la partie isolée pour alimenter le détecteur.
 	
 	\paragraph*{}	
 	Pour que le microcontrôleur puisse lire la tension avec son ADC, il faut convertir la tension de sortie du détecteur à 3.3 V. Pour ce faire, on utilise un amplificateur opérationnel avec un gain ajusté pour convertir une plage de 0-5 V à 0-3.3 V.
-	
-	\begin{figure}
-		\centering
-		\fbox{\includegraphics[width=0.7\linewidth]{Images/SchemaLectureTension}}
-		\caption{Schéma du circuit de la lecture de tension de la batterie}
-		\label{fig:schemalecturetension}
-	\end{figure}
 	
 	\begin{table}[H]
 		\centering
