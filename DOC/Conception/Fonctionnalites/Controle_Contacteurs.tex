@@ -2,7 +2,10 @@
 \subsection{Contrôle des contacteurs}
 
 	\paragraph*{}
-	Pour amener la batterie dans un état sécuritaire, il faut pouvoir la débrancher de l'alimentation. Le système utilise donc des contacteurs à haute puissance pour contrôler la connexion de la batterie avec le reste des charges. Le module maître se charge de contrôler ces contacteurs. Il s'occupe de les enclencher lors de la mise en marche du système lorsqu'aucune faute n'est détectée. De plus, lorsque le module maître reçoit un message d'erreur, il doit s'assurer de déconnecter la batterie pour protéger les modules en cas de fautes.
+	Pour amener la batterie dans un état sécuritaire, il faut pouvoir la débrancher de l'alimentation. Le système utilise donc des contacteurs à haute puissance pour contrôler la connexion de la batterie avec le reste des charges. 
+	
+	\paragraph*{}
+	Le module maître se charge de contrôler ces contacteurs. Il s'occupe de connecter les batteries lors de la mise en marche du système ou de les déconnecter en cas de défaillances pour protéger les modules.
 
 	\paragraph*{}
 	Le système est composé de trois contacteurs, soient deux contacteurs principaux et un pour les MPPTs. L'un des contacteurs principaux est connecté à la borne positive de la batterie et l'autre à la borne négative. On peut voir à la figure suivante un schéma général de la disposition des contacteurs. 
@@ -37,12 +40,12 @@
 		\end{itemize}
 
 
-	\subsubsection*{Choix du circuit de contrôle:}
+	\subsubsection*{Choix du circuit de contrôle}
 		\paragraph*{}
 		Plusieurs solutions ont été évaluées pour contrôler les contacteurs. Parce que cette section est très critique et qu'il ne faut absolument pas qu'une défaillance met en panne la voiture solaire durant la compétition. C'est pourquoi le budget n'est pas un critère de sélection mais, plutôt le choix doit se faire sur une solution qui est le plus sécuritaire possible.
 
 		\paragraph*{Solution 1: Contrôle par optocoupleurs}
-			
+		\paragraph*{}			
 		Puisque les activateurs ne doivent pas être de nature mécanique. On peut utiliser des optocoupleurs (Solid State Relays) puisqu'ils sont isolés mécaniquement. Le microcontrôleur doit seulement activer une DEL de l'optocoupleur pour l'enclencher. Aussi, dans l'éventualité où le microcontrôleur ait une défaillance, l'optocoupleur s'ouvrira, empêchant ainsi le contacteur de rester fermé. Il faut par contre choisir un optocoupleur capable d'accepter jusqu'à 5.16 A, ce qui limite beaucoup le choix des composantes.
 		
 		\begin{table}[H]
