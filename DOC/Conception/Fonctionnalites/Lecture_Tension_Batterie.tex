@@ -12,10 +12,10 @@
 	Une fois la tension réduite, on isole le signal avec un détecteur de tension de précision, isolé de façon optique. Le détecteur produit ensuite sur le côté non-isolé une tension proportionnelle à son alimentation de sortie.
 	
 	\paragraph*{}	
-	Puisque l'alimentation à l'entrée du détecteur doit être isolée, on utilise un convertisseur de courant continu. Le 12V de la partie pas isolée convertira à 5 V sur la partie isolée pour alimenter le détecteur.
+	Puisque l'alimentation à l'entrée du détecteur doit être isolée, on utilise un convertisseur de courant continu. Le 12V de la partie non-isolée convertira à 5 V sur la partie isolée pour alimenter le détecteur.
 	
 	\paragraph*{}	
-	Pour que le micro-contrôleur puisse lire la tension avec son ADC, il faut convertir la tension de sortie du détecteur à 3.3 V. Pour ce faire, on utilise un amplificateur opérationnel avec un gain ajusté pour convertir une plage de 0-5 V à 0-3.3 V.
+	Pour que le microcontrôleur puisse lire la tension avec son ADC, il faut convertir la tension de sortie du détecteur à 3.3 V. Pour ce faire, on utilise un amplificateur opérationnel avec un gain ajusté pour convertir une plage de 0-5 V à 0-3.3 V.
 	
 	\begin{figure}
 		\centering
@@ -28,6 +28,7 @@
 		\centering
 		\caption{Sélection des composantes du lecteur de tension de la batterie}
 		\label{SelectionSenseVoltageBat}
+		\renewcommand{\arraystretch}{1.3}
 		\begin{tabular}{|p{3cm}|p{3.5cm}|p{6cm}|p{1.5cm}|}
 			\hline
 			\textbf{Composantes} & \textbf{Manufacturier} & \textbf{Description} & \textbf{Prix}
