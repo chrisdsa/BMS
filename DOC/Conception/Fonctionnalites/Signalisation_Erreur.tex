@@ -4,11 +4,11 @@
 	\paragraph*{}
 	Le règlement 8.6.B de ASC2018\cite{ASC2018} stipule que le conducteur soit indiqué de l'ouverture des contacteurs causée par le système de protection de batterie lors d'une détection de faute. C'est pourquoi solutions permettent d'avertir l'utilisateur d'une erreur déclenchée par le système de protection de batterie. 
 	
-	\subsubsection{Communication CAN}
+	\subsubsection*{Communication CAN}
 		\paragraph*{}
 		Le module maître, pouvant communiquer avec le reste des systèmes du véhicule, envoie un message CAN. Ce message sera intercepté par la carte de contrôle des lumières du véhicule, situé à l'extérieur du système de batterie. La carte se chargera ensuite d'allumer un témoin lumineux visible de l'extérieur du véhicule. Ce même signal peut également être intercepté par le tableau de bord, situé à l'intérieur de l'habitacle.
 		
-	\subsubsection{Témoin lumineux}
+	\subsubsection*{Témoin lumineux}
 		\paragraph*{}
 		Cependant, il est possible que la communication CAN soit interrompue. Pour cette raison, un circuit d'alimentation pour DEL est ajouté sur le module maître. Ce circuit est le même que sur la carte de contrôle des lumières. Cette solution permet donc d'alimenter une bande DEL par le module maître comme le ferait la carte de contrôle des lumières. L'inconvénient de cette solution implique que deux fils doivent sortir du système de batterie pour aller alimenter la bande de DEL. Le circuit intégré choisi pour contrôler la bande DEL est la suivante:
 	
@@ -24,7 +24,7 @@
 		\end{tabular}
 	\end{table}		
 
-	\subsubsection{Témoin lumineux sur le module maître}
+	\subsubsection*{Témoin lumineux sur le module maître}
 		\paragraph*{}
 		Pour faciliter le dépannage avec module maître, une DEL est placée sur la carte pour indiquer à l'utilisateur une défaillance du BMS. Cette solution, si elle est utilisée seule, ne passera pas les qualifications de la compétition. Elle doit être jumelée avec une ou deux solutions précédentes.
 		

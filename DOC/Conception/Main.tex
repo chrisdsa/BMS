@@ -26,13 +26,20 @@
 \floatstyle{plaintop}
 \restylefloat{table}
 
+% Page de garde
+\newcommand{\blankpage}{
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	\newpage
+}
 
 \begin{document}
 	
 	%====== Page de presentation ======%
 	\hypersetup{pageanchor=false}
 	\input{./page_presentation.tex}
-	\newpage
+	\blankpage
 	%====== Table des matieres ======%
 	\pagenumbering{roman}
 	\hypersetup{pageanchor=true}
@@ -72,7 +79,7 @@
 	\input{Objectifs/Compatibilite.tex}	
 	
 	%====== Objectif : Facilité les manipulations lors des vérifications techniques ======%
-	
+	\input{Objectifs/Manipulations_Verifications_Techniques.tex}
 
 	%====== Architecture ======%
 	\input{Architecture/Architecture.tex}

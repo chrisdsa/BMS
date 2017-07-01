@@ -1,5 +1,5 @@
 \subsection{Choix technologiques}
-	\subsubsection{Système d'exploitation en temps réel}
+	\subsubsection*{Système d'exploitation en temps réel}
 		\paragraph*{}
 		Le système d’exploitation en temps réel (RTOS) est utilisé pour rendre le système plus robuste. Il permet de facilement prioriser les tâches les plus importantes du système ainsi que d’améliorer son déterminisme. De plus, il rend la modification et la maintenance du code très simple grâce à la segmentation de l’application en tâches distinctes. Plusieurs RTOS sont disponibles et offrent des caractéristiques similaires. Les grands différenciateurs sont le coût, la robustesse (évaluée selon son utilisation dans des systèmes critiques), la licence utilisée pour le code et la facilité d’utilisation.
 
@@ -40,18 +40,18 @@
 		\paragraph*{}
 		Notre choix s’est arrêté sur uC/OS-III, surtout à cause de la facilité d’utilisation étant donné qu’une plateforme était déjà disponible et utilisée dans le club Éclipse. Le fait de réutiliser cette même plateforme nous fait gagner du temps et permettra à d’autres membres du club de pouvoir facilement intégrer le projet et l’améliorer au fil du temps. La robustesse du RTOS était aussi un point majeur, puisque le BMS est une application critique pour la vie.
 
-	\subsubsection{Protocole de communication}
+	\subsubsection*{Protocole de communication}
 		\paragraph*{}
 		Nous avions le choix d’interfacer les périphériques externes avec plusieurs protocoles de communication. Les deux plus populaires sont le I2C et le SPI. Le I2C nécessite seulement deux traces pour relier tous les périphériques externes avec le microcontrôleur aux dépens d’une plus grande complexité dans la façon de communiquer. Quant au SPI, c’est le contraire. La façon de l’utiliser est très simple, mais il faut trois traces plus une supplémentaire pour chaque périphérique externe. De plus, le SPI peut aller a des vitesses plus grandes que le I2C.
 
 		\paragraph*{}
 		Notre choix s’est arrêté sur le SPI à cause de sa simplicité d’utilisation. Plus le code pour le gérer est simple, plus il est facile à tester et donc plus il a de chance d’être parfaitement robuste rapidement. Le microcontrôleur choisi peut accommoder le nombre de traces supplémentaires nécessaires, ce qui n’entraîne donc aucun coût supplémentaire relié au désavantage du SPI par rapport au I2C.
 
-	\subsubsection{Interruption et interrogation (polling)}
+	\subsubsection*{Interruption et interrogation (polling)}
 		\paragraph*{}
 		Nous avons décidé de minimiser l’utilisation des interruptions à ce qui est vraiment nécessaire étant donné que lorsqu’une interruption est déclenchée, le système priorise le traitement de celle-ci par rapport au reste des fonctions. Les interruptions sont utiles pour obtenir un temps de réponse très rapide pour les fonctions prioritaires et de la précision pour les bases de temps (time base). Par contre, dépendamment des situations, elles peuvent ajouter une charge non négligeable sur le système et pourraient faire en sorte de le bloquer complètement s’il y avait une erreur de programmation dans les fonctions qui les prennent en charge. Si l’interruption est externe, comme pour un bouton, il est aussi dangereux qu’elle soit déclenchée sans le vouloir à cause d’un « glitch ».
 
-	\subsubsection{Microcontrôleur}
+	\subsubsection*{Microcontrôleur}
 		\paragraph*{}
 		Une multitude de marques de microcontrôleur existe sur le marché. Une des plus populaires est STMicroeletronics avec sa gamme STM32. Celle-ci est basée pour l’architecture la plus répandue pour le développement embarqué, soit l’ARM Cortex-M.
 

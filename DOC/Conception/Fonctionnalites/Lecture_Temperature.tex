@@ -6,12 +6,12 @@
 	
 	\subsubsection*{Lecture basée sur le "Silicon bandgab"}
 	\paragraph*{}
-	Les senseurs basés sur la variation de la tension d'une jonction P N d'un transistor (VBE) sont vendus dans des formats tels que le TO-92-3 et le TP-220. C'est formats ne sont pas pratique et il demande un certain effort pour pouvoir avoir un montage qui est propre et qui ne risque pas d'avoir de court-circuit. Pour faciliter l'implémentation, le senseur serait sur un petit circuit imprimé, mais le tout prend plus de place et devient plus difficile à installer.
+	Les senseurs basés sur la variation de la tension d'une jonction PN d'un transistor (VBE) sont vendus dans des formats tels que le TO-92-3 et le TP-220. Ces formats ne sont pas pratiques et ils demandent un certain effort pour pouvoir avoir un montage qui est propre et qui ne risque pas d'avoir de court-circuit. Pour faciliter l'implémentation, le senseur serait sur un petit circuit imprimé, mais le tout prend plus de place et devient plus difficile à installer.
 	
 	\subsubsection*{Thermistance NTC}
 	\paragraph*{}
-	La thermistance avec un coefficient de température négatif est précise, économique et elle se vend dans un format intéressant qui est une bille avec de longs fils. La bille est facile à fixer au module et elle ne prend presque pas d'espace. La thermistance est simple à interfacer puisque l'ADC lit la tension d'un diviseur de tension composé d'une résistance et de la thermistance. Pour éviter que la thermistance chauffe et donne une température inexacte causée par le courant continue, l'alimentation positive doit être fournie par le microcontrôleur qui va ainsi seulement alimenter le circuit lorsqu'il prend la lecture. Puisque la courbe de température est non-linéaire, une "lookup table" doit être utilisé pour obtenir une grande précision. Le manufacturier fournit ses données qui vont ensuite être validées par l'équipe.  
+	La thermistance avec un coefficient de température négatif est précise, économique et elle se vend dans un format intéressant qui est une bille avec de longs fils. La bille est facile à fixer au module et elle ne prend presque pas d'espace. La thermistance est simple à interfacer puisque l'ADC lit la tension d'un diviseur de tension composé d'une résistance et de la thermistance. Pour éviter que la thermistance chauffe et donne une température inexacte causée par le courant continu, l'alimentation positive doit être fournie par le microcontrôleur qui va ainsi seulement alimenter le circuit lorsqu'il prend la lecture. Puisque la courbe de température est non linéaire, une "lookup table" doit être utilisé pour obtenir une grande précision. Le manufacturier fournit ses données qui vont ensuite être validées par l'équipe.  
 	
 	\subsubsection*{Choix final}
 	\paragraph*{}
-	Les lectures de tensions vont être effectué par les thermistances NTC pour leur précision, simplicité et leur format. La thermistance NXFT15WB473FA2B150 va être utilisée.	
+	Les lectures de tensions vont être effectuées par les thermistances NTC pour leur précision, simplicité et leur format. Le choix s'est arrêté sur la thermistance NXFT15WB473FA2B150.
