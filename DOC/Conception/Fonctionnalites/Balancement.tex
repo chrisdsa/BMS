@@ -1,6 +1,6 @@
 \subsection*{Stratégies de balancement}
 \paragraph*{}
-Pour égaliser les tensions, le courant de recharge des modules qui ont atteint le voltage maximum peut être dissipé ou envoyé vers les modules qui ont un état de charge inférieur. 
+Pour égaliser les tensions, le courant de recharge des modules qui ont atteint le voltage maximum peut être dissipé ou envoyé vers les modules qui ont un état de charge inférieur.
 
 \subsubsection*{Balancement dissipatif au voltage maximum des modules ("top balancing")}
 \paragraph*{}
@@ -22,12 +22,12 @@ Pour remédier à ce problème, un MOSFET contrôlé par un comparateur est mis 
 		\includegraphics[scale=0.6]{Images/Dissipative_bal_comp.png}
 		\caption{Schéma fonctionnel du balancement dissipatif avec redondance}
 		\label{fig:bal_dis_comp}
-	\end{minipage}	
+	\end{minipage}
 \end{figure}
 
 \subsubsection*{Balancement actif}
 \paragraph*{}
-Le balancement actif permet non seulement d'amener l'état de charge à 100\%, mais aussi de l'amener à 0\%. Les modules qui ont une capacité supérieure peuvent transmettre l'énergie excédentaire aux modules avec une plus petite capacité. L'utilisation de la batterie est ainsi optimisée. Plusieurs topologies existent pour transférer l'énergie telles que des capacitances commutées, deux matrices qui connectent deux différents modules sur un convertisseur DC-DC, l'utilisation d'une inductance couplée pour faire un "flyback" et plusieurs autres variantes. 
+Le balancement actif permet non seulement d'amener l'état de charge à 100\%, mais aussi de l'amener à 0\%. Les modules qui ont une capacité supérieure peuvent transmettre l'énergie excédentaire aux modules avec une plus petite capacité. L'utilisation de la batterie est ainsi optimisée. Plusieurs topologies existent pour transférer l'énergie telles que des capacitances commutées, deux matrices qui connectent deux différents modules sur un convertisseur DC-DC, l'utilisation d'une inductance couplée pour faire un "flyback" et plusieurs autres variantes.
 
 \paragraph*{}
 L'utilisation d'un convertisseur DC-DC "flyback", avec le primaire aux bornes de chaque module et le secondaire aux bornes de la batterie, est la topologie qui s'intègre le mieux pour son nombre de composantes limitées et sa simplicité d'utilisation. Le balancement actif est surtout utilisé pour des batteries qui ont des modules avec des performances très inégales et/ou des batteries qui ont une très grande durée de vie. Cette solution est plus robuste, puisqu'il suffit d'un fusible en série avec le bobinage primaire pour protéger la batterie d'une défaillance du MOSFET. Le courant de balancement peut aussi être beaucoup plus élevé étant donné qu'il n'y a pas beaucoup de perte.

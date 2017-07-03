@@ -5,8 +5,8 @@
 	Pour amener la batterie dans un état sécuritaire, il faut pouvoir la débrancher de l'alimentation. Le système utilise donc des contacteurs à haute puissance pour contrôler la connexion de la batterie avec le reste des charges. Le module maître se charge de contrôler ces contacteurs. De plus, il s'occupe de connecter les batteries lors de la mise en marche du système ou de les déconnecter en cas de défaillances pour protéger les modules.
 
 	\paragraph*{}
-	Le système est composé de trois contacteurs, soit deux contacteurs principaux et un pour les MPPTs. L'un des contacteurs principaux est connecté à la borne positive de la batterie et l'autre à la borne négative. On peut voir à la figure suivante un schéma général de la disposition des contacteurs. 
-	
+	Le système est composé de trois contacteurs, soit deux contacteurs principaux et un pour les MPPTs. L'un des contacteurs principaux est connecté à la borne positive de la batterie et l'autre à la borne négative. On peut voir à la figure suivante un schéma général de la disposition des contacteurs.
+
 	\begin{figure}[H]
 		\centering
 		\fbox{\includegraphics[width=0.6\linewidth]{Images/LithiumBalanceContactorDiagram}}
@@ -15,14 +15,14 @@
 	\end{figure}
 
 	\paragraph*{}
-	L'enclenchement des contacteurs se fait avec une tension de 12V, qui doit être appliquée à ses bornes. Puisque c'est le microcontrôleur qui envoie la commande d'ouverture ou de fermeture, il doit y avoir une interface de protection entre le 12V aux bornes du contacteur et le 3.3V de la patte GPIO. De façon générale, il n'est pas conseillé d'utiliser des actionneurs mécaniques, tel qu'un relais, pour activer les contacteurs puisqu'ils sont souvent victimes de défaillance. 	 
+	L'enclenchement des contacteurs se fait avec une tension de 12V, qui doit être appliquée à ses bornes. Puisque c'est le microcontrôleur qui envoie la commande d'ouverture ou de fermeture, il doit y avoir une interface de protection entre le 12V aux bornes du contacteur et le 3.3V de la patte GPIO. De façon générale, il n'est pas conseillé d'utiliser des actionneurs mécaniques, tel qu'un relais, pour activer les contacteurs puisqu'ils sont souvent victimes de défaillance.
 
 	\subsubsection*{Choix des contacteurs}
 		\paragraph*{}
 		Une commandite d'Autobus Lion a permis au club Éclipse de se procurer trois contacteurs de marque GIGAVAC\_HX21. Il faut donc que le module maître puisse interfacer ces contacteurs. Le système de batterie d'Éclipse 9 utilise des contacteurs EV200 et ceux-ci seront utilisés comme pièce de remplacement. La conception du circuit de contrôle doit donc être compatible avec les deux modèles.
 
 		\paragraph*{}
-		Les spécifications des contacteurs Gigavac montrent que le courant consommé lors de l'ouverture de l'inductance est de 4.3 A. En ajoutant une marge de protection d'un facteur de 1.2, les composantes doivent soutenir un courant allant jusqu'à 5.16 A pendant 75 ms\cite{GigavacHX21}. 
+		Les spécifications des contacteurs Gigavac montrent que le courant consommé lors de l'ouverture de l'inductance est de 4.3 A. En ajoutant une marge de protection d'un facteur de 1.2, les composantes doivent soutenir un courant allant jusqu'à 5.16 A pendant 75 ms\cite{GigavacHX21}.
 
 		\paragraph*{}
 		De plus, ce modèle de contacteur possède un deuxième relais interne pour l'interverrouillage (interlock), beaucoup utilisé dans le domaine des véhicules. Dans le cas du présent système, ce relais sera utilisé pour activer un témoin lumineux afin d'avertir l'utilisateur de l'état des contacteurs. Avec les contacteurs EV-200, il faudra court-circuiter deux positions sur le connecteur allant sur le module maître pour activer ce témoin lumineux.
@@ -33,7 +33,7 @@
 		\begin{itemize}
 			\item Prévenir les défaillances qui causent l'ouverture des contacteurs alors qu'ils devraient être fermés
 			\item Prévenir les défaillances qui causent la fermeture des contacteurs alors qu'ils devraient être ouverts
-			\item Prévenir les défaillances qui causent une connexion de la batteries à travers une charge capacitive	
+			\item Prévenir les défaillances qui causent une connexion de la batteries à travers une charge capacitive
 		\end{itemize}
 
 
@@ -42,9 +42,9 @@
 		Plusieurs solutions ont été évaluées pour contrôler les contacteurs. Cette section est très critique et il ne faut absolument pas qu'une défaillance mette en panne la voiture solaire durant la compétition. Le budget n'est donc pas un critère de sélection, mais le choix doit plutôt se faire en fonction d'une solution qui est le plus sécuritaire possible.
 
 		\paragraph*{Solution 1: Contrôle par relais statique (SSR)}
-		\paragraph*{}			
+		\paragraph*{}
 		Puisque les activateurs ne doivent pas être de nature mécaniquemom, on peut utiliser des relais statiques puisqu'ils sont isolés mécaniquement. Le microcontrôleur doit seulement activer une DEL pour l'enclencher. Aussi, dans l'éventualité où le microcontrôleur a une défaillance, le relais statique s'ouvrira, empêchant ainsi le contacteur de rester fermé. Il faut par contre choisir un relais statique capable d'accepter jusqu'à 5.16 A, ce qui limite beaucoup le choix des composantes.
-		
+
 		\begin{table}[H]
 			\centering
 			\caption{Comparaison des relais statiques}
@@ -59,28 +59,28 @@
 				CPC1918J & 5.25 A &	100 mOhm & 14.83 \$	\\ \hline
 			\end{tabular}
 		\end{table}
-		
+
 		Le prix de ces composantes est similaire et leur courant de charge est assez robuste. Le choix s'est donc fait sur le CPC17907B en raison de son profil plat qui était plus avantageux avec le placement des pièces sur le module maître.
-		
+
 		\begin{figure}[H]
 			\centering
 			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSol1}}
 			\caption[]{Schéma Solution 1: Contrôle par relais statique}
 			\label{fig:contactorsol1}
 		\end{figure}
-		
-		
+
+
 		\paragraph*{Solution 2: Contrôle par MOSFETs en série}
 		\paragraph*{}
 		Une façon d'assurer la protection d'un circuit est de rajouter de la redondance. Plusieurs MOSFETs sont mis en série pour augmenter les chances d'ouverture de circuit en cas de défaillances. Plus il y a de composantes en série, meilleures sont les chances, mais on augmente aussi le coût. Chaque MOSFET doit être contrôlé individuellement par une patte du microcontrôleur. Également, il est important de s'assurer que la résistance interne des MOSFETs soit constante d'une composante à l'autre. Cela évite l'échauffement du MOSFET ayant la résistance interne la plus élevée, pouvant causer des défaillances.
-		
+
 		\begin{figure}[H]
 			\centering
 			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSol2}}
 			\caption{Schéma Solution 2: Contrôle par MOSFETs en série}
 			\label{fig:contactorsol2}
 		\end{figure}
-		
+
 
 		\paragraph*{Solution 3: Circuit d'alimentation à double actionneur}
 		\paragraph*{}
@@ -92,7 +92,7 @@
 			\caption{Schéma solution 3: Circuit d'alimentation à double actionneur}
 			\label{fig:contactorsol3}
 		\end{figure}
-		
+
 		\paragraph*{Choix final}
 		\paragraph*{}
 		La solution retenue est un mélange de la solution 1 et 3. En ayant un circuit d'alimentation à double actionneur, on évite d'avoir de la redondance. On remplace ainsi les MOSFETs de cette solution par les relais statiques de la solution 1. De cette façon, on s'assure de la plus haute protection tout en ayant le minimum de composantes. Puis, puisqu'on veut éviter de tirer trop de courant du microcontrôleur, on utilise un transistor BJT s'activant avec un faible courant. Le BJT peut ensuite alimenter le relais statique avec l'alimentation 3.3V directement.
@@ -109,49 +109,49 @@
 	\subsubsection*{Circuit de précharge}
 		\paragraph*{}
 		Le contacteur des MPPTs et le contacteur principal sur le pôle positif de la batterie possèdent un circuit de précharge. La précharge permet à la batterie de se connecter à une large charge capacitive. Si la batterie est connectée directement avec une charge capacitive déchargée, le courant transitoire sera limité par l'impédance interne de la batterie, de la charge et des contacteurs. Cette limite ne sera généralement pas assez pour prévenir un courant potentiellement dangereux. Un contacteur qui s'enclenche lorsque la différence de potentiel est trop élevée pourrait le souder et empêcher son ouverture.
-		
+
 		\paragraph*{}
 		Pour prévenir ce problème, on ajoute une résistance en série avec un relais, installés en parallèle du contacteur. Avant d'enclencher le contacteur, un courant limité passe par la résistance, et permet à la tension de monter de façon exponentielle. On compare ensuite la lecture de la charge avec la tension des batteries. Lorsque la tension sur la charge est assez élevée et que la différence de potentiel aux bornes du contacteur est négligeable, le contacteur peut être fermé de façon sécuritaire\cite{System_Approach}.
-		
-		\paragraph*{}		
+
+		\paragraph*{}
 		La résistance de précharge est dimensionnée pour dissiper la puissance circulant dans la résistance. Pour trouver cette valeur, il faut d'abord calculer la constante de temps\cite{LiIonBms}.
-	
+
 		\begin{align}
 			\tau =R \cdot C
 			\label{eq:Constante de temps}
 		\end{align}
-				
-		On considère la charge capacitive complète après	
-	 
+
+		On considère la charge capacitive complète après
+
 		\begin{align}
 			T = 5 \cdot \tau
 			\label{eq:CapaciteCharge}
 		\end{align}
-		
+
 		Par mesure de sécurité, on ajoute 0.5 seconde à ce chiffre.
-		
+
 		\begin{align}
 			T = T + 0.5
 			\label{eq:Tempsdecharge}
-		\end{align}		
-				
+		\end{align}
+
 		On calcul ensuite l'énergie dissipée par la résistance de précharge.
-		
+
 		\begin{align}
 			E = \dfrac{C \cdot V^2}{2}
 			\label{eq:EnergiePrecharge}
 		\end{align}
-		
+
 		On trouve finalement la puissance totale consommée par la résistance de précharge
-	
+
 		\begin{align}
 			P = \dfrac{E}{T}
 			\label{eq:PuissancePrecharge}
-		\end{align}	
-			
-		\paragraph*{}		
+		\end{align}
+
+		\paragraph*{}
 		Le temps de précharge doit être judicieusement choisi pour s'assurer que la charge capacitive est assez chargée. D'après ces calculs, avec une résistance de 100 Ohm, une durée de 5.5 secondes sera nécessaire si l'on estime que la charge capacitive est de 10000uF avec une tension maximale de 160 V. On devrait dissiper environ 23.3 W durant cette période. Cependant, des tests devront être effectués durant la réalisation pour ajuster ces valeurs.
-				
+
 		\begin{table}[H]
 			\centering
 			\caption{Sélection de la résistance de précharge}
@@ -161,13 +161,13 @@
 				\hline
 				\textbf{Composante} & \textbf{Manufacturier} & \textbf{Résistance} & \textbf{Dissipation} & \textbf{Prix}
 				\\ \hhline{|=|=|=|=|=|}
-				TR50JBC100R & Stackpole Electronics Inc. & 100 Ohm & 50 W & 5.81 \$ \\ \hline		
+				TR50JBC100R & Stackpole Electronics Inc. & 100 Ohm & 50 W & 5.81 \$ \\ \hline
 			\end{tabular}
 		\end{table}
 
-		\paragraph*{}		
+		\paragraph*{}
 		Le relais doit supporter un courant de 1.6 A. Sa bobine devrait également consommer le moins possible. Un relais tout usage a été choisi.
-		
+
 		\begin{table}[H]
 			\centering
 			\caption{Sélection du relais}
@@ -177,14 +177,14 @@
 				\hline
 				\textbf{Composante} & \textbf{Manufacturier} &  \textbf{Courant} & \textbf{Consommation} & \textbf{Prix}
 				\\ \hhline{|=|=|=|=|=|}
-				ALQ312 & Panasonic & 10A & 16.7 mA & 3.34 \$ \\ \hline		
+				ALQ312 & Panasonic & 10A & 16.7 mA & 3.34 \$ \\ \hline
 			\end{tabular}
-		\end{table}				
-		
-	
-		\paragraph*{}	
-		Pour éviter de polariser à l'inverse les contacteurs avec la précharge, une diode est ajoutée au circuit. Elle doit bloquer une tension minimum de 160 V et pouvoir supporter un courant d'au moins 1.6 A. 
-		
+		\end{table}
+
+
+		\paragraph*{}
+		Pour éviter de polariser à l'inverse les contacteurs avec la précharge, une diode est ajoutée au circuit. Elle doit bloquer une tension minimum de 160 V et pouvoir supporter un courant d'au moins 1.6 A.
+
 		\begin{table}[H]
 			\centering
 			\caption{Sélection de la diode}
@@ -194,21 +194,21 @@
 				\hline
 				\textbf{Composante} & \textbf{Manufacturier} & \textbf{Courant} &  \textbf{Tension de blocage} & \textbf{Prix}
 				\\ \hhline{|=|=|=|=|=|=|}
-				NRVBS3200T3G & ON Semiconductor & 3A & 200V & 1.37 \$ \\ \hline		
+				NRVBS3200T3G & ON Semiconductor & 3A & 200V & 1.37 \$ \\ \hline
 			\end{tabular}
-		\end{table}				
-		
-		\paragraph*{}			
-		Ensuite, pour éviter qu'un courant trop élevé ne vienne endommager les composantes, on ajoute un fusible de 2A à action retardée. 
-		
-		\paragraph*{}			
+		\end{table}
+
+		\paragraph*{}
+		Ensuite, pour éviter qu'un courant trop élevé ne vienne endommager les composantes, on ajoute un fusible de 2A à action retardée.
+
+		\paragraph*{}
 		La topologie générale du circuit de précharge est présentée à la figure \ref{fig:circuitprecharge}.
-				
+
 		\begin{figure}[H]
 			\centering
 			\fbox{\includegraphics[width=0.7\linewidth]{Images/CircuitPrecharge}}
 			\caption[]{Schéma du circuit de précharge}
 			\label{fig:circuitprecharge}
 		\end{figure}
-			
-	\newpage	
+
+	\newpage

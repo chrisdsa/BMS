@@ -1,9 +1,9 @@
 
 \subsection{Détection des erreurs}
 	\paragraph*{}
-	La tâche principale du système de protection est de détecter les erreurs de surcharge, décharge excessive, courant trop élevé et température trop élevée. Ces erreurs doivent être détectées et prises en charge le plus rapidement possible, mais il est encore plus important de ne pas lire une erreur et de sécuriser la batterie pour un faux positif. La modification des seuils doit être simple et rapide sans devoir reprogrammer chaque module esclave. 
+	La tâche principale du système de protection est de détecter les erreurs de surcharge, décharge excessive, courant trop élevé et température trop élevée. Ces erreurs doivent être détectées et prises en charge le plus rapidement possible, mais il est encore plus important de ne pas lire une erreur et de sécuriser la batterie pour un faux positif. La modification des seuils doit être simple et rapide sans devoir reprogrammer chaque module esclave.
 
 	\paragraph*{}
 	Les seuils sont déterminés par le manufacturier des cellules lithium-ion. Au moment de la rédaction, Éclipse n'a pas encore choisi quelle cellule va être utilisée, mais il est correct d'assumer que les seuils vont être près de 2.5V (voltage minimum), 4.2V (voltage maximum), 60A (courant maximum) et 60 $\degres$ (température maximale) pour la conception puisque ce sont les limites de la majorité des chimies. Pour éviter d'entraîner inutilement une sécurisation de la batterie, les différentes lectures devront être filtrées pour éliminer les lectures erronées et les conditions d'erreur extrêmement courtes. Pour avoir une bonne flexibilité et pouvoir changer rapidement la fréquence de coupure, le filtre passe-bas doit être implémenté numériquement dans le microcontrôleur du module esclave. Le module esclave envoie toutes les informations et les résultats de chaque mesure au module maître. C'est aussi lui qui juge si ces valeurs sont en dehors des limites sécuritaires. Dans un tel cas, il en informe le module maître à l'aide d'un message d'erreur qui est prioritaire.
- 
+
  \newpage
