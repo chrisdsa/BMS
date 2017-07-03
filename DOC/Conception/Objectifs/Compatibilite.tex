@@ -1,10 +1,10 @@
 \section{Compatibilité avec le BMS présentement utilisé}
 	\paragraph*{}	
-	Afin que le système soit rétro-compatible avec le BMS de Lithium Balance, il est nécessaire que le connecteur 22 broches qui relient le module maître avec le reste des modules externes, soit interchangeable entre l'ancien et le nouveau BMS.
+	Afin que le système soit rétrocompatible avec le BMS de Lithium Balance, il est nécessaire que le connecteur 22 pattes qui relie le module maître avec le reste des modules externes, soit interchangeable entre l'ancien et le nouveau BMS.
 
 	\subsection{Brochage du connecteurs 22 pattes de Lithium Balance}
 	
-	 Selon le manuel d'utilisation de Lithium Balance, le brochage du connecteurs 22 est détaillée au tableau \ref{22CLithiumBalance} \cite{Lithium_Balance}. 
+	 Selon le manuel d'utilisation de Lithium Balance, le brochage du connecteurs 22 pattes est détaillé au tableau \ref{22CLithiumBalance} \cite{Lithium_Balance}. 
 	 
 	\begin{table}[H]
 		\centering
@@ -42,7 +42,7 @@
 	
 	\subsection{Nouvelle configuration de brochage du connecteurs 22 pattes}	
 		\paragraph*{}
-		Certaines fonctions ont été ajoutées ou modifiées sans changer la compatibilité du connecteur. De plus, les broches pouvant être configurées par l'utilisateur ont de nouvelles fonctions. Par exemple, il y a une broche qui est utilisée pour la précharge du contacteur MPPTs et trois alimentations de sortie tout-usage pour alimenter des ventilateurs ou autres appareils. Puis, les circuits analogiques sont inclus sur le module maître même s'ils ne sont pas utilisés présentement par la voiture solaire. La nouvelle configuration du connecteur 22 broches est détaillée par le tableau \ref{22CBmsEclipse}.
+		Certaines fonctions ont été ajoutées ou modifiées sans changer la compatibilité du connecteur. De plus, les broches pouvant être configurées par l'utilisateur ont de nouvelles fonctions. Par exemple, il y a une broche qui est utilisée pour la précharge du contacteur MPPTs et trois alimentations de sortie tout usage pour alimenter des ventilateurs ou autres appareils. Puis, les circuits analogiques sont inclus sur le module maître même s'ils ne sont pas utilisés présentement par la voiture solaire. La nouvelle configuration du connecteur 22 pattes est détaillée par le tableau \ref{22CBmsEclipse}.
 		
 		\begin{table}[H]
 			\centering
@@ -69,7 +69,7 @@
 				15 & RS232 GND & Sortie & Commun de la communication RS232 \\ \hline
 				16 & CAN HI & Sortie & Niveau haut de la communication CAN \\ \hline
 				17 & IO 1  & Sortie & Utilisé pour activer le pôle négatif du contacteur principal \\ \hline
-				18 & IO 3 & Entrée & Utilisé pour activer le contacteur des MPPTS \\ \hline
+				18 & IO 3 & Entrée & Utilisé pour activer le contacteur des MPPTs \\ \hline
 				19 & IO 5 & Entrée & Alimentation de sortie tout usage \\ \hline
 				20 & IO 7 & Sortie & Alimentation de sortie tout usage \\ \hline
 				21 & 12V IN & Entrée & Alimentation 12V du système \\ \hline

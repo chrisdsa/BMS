@@ -5,7 +5,7 @@
 	Pour amener la batterie dans un état sécuritaire, il faut pouvoir la débrancher de l'alimentation. Le système utilise donc des contacteurs à haute puissance pour contrôler la connexion de la batterie avec le reste des charges. Le module maître se charge de contrôler ces contacteurs. De plus, il s'occupe de connecter les batteries lors de la mise en marche du système ou de les déconnecter en cas de défaillances pour protéger les modules.
 
 	\paragraph*{}
-	Le système est composé de trois contacteurs, soient deux contacteurs principaux et un pour les MPPTs. L'un des contacteurs principaux est connecté à la borne positive de la batterie et l'autre à la borne négative. On peut voir à la figure suivante un schéma général de la disposition des contacteurs. 
+	Le système est composé de trois contacteurs, soit deux contacteurs principaux et un pour les MPPTs. L'un des contacteurs principaux est connecté à la borne positive de la batterie et l'autre à la borne négative. On peut voir à la figure suivante un schéma général de la disposition des contacteurs. 
 	
 	\begin{figure}[H]
 		\centering
@@ -15,9 +15,9 @@
 	\end{figure}
 
 	\paragraph*{}
-	L'enclenchement des contacteurs se fait avec une tension de 12V, qui doit être appliquée à ses bornes. Puisque c'est le microcontrôleur qui envoie la commande d'ouverture ou de fermeture, il doit y avoir une interface de protection entre le 12V aux bornes du contacteur et le 3.3V de la patte GPIO. De façon générale, il n'est pas conseillé d'utiliser des actionneurs mécaniques, tel qu'un relais, pour activer les contacteurs puisqu'ils sont souvent victimes de défaille. 	 
+	L'enclenchement des contacteurs se fait avec une tension de 12V, qui doit être appliquée à ses bornes. Puisque c'est le microcontrôleur qui envoie la commande d'ouverture ou de fermeture, il doit y avoir une interface de protection entre le 12V aux bornes du contacteur et le 3.3V de la patte GPIO. De façon générale, il n'est pas conseillé d'utiliser des actionneurs mécaniques, tel qu'un relais, pour activer les contacteurs puisqu'ils sont souvent victimes de défaillance. 	 
 
-	\subsubsection*{Choix des contacteurs:}
+	\subsubsection*{Choix des contacteurs}
 		\paragraph*{}
 		Une commandite d'Autobus Lion a permis au club Éclipse de se procurer trois contacteurs de marque GIGAVAC\_HX21. Il faut donc que le module maître puisse interfacer ces contacteurs. Le système de batterie d'Éclipse 9 utilise des contacteurs EV200 et ceux-ci seront utilisés comme pièce de remplacement. La conception du circuit de contrôle doit donc être compatible avec les deux modèles.
 
@@ -31,28 +31,28 @@
 		Également, le circuit de contrôle doit répondre aux critères suivants afin d'être jugé sécuritaire \cite{System_Approach}.
 
 		\begin{itemize}
-			\item Prévenir les défaillances qui causent les contacteurs à ouvrir alors qu'ils devraient être fermés
-			\item Prévenir les défaillances qui causent les contacteurs à fermer alors qu'ils devraient être ouverts
+			\item Prévenir les défaillances qui causent l'ouverture des contacteurs alors qu'ils devraient être fermés
+			\item Prévenir les défaillances qui causent la fermeture des contacteurs alors qu'ils devraient être ouverts
 			\item Prévenir les défaillances qui causent une connexion de la batteries à travers une charge capacitive	
 		\end{itemize}
 
 
 	\subsubsection*{Choix du circuit de contrôle}
 		\paragraph*{}
-		Plusieurs solutions ont été évaluées pour contrôler les contacteurs. Cette section est très critique et il ne faut absolument pas qu'une défaillance met en panne la voiture solaire durant la compétition. Le budget n'est donc pas un critère de sélection, mais le choix doit plutôt se faire en fonction d'une solution qui est le plus sécuritaire possible.
+		Plusieurs solutions ont été évaluées pour contrôler les contacteurs. Cette section est très critique et il ne faut absolument pas qu'une défaillance mette en panne la voiture solaire durant la compétition. Le budget n'est donc pas un critère de sélection, mais le choix doit plutôt se faire en fonction d'une solution qui est le plus sécuritaire possible.
 
-		\paragraph*{Solution 1: Contrôle par optocoupleurs}
+		\paragraph*{Solution 1: Contrôle par relais statique (SSR)}
 		\paragraph*{}			
-		Puisque les activateurs ne doivent pas être de nature mécanique. On peut utiliser des optocoupleurs (Solid State Relays) puisqu'ils sont isolés mécaniquement. Le microcontrôleur doit seulement activer une DEL de l'optocoupleur pour l'enclencher. Aussi, dans l'éventualité où le microcontrôleur ait une défaillance, l'optocoupleur s'ouvrira, empêchant ainsi le contacteur de rester fermé. Il faut par contre choisir un optocoupleur capable d'accepter jusqu'à 5.16 A, ce qui limite beaucoup le choix des composantes.
+		Puisque les activateurs ne doivent pas être de nature mécaniquemom, on peut utiliser des relais statiques puisqu'ils sont isolés mécaniquement. Le microcontrôleur doit seulement activer une DEL pour l'enclencher. Aussi, dans l'éventualité où le microcontrôleur a une défaillance, le relais statique s'ouvrira, empêchant ainsi le contacteur de rester fermé. Il faut par contre choisir un relais statique capable d'accepter jusqu'à 5.16 A, ce qui limite beaucoup le choix des composantes.
 		
 		\begin{table}[H]
 			\centering
-			\caption{Comparaison des optocoupleurs}
+			\caption{Comparaison des relais statiques}
 			\label{ComparaisonOpto}
 			\renewcommand{\arraystretch}{1.3}
 			\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
 				\hline
-				\textbf{Optocoupleurs} & \textbf{Courant} & \textbf{Résistance} & \textbf{Prix}
+				\textbf{Relais statiques} & \textbf{Courant} & \textbf{Résistance} & \textbf{Prix}
 				\\ \hhline{|=|=|=|=|}
 				CPC1907B & 6 A & 60 mOhm & 9.01 \$ \\ \hline
 				CPC1709J & 10 A & 50 mOhm & 10.00 \$ \\ \hline
@@ -60,42 +60,42 @@
 			\end{tabular}
 		\end{table}
 		
-		Le prix de ces composantes est similaire et leur courant de charge est assez robuste. Le choix s'est donc faite sur le CPC17907B en raison de son profil plat qui était plus avantageux avec le placement des pièces sur le module maître.
+		Le prix de ces composantes est similaire et leur courant de charge est assez robuste. Le choix s'est donc fait sur le CPC17907B en raison de son profil plat qui était plus avantageux avec le placement des pièces sur le module maître.
 		
 		\begin{figure}[H]
 			\centering
 			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSol1}}
-			\caption[]{Schéma Solution 1: Contrôle par optocoupleurs}
+			\caption[]{Schéma Solution 1: Contrôle par relais statique}
 			\label{fig:contactorsol1}
 		\end{figure}
 		
 		
-		\paragraph*{Solution 2: Contrôle par Mosfet en série}
+		\paragraph*{Solution 2: Contrôle par MOSFETs en série}
 		\paragraph*{}
-		Une façon d'assurer la protection d'un circuit est de rajouter de la redondance. Plusieurs Mosfets sont mises en série pour augmenter les chances d'ouverture de circuit en cas de défaillances. Plus il y a de composantes en série, meilleures sont les chances, mais on augmente aussi le prix des composantes. Chaque Mosfet doit être contrôlé individuellement par une patte du microcontrôleur. Également, il est important de s'assurer que la résistance interne des Mosfets soit constante d'une composante à l'autre. Cela évite l'échauffement du Mosfet ayant la résistance interne la plus élevée, pouvant causer des défaillances.
+		Une façon d'assurer la protection d'un circuit est de rajouter de la redondance. Plusieurs MOSFETs sont mis en série pour augmenter les chances d'ouverture de circuit en cas de défaillances. Plus il y a de composantes en série, meilleures sont les chances, mais on augmente aussi le coût. Chaque MOSFET doit être contrôlé individuellement par une patte du microcontrôleur. Également, il est important de s'assurer que la résistance interne des MOSFETs soit constante d'une composante à l'autre. Cela évite l'échauffement du MOSFET ayant la résistance interne la plus élevée, pouvant causer des défaillances.
 		
 		\begin{figure}[H]
 			\centering
 			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSol2}}
-			\caption{Schéma Solution 2: Contrôle par Mosfet en série}
+			\caption{Schéma Solution 2: Contrôle par MOSFETs en série}
 			\label{fig:contactorsol2}
 		\end{figure}
 		
 
-		\paragraph*{Solution 3: Circuit d'alimentation à double actionneurs}
+		\paragraph*{Solution 3: Circuit d'alimentation à double actionneur}
 		\paragraph*{}
-		Cette solution provient du livre "A systems approach to Lithium-Ion Battery Management" \cite{System_Approach}. L'auteur propose d'utiliser circuit d'alimentation à doubles actionneurs, soit un actionneur sur le pôle négatif et un sur le pôle positif. Un Mosfet de type-P alimente le côté positif (High-side) et un mosfet de type-N est relié au commun sur le circuit du côté négatif (low-side) ce qui offre une sécurité supplémentaire si une des deux composantes venait à faillir. Puisqu'il y a trois contacteurs dans le système, cette solution requiert d'utiliser un seul Mosfet type-P pour alimenter le côté positif des contacteurs et trois Mosfets type-N pour le côté négatif de chaque relais.
+		Cette solution provient du livre "A systems approach to Lithium-Ion Battery Management" \cite{System_Approach}. L'auteur propose d'utiliser un circuit d'alimentation à double actionneur, soit un actionneur sur le pôle négatif et un sur le pôle positif. Un MOSFET de type P alimente le côté positif (high-side) et un MOSFET de type N est relié au commun sur le circuit du côté négatif (low-side) ce qui offre une sécurité supplémentaire si une des deux composantes venait à faillir. Puisqu'il y a trois contacteurs dans le système, cette solution requiert d'utiliser un seul MOSFET de type P pour alimenter le côté positif des contacteurs et trois MOSFETs de type N pour le côté négatif de chaque relais.
 
 		\begin{figure}[H]
 			\centering
 			\fbox{\includegraphics[width=0.4\linewidth]{../Images/ContactorSol3}}
-			\caption{Schéma solution 3: Circuit d'alimentation à doubles actionneurs}
+			\caption{Schéma solution 3: Circuit d'alimentation à double actionneur}
 			\label{fig:contactorsol3}
 		\end{figure}
 		
 		\paragraph*{Choix final}
 		\paragraph*{}
-		La solution retenue est un mélange de la solution 1 et 3. En ayant un circuit d'alimentation à doubles actionneurs, on évite d'avoir de la redondance. On remplace ainsi les mosfets de cette solution par les optpocoupleurs de la solution 1. De cette façon, on s'assure de la plus haute protection tout en ayant le minimum de composantes. Puis, puisqu'on veut éviter de tirer trop de courant du microcontrôleur, on utilise un transistor BJT s'activant avec un faible courant. Le BJT peut ensuite alimenter l'optocoupleur avec l'alimentation 3.3V directement.
+		La solution retenue est un mélange de la solution 1 et 3. En ayant un circuit d'alimentation à double actionneur, on évite d'avoir de la redondance. On remplace ainsi les MOSFETs de cette solution par les relais statiques de la solution 1. De cette façon, on s'assure de la plus haute protection tout en ayant le minimum de composantes. Puis, puisqu'on veut éviter de tirer trop de courant du microcontrôleur, on utilise un transistor BJT s'activant avec un faible courant. Le BJT peut ensuite alimenter le relais statique avec l'alimentation 3.3V directement.
 
 		\begin{figure}[H]
 			\centering
@@ -106,7 +106,7 @@
 
 	\newpage
 
-	\subsubsection*{Circuit de précharge:}
+	\subsubsection*{Circuit de précharge}
 		\paragraph*{}
 		Le contacteur des MPPTs et le contacteur principal sur le pôle positif de la batterie possèdent un circuit de précharge. La précharge permet à la batterie de se connecter à une large charge capacitive. Si la batterie est connectée directement avec une charge capacitive déchargée, le courant transitoire sera limité par l'impédance interne de la batterie, de la charge et des contacteurs. Cette limite ne sera généralement pas assez pour prévenir un courant potentiellement dangereux. Un contacteur qui s'enclenche lorsque la différence de potentiel est trop élevée pourrait le souder et empêcher son ouverture.
 		
@@ -150,23 +150,23 @@
 		\end{align}	
 			
 		\paragraph*{}		
-		Le temps de précharge doit être judicieusement choisi pour s'assurer que la charge capacitive est assez chargée. D'après ces calculs, avec une résistance de 100 Ohm, une durée de 5.5 secondes sera nécessaire si l'on estime la charge capacitive est de 10000uF avec une tension maximale de 160 V. On devrait dissiper environ 23.3 W durant cette période. Cependant, des tests devront être effectuer durant la réalisation pour ajuster ces valeurs.
+		Le temps de précharge doit être judicieusement choisi pour s'assurer que la charge capacitive est assez chargée. D'après ces calculs, avec une résistance de 100 Ohm, une durée de 5.5 secondes sera nécessaire si l'on estime que la charge capacitive est de 10000uF avec une tension maximale de 160 V. On devrait dissiper environ 23.3 W durant cette période. Cependant, des tests devront être effectués durant la réalisation pour ajuster ces valeurs.
 				
 		\begin{table}[H]
 			\centering
-			\caption{Sélection de la résistances de précharge}
+			\caption{Sélection de la résistance de précharge}
 			\label{ResistancePrecharge}
 			\renewcommand{\arraystretch}{1.3}
 			\begin{tabular}{|p{3cm}|p{5cm}|p{2cm}|p{2cm}|p{1.5cm}|}
 				\hline
-				\textbf{Composante} & \textbf{Manufacturier} & \textbf{Resistance} & \textbf{Pdissipation} & \textbf{Prix}
+				\textbf{Composante} & \textbf{Manufacturier} & \textbf{Résistance} & \textbf{Dissipation} & \textbf{Prix}
 				\\ \hhline{|=|=|=|=|=|}
 				TR50JBC100R & Stackpole Electronics Inc. & 100 Ohm & 50 W & 5.81 \$ \\ \hline		
 			\end{tabular}
 		\end{table}
 
 		\paragraph*{}		
-		Le relais doit supporter un courant de 1.6 A. Sa bobine devrait également consommer le moins possible. Un relais tout usage à été choisi.
+		Le relais doit supporter un courant de 1.6 A. Sa bobine devrait également consommer le moins possible. Un relais tout usage a été choisi.
 		
 		\begin{table}[H]
 			\centering
@@ -202,7 +202,7 @@
 		Ensuite, pour éviter qu'un courant trop élevé ne vienne endommager les composantes, on ajoute un fusible de 2A à action retardée. 
 		
 		\paragraph*{}			
-		La topologie générale du circuit de précharge est présenté à la figure \ref{fig:circuitprecharge}.
+		La topologie générale du circuit de précharge est présentée à la figure \ref{fig:circuitprecharge}.
 				
 		\begin{figure}[H]
 			\centering

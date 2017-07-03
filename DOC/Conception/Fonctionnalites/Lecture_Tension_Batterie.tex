@@ -16,10 +16,10 @@
 	Ensuite, toujours sur la partie isolée, un simple diviseur de tension vient réduire la haute tension. On suppose que la plage de la haute tension est de 0-200 V, pour la réduire à une plage de 0-2 V.
 	
 	\paragraph*{}
-	Une fois la tension réduite, on isole le signal avec un détecteur de tension de précision, isolé de façon optique. Le détecteur produit ensuite sur le côté non-isolé une tension proportionnelle à son alimentation de sortie.
+	Une fois la tension réduite, on isole le signal avec un détecteur de tension de précision, isolé de façon optique. Le détecteur produit ensuite sur le côté non isolé une tension proportionnelle à son alimentation de sortie.
 	
 	\paragraph*{}	
-	Puisque l'alimentation à l'entrée du détecteur doit être isolée, on utilise un convertisseur de courant continu. Le 12V de la partie non-isolée est converti en 5 V sur la partie isolée pour alimenter le détecteur.
+	Puisque l'alimentation à l'entrée du détecteur doit être isolée, on utilise un convertisseur de courant continu. Le 12 V de la partie non isolée est converti en 5 V sur la partie isolée pour alimenter le détecteur.
 	
 	\paragraph*{}	
 	Pour que le microcontrôleur puisse lire la tension avec son ADC, il faut convertir la tension de sortie du détecteur à 3.3 V. Pour ce faire, on utilise un amplificateur opérationnel avec un gain ajusté pour convertir une plage de 0-5 V à 0-3.3 V.
@@ -33,8 +33,8 @@
 			\hline
 			\textbf{Composantes} & \textbf{Manufacturier} & \textbf{Description} & \textbf{Prix}
 			\\ \hhline{|=|=|=|=|}
-			ACPL-C87A-500E & Broadcom Limited & détecteur de tension de précision & 10.35 \$	\\ \hline
+			ACPL-C87A-500E & Broadcom Limited & Détecteur de tension de précision & 10.35 \$	\\ \hline
 			LMV321RILT & STMicroelectronics & Amplificateur opérationnel tout usage & 0.65 \$	\\ \hline
-			NCS1S2405SC & Murata Power Solutions Inc. & convertisseur de courant continu & 12.29 \$	\\ \hline
+			NCS1S2405SC & Murata Power Solutions Inc. & Convertisseur de courant continu & 12.29 \$	\\ \hline
 		\end{tabular}
 	\end{table} 

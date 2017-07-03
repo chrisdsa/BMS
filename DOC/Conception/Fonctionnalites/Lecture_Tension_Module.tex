@@ -9,7 +9,7 @@
 	\begin{multicols}{2}
 		\begin{itemize}
 			\item[$\bullet$] Le circuit peut être alimenté par les modules;
-			\item[$\bullet$] Consommation de courant de quelque mA lorsque le circuit prend les mesures et quelques $\mu$A lorsqu'il est en veille;
+			\item[$\bullet$] Consommation de courant de quelques mA lorsque le circuit prend les mesures et quelques $\mu$A lorsqu'il est en veille;
 			\item[$\bullet$] Solution compacte;
 			\item[$\bullet$] Lecture précise;
 			\item[$\bullet$] Les modules doivent être branchés dans l'ordre;
@@ -25,7 +25,7 @@
 	
 	\subsubsection*{Isolation des lectures}
 	\paragraph*{}
-	La vérification technique sera beaucoup plus facile si les différentes lectures de tensions sont isolées. Ce point est décrit dans la section Manipulations et vérifications techniques. 
+	La vérification technique est beaucoup plus facile si les différentes lectures de tensions sont isolées. Ce point est décrit dans la section Manipulations et vérifications techniques. 
 	
 	\paragraph*{}
 	L'isolation amène plusieurs avantages :
@@ -40,14 +40,14 @@
 	Cette solution comporte cependant plusieurs désavantages :
 	
 	\begin{itemize}
-		\item[$\bullet$] Consomme plus de courant (quelque mA par module lors des lectures);
+		\item[$\bullet$] Consomme plus de courant (quelques mA par module lors des lectures);
 		\item[$\bullet$] Demande plus de composantes;
 		\item[$\bullet$] Plus difficile à implémenter;
 		\item[$\bullet$] Plus dispendieux.
 	\end{itemize}
 	
 	\paragraph*{}
-	Ces différents désavantages ne sont pas majeurs dans le contexte d'Éclipse, la consommation de courant reste insignifiante comparée à ce que le moteur et le reste des circuits consomment. Le nombre de composants peut être limité en utilisant la bonne topologie et le prix de la carte peut être plus élevé tant qu'il respecte le budget. 
+	Ces différents désavantages ne sont pas majeurs dans le contexte d'Éclipse; la consommation de courant reste insignifiante comparée à ce que le moteur et le reste des circuits consomment. Le nombre de composants peut être limité en utilisant la bonne topologie et le prix de la carte peut être plus élevé tant qu'il respecte le budget. 
 	
 	\subsubsection*{Circuit analogique}
 	\paragraph*{}
@@ -77,7 +77,7 @@
 	\end{figure}
 	
 	\paragraph*{}
-	Le circuit mesure le LSB qui est donné par $V_{Module} / 2^{~nb~Bits~adc}$ pour  trouver la tension du module. Bien que cette technique fonctionne, les courbes de la tension du module et de la résolution ne sont pas linéaires par rapport au résultat du ADC. La valeur du voltage de référence à un impacte sur la courbe de la résolution. Plus il est bas, moins la courbe est linéaire et la résolution est moins bonne. Les figures \ref{fig:vmodule_vref} et \ref{fig:res_vref} montrent les performances idéales du circuit à la figure \ref{fig:adc_vref} avec une référence de 2.048V et une plage de 2V à 4.2V pour la tension du module.
+	Le circuit mesure le LSB qui est donné par $V_{Module} / 2^{~nb~Bits~adc}$ pour  trouver la tension du module. Bien que cette technique fonctionne, les courbes de la tension du module et de la résolution ne sont pas linéaires par rapport au résultat du ADC. La valeur du voltage de référence a un impact sur la courbe de la résolution. Plus elle est basse, moins la courbe est linéaire et la résolution est moins bonne. Les figures \ref{fig:vmodule_vref} et \ref{fig:res_vref} montrent les performances idéales du circuit à la figure \ref{fig:adc_vref} avec une référence de 2.048V et une plage de 2V à 4.2V pour la tension du module.
 	
 	\begin{figure}[H]
 		\begin{minipage}{0.45\textwidth}
@@ -96,17 +96,17 @@
 	\end{figure}	
 	
 	\paragraph*{}
-	L'écart maximal entre 2 bits est de 2.15 mA. Avec un ADC performant qui a une erreur de $\pm 1$ LSB, la lecture de tension à une erreur maximale de $\pm $ 2.15 mA lorsque le module est à 4.2V. Cette méthode correspond à la spécification qui demande d'être à $\pm $ 10 mA. L'ADC consomme et la tension de référence consomme très peu de courant, ils nécessitent très peu de composants externes et ils sont abordables. Afin d'avoir une très bonne précision, il est nécessaire de faire une calibration puisque la tolérance de la référence ($\pm$ 0.5 \%) est plus grande que celle de la spécification ($\pm 0.238 \%$). Il existe des références avec des tolérances plus petites que $\pm 0.238 \%$ mais elles sont beaucoup trop dispendieuses pour le projet puisqu'il faut en avoir une pour chaque module.    
+	L'écart maximal entre 2 bits est de 2.15 mA. Avec un ADC performant qui a une erreur de $\pm 1$ LSB, la lecture de tension a une erreur maximale de $\pm $ 2.15 mA lorsque le module est à 4.2V. Cette méthode correspond à la spécification qui demande d'être à $\pm $ 10 mA. L'ADC et la tension de référence consomment très peu de courant, ils nécessitent très peu de composants externes et ils sont abordables. Afin d'avoir une très bonne précision, il est nécessaire de faire une calibration puisque la tolérance de la référence ($\pm$ 0.5 \%) est plus grande que celle de la spécification ($\pm 0.238 \%$). Il existe des références avec des tolérances plus petites que $\pm 0.238 \%$ mais elles sont beaucoup trop dispendieuses pour le projet puisqu'il faut en avoir une pour chaque module.    
 	
 	\paragraph*{}
-	L'isolation de la mesure se fait au niveau de la communication puisqu'il n'y a aucune erreur causée par l'isolateur de cette façon, contrairement à l'optocoupleur de la solution analogique. L'alimentation de l'isolateur et du ADC doit dépasser la plage de lecture du module qui est de 2V à 4.5V.
+	L'isolation de la mesure se fait au niveau de la communication puisqu'il n'y a aucune erreur causée par l'isolateur de cette façon, contrairement à l'optocoupleur de la solution analogique. L'alimentation de l'isolateur et du ADC doivent dépasser la plage de lecture du module qui est de 2V à 4.5V.
 	
 	\paragraph*{}
 	Cette solution est viable, elle respecte les spécifications et elle ne demande pas beaucoup de composantes. Le choix des ADC et des isolateurs numériques avec une alimentation qui va de moins de 2V à plus de 5V est toutefois très restreint. Les prix de l'isolateur et de l'ADC sont donc élevés et il est plus difficile de trouver un remplacement dans le cas ou un composant n'est plus disponible.   
 	
 	\subsubsection*{Configuration classique d'un ADC}
 	\paragraph*{}
-	Pour utiliser l'ADC avec une configuration classique où l'entrée mesure le voltage du module, un convertisseur de puissance est nécessaire pour maintenir une tension fixe qui est plus élevée que celle du module. Plusieurs composants externes sont nécessaires, mais les coûts sont absorbés par le prix moins élevé de l'ADC et de l'isolateur. Cette topologie permet d'avoir une résolution qui est fixe sur toute la plage des mesures, un contrôle sur le LSB avec l'alimentation de l'ADC et un meilleur choix d'ADC. Le ADC est alimenté par un régulateur linéaire pour avoir un minimum de bruit alors que l'isolateur est alimenté par le convertisseur à commutation. L'isolateur qui commute rapidement ne vient donc pas perturber l'alimentation de l'ADC. Puisque l'alimentation de l'ADC  est utilisée comme référence, il est important de faire une calibration pour avoir un LSB qui est très précis afin d'avoir une mesure qui respecte les spécifications. Avec la référence calibrée à 4.5V et un ADC qui à une erreur de $\pm$ 1 LSB, la précision de la mesure est de $\pm 1.1$ mV sur toute la plage. La tension du module est donnée par l'équation \ref{eq:Vmodule}.
+	Pour utiliser l'ADC avec une configuration classique où l'entrée mesure le voltage du module, un convertisseur de puissance est nécessaire pour maintenir une tension fixe qui est plus élevée que celle du module. Plusieurs composants externes sont nécessaires, mais les coûts sont absorbés par le prix moins élevé de l'ADC et de l'isolateur. Cette topologie permet d'avoir une résolution qui est fixe sur toute la plage des mesures, un contrôle sur le LSB avec l'alimentation de l'ADC et un meilleur choix d'ADC. L'ADC est alimenté par un régulateur linéaire pour avoir un minimum de bruit alors que l'isolateur est alimenté par le convertisseur à commutation. L'isolateur qui commute rapidement ne vient donc pas perturber l'alimentation de l'ADC. Puisque l'alimentation de l'ADC  est utilisée comme référence, il est important de faire une calibration pour avoir un LSB qui est très précis afin d'avoir une mesure qui respecte les spécifications. Avec la référence calibrée à 4.5V et un ADC qui a une erreur de $\pm$ 1 LSB, la précision de la mesure est de $\pm 1.1$ mV sur toute la plage. La tension du module est donnée par l'équation \ref{eq:Vmodule}.
 	
 	\begin{align}
 		V_{Module} = \dfrac{V_{Ref}}{2^{~nb~Bits~adc}} \cdot \text{Valeur ADC}
@@ -125,4 +125,4 @@
 	
 	\subsubsection*{Choix final}
 	\paragraph*{}	
-	La topologie utilisée pour mesurer la tension des modules sera la configuration classique. Ses performances malgré sa complexité en font le meilleur choix puisqu'il sera impossible de faire une deuxième version de la carte avant la fin du projet. L'option la plus sécuritaire, éprouvée et qui permet un grand choix de pièce est plus avantageuse que la première option qui n'est pas assez précise et la deuxième qui nécessite des composantes avec des caractéristiques très restreintes. La solution commerciale a été écartée puisqu'il serait beaucoup plus dur d'incorporer des sécurités pour les mauvaises manipulations et faciliter la vérification technique.	
+	La topologie utilisée pour mesurer la tension des modules sera la configuration classique. Ses performances malgré sa complexité en font le meilleur choix puisqu'il sera impossible de faire une deuxième version de la carte avant la fin du projet. L'option la plus sécuritaire, éprouvée et qui permet un grand choix de pièces est plus avantageuse que la première option qui n'est pas assez précise et la deuxième qui nécessite des composantes avec des caractéristiques très restreintes. La solution commerciale a été écartée puisqu'il serait beaucoup plus difficile d'incorporer des sécurités pour les mauvaises manipulations et faciliter la vérification technique.	
