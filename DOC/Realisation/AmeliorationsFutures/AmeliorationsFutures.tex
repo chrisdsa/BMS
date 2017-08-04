@@ -1,48 +1,63 @@
 \section{Améliorations futures}
 
-	\subsection{Améliorations futures}
+	\paragraph{}
+	L'équipe s'est fixé des objectifs qu'ils jugeaient atteignables dans le cadre du cours d'ELE791. Cependant, le projet de protection et de gestion de batterie Li-Ion est loin d'être terminé. Le projet est au stade de preuve de concept puisque plusieurs fonctions n'ont pas encore été implémenté. Les auteurs, conscient que le projet sera pris par d'autres étudiants, tenaient à dresser la liste des éléments à implémenter.
 	
-
-	Objectifs à réaliser à la suite du projet spécial :
-	Objectifs du cahier de charge
+	\subsection{Filtre de détection}
 		
-	Contrôle du système de refroidissement ;
-	
-	Calcul de l’état de charge ;
-	
-	Utilisation de limites dynamiques ;
-	
-	Surveillance de la batterie et envoie des informations sur un serveur
-	
-	Plus l'objectifs qu'on a pas eu le temps pour le projet spécial Balancement des modules
-	
+		\paragraph{}
+		Bien que la détection de fautes est fonctionnelle pour la protection des modules de la batterie, elle est trop sensible. Une pointe momentanée de tension ou de courant peut rendre le système en erreur, stoppant du même coup le véhicule solaire. Lorsque la batterie est chargée ou lorsque la demande en énergie est élevée, des pointes de tension peuvent survenir. Pour éviter qu'une erreur non désirée survienne, il faut implémenter un filtre logiciel qui acceptera un délai d'une seconde avant de tomber une faute. Si le système retrouve son état normal durant ce délai, l'erreur n'ouvrira pas les contacteurs. Le délai d'une seconde est permis par la réglementation de la compétition.
+
+	\subsection{Fonctions du module maître}	
 	
 		\paragraph{}
+		Plusieurs fonctions du module maître sont fonctionnels mais ne sont pas implémentées dans le code applicatif du projet.
 		
-		Filtre de programmation de 1 seconde
+		\paragraph{}
+		La précharge est présentement désactivée dans le code applicatif. Pour qu'elle soit fonctionnelle, il faut pouvoir lire la tension du contacteur principal et du contacteur MPPT. On ferme ensuite les relais de précharge qui fera passer un petit courant pour remplir les condensateurs du système et qui fera baisser la différence de potentiel aux bornes des contacteurs. On enclenche ensuite les contacteurs une fois la précharge effectuée. Présentement, puisqu'aucune charge n'est présente, on ferme les trois contacteurs sans passer par la précharge.
 		
-		Fonctions du module maître
+		\paragraph{}
+		Le module maître possède aussi des fonctions venant du BMS Lithium Balance. Ces fonctions sont tous reliées avec le connecteurs 24 broches, avec le même brochages que le BMS de Lithium Balance. Les circuits sont présents sur la carte à circuits imprimés mais il ne sont pas pris en charge par le code applicatif. Il reste donc à implémenter deux convertisseurs digitales à analogique, un signal à largeur d'impulsion variable et une entré analogiques, avec un convertisseur analogique à digital. De plus, les trois circuits d'entrée/sortie à utilisation générale, qui serviront à contrôler des ventilateurs, sont à implémenter. Une communication sériel est aussi présente sur le connecteur 24 broches et pourra servir à programmer et déverminer le BMS à distance.
 				
-			V2 avec les corrections	
+		\paragraph{}	
+		Certains correctifs doivent être apportés sur la carte électronique de la deuxième version du module maître. Par exemple, les neutres communs devront tous être reliés et les broches de l'amplificateur opérationnel de la partie de lecture de tension des contacteurs doivent être inversées.
+
+	\subsection{Fonctions du module esclave}	
+		
+		\paragraph{}		
+		Identifications des modules esclaves
+		Identification de la carte électronique.
 				
-			Précharge
+	\subsection{Interface graphiques}		
+		\paragraph{}	
+		Interface graphiques fait pas des étudiants en génie logiciel
+
+	\subsection{Objectifs du cahier de charge}	
+	
+		\subsection{Balancement des modules}
+	
+			\paragraph{}	
+			Plus l'objectifs qu'on a pas eu le temps pour le projet spécial Balancement des modules
+	
+		\subsubsection{Contrôle du système de refroidissement}
+		
+			\paragraph{}	
+			Objectifs du cahier de charge
+	
+		\subsubsection{Calcul de l’état de charge}
+
+			\paragraph{}		
 			
-			Legacy
-				deux sorties analogiques
-				PWM
-				1 entrée analogique
-				
-		Fonctions du module esclave
-			Détection automatiques des				
-				
-		
-		Objectifs à réaliser à la suite du projet spécial :
-		
-		Contrôle du système de refroidissement ;
-		
-		Calcul de l’état de charge ;
-		
-		Utilisation de limites dynamiques ;
-		
-		Surveillance de la batterie et envoie des informations sur un serveur
+			
+		\subsubsection{Utilisation de limites dynamiques}
+			
+			\paragraph{}	
+
+		\subsubsection{Surveillance de la batterie}
+
+			\paragraph{}
+			Surveillance de la batterie et envoie des informations sur un serveur
+
+
+	
 		
