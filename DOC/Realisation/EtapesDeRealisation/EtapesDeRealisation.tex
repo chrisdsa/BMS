@@ -1,30 +1,62 @@
-\section{Étapes de réalisatione}
+\section{Étapes de réalisation}
 
 	\paragraph{}
+	Cette partie résume les différentes étapes durant la réalisation du système de protection et de gestion de batterie. La partie matériel et logiciel sont séparés en deux sections distinctes. De plus, chaque module sera traité individuellement pour faciliter la compréhension même si les trois modules ont été réalisé de façon simultané. 
 
 	\subsection{Module esclave}
 	
-		\paragraph{}
-		Tout d’abord, un prototype du circuit de lecture de tension des modules esclaves avait été fabriqué pour valider ce concept avant la réalisation. Le circuit complet a ensuite été schématisé puis la carte à circuits imprimés (PCB) a été réalisé. Après avoir souder tous les composants, des tests préliminaires ont été effectué pour s’assurer que le circuit électrique était fonctionnel.
-		Par la suite, les circuits de lecture de tension ont été calibré à l’aide d’un multimètre. Un des modules de lectures de tension n’affichait pas les bonnes données. Un déverminage a permis de trouver une résistance qui n’était pas souder, causant des problèmes de lecture. C’est par la suite que la programmation a débuté, testant ainsi tous les modules de lecture. 
-		Note : Parlé un peu plus de la prog ici.
-		Presqu’aucune correction n’a été nécessaire pour ce module. Seul petit problème très mineur est le son audible du convertisseur courant directe à courant directe à certaines tensions. Par contre, ce problème n’impacte en aucun cas la réussite de ce projet. De plus, les modules de lecture de tension ne sont pas identifiés sur la carte. Il manque également l’identification de la carte, ce qui sera ajouté dans la prochaine version.
+		\subsubsection{Partie matériel}	
+		
+			\paragraph{}
+			Tout d’abord, un prototype du circuit de lecture de tension des modules esclaves avait été fabriqué pour valider ce concept avant la réalisation. Le circuit complet a ensuite été schématisé puis la carte à circuits imprimés (PCB) a été réalisé. Après avoir souder tous les composants, des tests préliminaires ont été effectué pour s’assurer que le circuit électrique était fonctionnel.
+			
+			\paragraph{}			
+			Par la suite, les circuits de lecture de tension ont été calibré à l’aide d’un multimètre. Un des modules de lectures de tension n’affichait pas les bonnes données. Un déverminage a permis de trouver une résistance qui n’était pas souder, causant des problèmes de lecture. 
+			
+			\paragraph{}			
+			Presqu’aucune correction n’a été nécessaire pour ce module. Seul petit problème très mineur est le son audible du convertisseur courant directe à courant directe à certaines tensions. Par contre, ce problème n’impacte en aucun cas la réussite de ce projet. De plus, les modules de lecture de tension ne sont pas identifiés sur la carte. Il manque également l’identification de la carte, ce qui sera ajouté dans la prochaine version.
+
+		\subsubsection{Partie logiciel}
+			
+			\paragraph{}
+
+
 	
 	\subsection{Module maître}
 	
-		\paragraph{}
-		La fabrication du circuit imprimé du module maître s’est fait une semaine plus tard que le module esclave. Pour éviter de perdre du temps, la programmation a débuté avant la réception du circuit imprimé. Grâce à la plaquette de développement nucléo, tous les fonctions du module maitre ont pu être testé sur une platine de prototypage.
-		À la réception de la carte à circuits imprimés, toutes les composantes ont été souder par section, testant chaque sections pour décelé des erreurs probables. De cette façon, il a été découvert qu’une des masses communes n’étaient pas relié électriquement au reste du circuit. Il a été déterminé que cette erreur venait d’un problème du logiciel utilisé pour la schématisation du circuit. Une petit correctif sur la carte a permis de régler le problème.
-		Une fois la carte soudée, la programmation a été testé. Il a été déterminé que la partie de lecture de tension a hautes tension n’était pas fonctionnel. Effectivement, l’entré positive et négatif sur un amplificateur opérationnel a été inversé lors de la schématisation. Cette partie amplifiait le signal de tension de 2 V à 3.3 V. Ce tension est ensuite lu par le microcontrôleur. Le correctif a été de contourner l’amplificateur opérationnel et de changer le seuil de 3.3 v à 2 V. Comme la lecture de ces tensions n’est pas critique, une tension de 2 V est acceptable. Un correctif permanent sera apporté à la deuxième version de la carte à circuits imprimés du module maitre.
-		Toutes les fonctions de la carte sont implémentés, par contre, le code applicatif n’est qu’à son stricte minimum pour atteindre les objectifs du cours d’ELE791. Comme plusieurs fonctionnalités ne sera qu’utilisé plus tard dans le développement du BMS, il n’était pas nécessaire de trop perdre de temps sur cette partie.
+		\subsubsection{Partie matériel}	
+		
+			\paragraph{}	
+			La fabrication du circuit imprimé du module maître s’est fait une semaine plus tard que le module esclave. Pour éviter de perdre du temps, la programmation a débuté avant la réception du circuit imprimé. Grâce à la plaquette de développement nucléo, tous les fonctions du module maitre ont pu être testé sur une platine de prototypage.
+			
+			\paragraph{}
+			À la réception de la carte à circuits imprimés, toutes les composantes ont été souder par section, testant chaque sections pour décelé des erreurs probables. De cette façon, il a été découvert qu’une des masses communes n’étaient pas relié électriquement au reste du circuit. Il a été déterminé que cette erreur venait d’un problème du logiciel utilisé pour la schématisation du circuit. Une petit correctif sur la carte a permis de régler le problème.
+			
+			\paragraph{}
+			Une fois la carte soudée, la programmation a été testé. Il a été déterminé que la partie de lecture de tension a hautes tension n’était pas fonctionnel. Effectivement, l’entré positive et négatif sur un amplificateur opérationnel a été inversé lors de la schématisation. Cette partie amplifiait le signal de tension de 2 V à 3.3 V. Ce tension est ensuite lu par le microcontrôleur. Le correctif a été de contourner l’amplificateur opérationnel et de changer le seuil de 3.3 v à 2 V. Comme la lecture de ces tensions n’est pas critique, une tension de 2 V est acceptable. Un correctif permanent sera apporté à la deuxième version de la carte à circuits imprimés du module maitre.
+		
+		\subsubsection{Partie logiciel}	
+		
+			\paragraph{}
+		
+			Toutes les fonctions de la carte sont implémentés, par contre, le code applicatif n’est qu’à son stricte minimum pour atteindre les objectifs du cours d’ELE791. Comme plusieurs fonctionnalités ne sera qu’utilisé plus tard dans le développement du BMS, il n’était pas nécessaire de trop perdre de temps sur cette partie.
 		
 	\subsection{Module lecture de courant}
+
+		\subsubsection{Partie matériel}	
+				
+			\paragraph{}
+			Ce module a été le dernier à être assemblé. Comme les fonctionnalités avait déjà été tester au préalable, il n’y a pas eu de problème majeur.
+			Le convertisseur courant directe à courant directe chauffe un peu. Cela est peut-être dû à la fréquence de fonctionnement. Un autre convertisseur a été acheter pouvant accepter de plus haute fréquence si jamais celui-ci venait à faillir.
 		
-		\paragraph{}
-		Ce module a été le dernier à être assemblé. Comme les fonctionnalités avait déjà été tester au préalable, il n’y a pas eu de problème majeur.
-		Le convertisseur courant directe à courant directe chauffe un peu. Cela est peut-être dû à la fréquence de fonctionnement. Un autre convertisseur a été acheter pouvant accepter de plus haute fréquence si jamais celui-ci venait à faillir.
-		Une fois les composantes soudées sur la carte à circuits imprimés, une source d’alimentation avec un interface a permis de valider que la lecture de courant était exacte et fonctionnel. Le courant positif était très précis, par contre, le courant négatif affichait des valeurs peu orthodoxes. Après plusieurs tests, il a été déterminé que c’était le connecteur utilisé pour l’interface qui avait des défauts mécaniques. Un nouveau connecteur a donc réglé ce problème.
+			\paragraph{}
+			Une fois les composantes soudées sur la carte à circuits imprimés, une source 	d’alimentation avec un interface a permis de valider que la lecture de courant était exacte et fonctionnel. Le courant positif était très précis, par contre, le courant négatif affichait des valeurs peu orthodoxes. Après plusieurs tests, il a été déterminé que c’était le connecteur utilisé pour l’interface qui avait des défauts mécaniques. Un nouveau connecteur a donc réglé ce problème.
 		
+		\subsubsection{Partie logiciel}	
+		
+			\paragraph{}		
+			
+			
 	\subsection{Test final}
 	
 		\paragraph{}
