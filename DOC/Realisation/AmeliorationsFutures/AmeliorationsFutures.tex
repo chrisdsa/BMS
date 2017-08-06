@@ -25,9 +25,9 @@
 	\subsection{Fonctions du module esclave}
 
 		\paragraph{}
+		Présentement, les modules esclaves ont un numéro d'identification (ID) prédéfini lors de la programmation de ceux-ci. Un algorithme doit être développé pour que les modules esclaves se négocie un ID automatiquement au démarrage du BMS. Idéalement, les modules se souviendraient de leur dernier ID et essaieraient de d'avoir le même à chaque démarrage.
 
-
-	\subsection{Interface graphiques}
+	\subsection{Interface graphique}
 		\paragraph{}
 		Une interface graphique pour le module maître servira à configurer différents paramètres comme les caractéristiques de la batterie ainsi que les limites utilisées par les fonctions de protection. Ceci évitera de devoir reprogrammer les cartes à chaque fois qu'un changement doit être effectué.
 
@@ -37,26 +37,27 @@
 	\subsection{Balancement des modules}
 
 		\paragraph{}
-		Plus l'objectifs qu'on a pas eu le temps pour le projet spécial Balancement des modules
+		Le balancement sert à égaliser la tension des modules lors de la recharge. Comme les modules n'ont pas tous exactement la même capacité réelle, certains atteigneront leur tension maximale avant les autres. Le courant de charge devra donc être détourné pour ceux-ci, le temps que les modules plus faibles rattrapent leur écart.
 
 	\subsection{Contrôle du système de refroidissement}
 
 		\paragraph{}
-		Objectifs du cahier de charge
+		Le boitier de la batterie sera refroidi par trois ventilateurs controlés par le BMS.
 
 	\subsection{Calcul de l’état de charge}
 
 		\paragraph{}
-		Le calcul de l'état de charge sert à connaître la capacité restante de la batterie. Cette information est essentielle pour une bonne stratégie de course. Le matériel a été prévu pour implémenter cette fonctionnalité en utilisant la méthode du "couloumb counter".
+		Le calcul de l'état de charge sert à connaître la capacité restante de la batterie. Cette information est essentielle pour une bonne stratégie de course. Le matériel a été prévu pour implémenter cette fonctionnalité en utilisant, entre autres, la méthode du "couloumb counter".
 
 	\subsection{Utilisation de limites dynamiques}
 
 		\paragraph{}
+		Les limites dynamiques servent à limiter le courant d'entrée et de sortie dans la batterie selon son état de charge. Si la batterie est presque pleine et que le véhicule entre en mode regénération, on voudra limiter dynamiquement le courant pour ne pas que la tension de la batterie dépasse le seuil de sécurité. Le même principe s'applique en décharge lorsque la batterie est presque vide. 
 
 	\subsection{Surveillance de la batterie}
 
 		\paragraph{}
-		Surveillance de la batterie et envoie des informations sur un serveur
+		Il serait intéressant d'avoir un système qui puisse continuer de surveiller la batterie lorsque celle-ci est hors du véhicule. Lors de l'utilisation normale de la batterie dans le véhicule, c'est un humain, grâce à la carte de télémétrie qui peut faire la surveillance. Le système à développer remplacerait en quelque sorte la télémétrie du véhicule et pourrait envoyer des notifications par courriel en cas de problèmes. Une plateforme BeagleBone Black ou Raspberry Pie pourrait être utilisé à cette fin.
 
 
 
