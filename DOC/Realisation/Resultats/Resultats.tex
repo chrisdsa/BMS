@@ -5,22 +5,47 @@
 		\subsubsection{Protection des modules}
 	
 			\paragraph{}
+			Toutes les protections d'écrite dans le cahier des charges et le cahier de conception ont été implémentées et validées. La précision des différentes mesures répondent aux spécifications de la compétition sans même être filtré numériquement.
 
 		\subsubsection{Balancement des modules}
-			
+
 			\paragraph{}
-			Expliquer pourquoi on a pas eu le temps
+			L'algorithme et le régulateur pour balancer les modules à été simulé mais il est impossible pour le moment de le tester. Étant donné que le BMS n'a pas encore passé une batterie de test exhaustive, l'équipe à jugé que ce n'était pas sécuritaire d'utiliser un module pour tester la fonctionnalité. Un circuit qui émule le comportement d'un cellule lithium-ion a été commencé mais ce projet est en attente faute de temps.
 	
 		\subsubsection{Compatibilité avec le BMS Lithium Balance}
 	
 			\paragraph{}
+			La carte maître possède le même connecteur que celui utilisé par Lithium Balance avec tous les mêmes périphériques. Les fonctionnalités qui ne sont pas utilisé dans Éclipse IX n'ont pas été programmées.
 		
-		\subsubsection{Facilitation des manipulations lors des vérifications techniques}
+		\subsubsection{Réduction des manipulations lors des vérifications techniques}
 	
 			\paragraph{}
+			Le nombre de manipulations à été réduit en utilisant des mesures différentielles isolés pour les lectures de modules avec un connecteur par lecture. Les thermistances peuvent être facilement remplacé pour la vérification technique. La même stratégie à été utiliser pour la lecture de courant. En ayant une carte séparé et le même connecteur que les autres mesures, il est possible de passer de la résistance de lecture à la fixture de test en une manipulation. Les manipulations sont maintenant plus sécuritaires et moins restrictives dans le cas des vérifications pour la sur tension et la sous tension. Ces dernières peuvent maintenant être effectué sur n'importe quel cellule contrairement au dernier BMS qui demandait que ce soit tester sur les modules au deux extrémitées.
 
 
 	\subsection{Tableau des résultats}
 
 		\paragraph{}
+		
+		\begin{table}[H]
+			\centering
+			\renewcommand{\arraystretch}{1.3}
+			\begin{tabular}{|l|c|c|c|c|}
+				\hline
+				\textbf{Fonctionnalités} & \textbf{Paramètres} & \textbf{Spécification ciblé} & \textbf{Résultat obtenue} & \textbf{Unité} \\ \hhline{|=|=|=|=|=|}
+				\multirow{2}{5cm}{Lecture de tension des modules} & Tension d'entrée & 2 à 5 & 2 à 4.8 & V \\ \hhline{|~|-|-|-|-|}
+				& Résolution & 10 & 3 & mV \\ \hline
+				\multirow{2}{5cm}{Lecture de courant} & Courant & -22 +130 & $\pm$ 136 & A \\ \hhline{|~|-|-|-|-|}
+				& Résolution & $\pm$ 2 & $\pm$ 0.6 & \% \\ \hline
+				\multirow{2}{5cm}{Lecture de température} & Région d'opération & -10 à 85 & -40 à 125 & $\degres$C \\ \hhline{|~|-|-|-|-|}
+				& Résolution & $\pm$ 2 & $\pm$ 0.2 & \% \\ \hline
+				Faciliter les manipulations & Manipulation & 12 & 6 & \\ \hline
+				Détection d'une faute & Délais & 200 & 100 & ms \\ \hline
+				\multirow{3}{5cm}{Sécuriser la batterie} & Délais & 200 & 100 & ms \\ \hhline{|~|-|-|-|-|}
+				& Tension& 0 & 0 & V \\ \hhline{|~|-|-|-|-|}
+				& Courant& 0 & 0 & A \\ \hline
+				Précharge & Temps & 10 & Théorique : 5.5 & s \\ \hline
+				 
+			\end{tabular}
+		\end{table}
 		
