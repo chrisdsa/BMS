@@ -1,75 +1,82 @@
 \section{Étapes de réalisation}
 
 	\paragraph{}
-	Cette partie résume les différentes étapes durant la réalisation du système de protection et de gestion de batterie. La partie matériel et logiciel sont séparés en deux sections distinctes. De plus, chaque module sera traité individuellement pour faciliter la compréhension même si les trois modules ont été réalisé de façon simultané. 
+	Cette partie résume les différentes étapes durant la réalisation du système de protection et de gestion de batterie. La partie matériel et logiciel sont séparés en deux sections distinctes. De plus, chaque module sera traité individuellement pour faciliter la compréhension même si les trois modules ont été réalisé de façon simultané.
 
 	\subsection{Module esclave}
-	
-		\subsubsection{Partie matériel}	
-		
+
+		\subsubsection{Partie matériel}
+
 			\paragraph{}
 			Tout d’abord, un prototype du circuit de lecture de tension des modules esclaves avait été fabriqué pour valider ce concept avant la réalisation. Le circuit complet a ensuite été schématisé puis la carte électronique (PCB) a été réalisé. Après avoir souder toutes les composants, des tests préliminaires ont été effectué pour s’assurer que le circuit électrique était fonctionnel.
-			
-			\paragraph{}			
-			Par la suite, les circuits de lecture de tension ont été calibré à l’aide d’un multimètre. Un des modules de lectures de tension n’affichait pas les bonnes données. Un déverminage a permis de trouver une résistance qui n’était pas souder, causant des problèmes de lecture. 
-			
-			\paragraph{}			
+
+			\paragraph{}
+			Par la suite, les circuits de lecture de tension ont été calibré à l’aide d’un multimètre. Deux des modules de lectures de tension n’affichait pas les bonnes données. Un déverminage a permis de trouver un fusible ouvert ainsi qu'une patte d'un des circuits intégrés de tension de référence mal soudé.
+
+			\paragraph{}
 			Presqu’aucune correction n’a été nécessaire pour ce module. Cependant, un son audible peu être entendue du convertisseur courant continu à courant continu sur certaines tensions. Ce problème n’impacte en aucun cas la réussite de ce projet. De plus, les modules de lecture de tension ne sont pas identifiés sur la carte, il faudra donc apposer des collants sur la carte pour les identifier. Il manque également l’identification de la carte, qui sera ajouté dans la prochaine version du module.
 
 		\subsubsection{Partie logiciel}
-			
+
 			\paragraph{}
+			Le logiciel du module esclave a été le premier développé étant donné qu'il est le plus complexe. Le développement a commencé sur une carte STM32 Nucleo pour ensuite se continuer sur le vrai matériel une fois reçu.
+
+			La première étape a été de créer le projet basé sur la plateforme logicielle utilisée par le club étudiant Éclipse. Par la suite, le développement des pilotes de périphériques internes et externes a été réalisé, suivi du code qui gère la communication CAN. Pour terminer, le code applicatif a été réalisé et la calibration effectuée.
+
+			Les pilotes ont été testés manuellement à l'aide d'instruments tels qu'une source d'alimentation, un analyseur logique ainsi qu'un oscilloscope. La communication CAN a été testée à l'aide d'un CANAlyzer, qui est un instrument qui se connecte au bus CAN et qui peut voir et décoder les messages qui y circulent. Le code applicatif a aussi été testé manuellement.
+
+			Toutes les fonctions relatives à la protection de la batterie ont été implémentées ainsi que les fonctions de communication reliées à celles-ci.
 
 
 		%%IMAGE??? Photo du module esclave
-	
+
 	\subsection{Module maître}
-	
-		\subsubsection{Partie matériel}	
-		
-			\paragraph{}	
+
+		\subsubsection{Partie matériel}
+
+			\paragraph{}
 			La fabrication du circuit imprimé du module maître s’est fait une semaine plus tard que le module esclave. Pour éviter de perdre du temps, la programmation a débuté avant la réception de la carte électronique. Grâce à la carte de développement STM32 Nucleo, toutes les fonctions du module maître ont pu être testé sur une platine de prototypage.
-			
+
 			\paragraph{}
 			À la réception de la carte électronique, toutes les composantes ont été souder par section, testant chaque section pour décelé des erreurs probables. De cette façon, il a été découvert qu’une des masses communes n’étaient pas relié électriquement au reste du circuit. Il a été déterminé que cette erreur venait d’un problème du logiciel utilisé pour la schématisation du circuit. Une petit correctif sur la carte a permis de régler le problème.
-			
+
 			%%IMAGE??? Montrer ou est la patch
-			
+
 			\paragraph{}
 			De plus, la partie de lecture de tension a hautes tension n’était pas fonctionnel. Effectivement, l’entrée positive et négative sur l'amplificateur opérationnel a été inversé lors de la schématisation. Cette partie amplifiait le signal de tension de 2 V à 3.3 V. Cette tension est ensuite lue par le microcontrôleur. Le correctif a été de contourner l’amplificateur opérationnel et de changer le seuil de 3.3 V à 2 V. Comme la lecture de ces tensions n’est pas critique, une tension de 2 V est acceptable. Un correctif permanent sera apporté à la deuxième version du module maitre.
-		
-		\subsubsection{Partie logiciel}	
-		
+
+		\subsubsection{Partie logiciel}
+
 			\paragraph{}
-		
+
 			Toutes les fonctions logiciels de la carte sont implémentés, par contre, le code applicatif n’est qu’à son stricte minimum pour atteindre les objectifs du cours d’ELE791. Puis, plusieurs fonctionnalités ne sera qu’utilisées plus tard dans le développement du BMS.
 
 
 			%%IMAGE??? Photo du module maître
-			
-					
+
+
 	\subsection{Module lecture de courant}
 
-		\subsubsection{Partie matériel}	
-				
+		\subsubsection{Partie matériel}
+
 			\paragraph{}
 			Ce module a été le dernier à être assemblé. Comme les fonctionnalités avait déjà été tester au préalable, il n’y a pas eu de problème majeur. Le convertisseur courant continu à courant continu chauffe un peu. Cela est peut-être dû à la fréquence de fonctionnement, mais cela ne semble pas affecter le circuit. Un autre convertisseur a été acheté, pouvant accepter de plus haute fréquence, si jamais celui-ci venait à faillir.
-		
+
 			\paragraph{}
 			Une fois les composantes soudées sur la carte électronique, une source d’alimentation avec un diviseur de tension a permis de valider que la lecture de courant était exacte et fonctionnel. Le courant positif était très précis, cependant, le courant négatif affichait des valeurs erratiques. Avec l'aide d'un oscilloscope, il a été déterminé que c’était le potentiomètre, utilisé pour le diviseur de tension, qui avait des défauts mécaniques. Un nouveau potentiomètre a donc réglé ce problème.
-		
-		\subsubsection{Partie logiciel}	
-		
-			\paragraph{}		
-			
-	
+
+		\subsubsection{Partie logiciel}
+
+			\paragraph{}
+			La façon de procéder pour le logiciel du module de lecture de courant a été de se baser sur le projet du module esclave et d'y faire des changements mineurs. Par exemple, l'ADC externe est presque le même que celui du module esclave, donc seulement une ligne de code a dû être changé pour cette partie.
+
+
 	%%IMAGE??? Photo du module lecture de courant
-	
-			
+
+
 	\subsection{Test final}
-	
+
 		\paragraph{}
 		Une fois toutes les fonctionnalités validés, les trois modules ont été reliés par le réseau CAN, afin qu’ils puissent se communiquer entre eux. L’équipe a pu valider que la détection d’une faute ouvre les contacteurs et qu’ils restent ouverts tant qu’il y a une erreur. Les trois modules ont ensuite été disposé sur un chariot pour facilité le déplacement du BMS et pour faire une démonstration lors de la présentation du projet.
-		
+
 		%%IMAGE???
-		
