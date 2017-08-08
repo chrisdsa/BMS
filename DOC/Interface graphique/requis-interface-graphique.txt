@@ -1,0 +1,43 @@
+Application
+
+L’application doit être compatible avec les systèmes GNU/Linux et Windows. Elle doit offrir une interface graphique intuitive et agréable à utiliser. Des images du véhicule et des logos du club peuvent être fournis pour agrémenter l’application. L’application doit être versionnée avec Git, en utilisant GitHub.
+
+Affichage
+
+L’application fera la lecture de plusieurs valeurs envoyées par la carte maître du système de protection et de gestion de batteries (BMS) et les affichera à l’utilisateur.
+
+Pour chaque carte esclave:
+    Tension du module[1-8]
+    Température[1-2]
+    Si en erreur, raison de l’erreur (ex. module #1 de l’esclave #1 en surtension)
+Tension totale de la batterie
+Courant de la batterie (peut être négatif ou positif)
+État de charge de la batterie
+Statut des contacteurs (Relais+, Relais-, Précharge Batterie, Relais MPPT, Précharge MPPT) 
+Status du système (Actif, Inactif, Erreur)
+
+Configuration
+
+L’application permettra aussi de configurer le BMS en lui envoyant des valeurs.
+
+Nombre de cartes esclaves
+Valeur des tensions de référence (8 par carte esclave)
+Valeur des thermistances (2 par carte esclave)
+Valeur de la résistance dans le diviseur de tension des thermistances (2 par carte esclave)
+Tension maximale d’un module
+Tension minimale d’un module
+Tension de balancement
+Courant de balancement
+Courant maximal de la batterie en entrée
+Courant maximale de la batterie en sortie
+Capacité de la batterie
+Température maximale de la batterie
+Température minimale de la batterie
+
+Bootloader
+
+L’application doit pouvoir envoyer des mises à jour logicielles à toutes les cartes sous forme de fichier binaire. Les cartes esclaves ont le même logiciel (mais pas les mêmes valeurs de configuration).
+
+Protocole de communication
+
+Un protocole doit être conçu pour communiquer avec le microcontrôleur de la carte maître. La carte maître expose une interface UART bi-directionnelle. La communication doit offrir une fiabilité à 100% et passer par le port série de l’ordinateur.
