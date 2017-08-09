@@ -1,31 +1,31 @@
 \section{Améliorations futures}
 
 	\paragraph{}
-	L'équipe s'est fixé des objectifs qu'ils jugeaient atteignables dans le cadre du cours d'ELE791. Cependant, le projet de protection et de gestion de batterie Li-Ion est loin d'être terminé. Le projet est au stade de preuve de concept puisque plusieurs fonctions n'ont pas encore été implémenté. Les auteurs, conscient que le projet sera pris par d'autres étudiants, tenaient à dresser la liste des éléments à implémenter.
+	L'équipe s'est fixé des objectifs qu'elle jugeait atteignables dans le cadre du cours d'ELE791. Cependant, le projet de protection et de gestion de batterie Li-Ion est loin d'être terminé. Le projet est au stade de prototype puisque plusieurs fonctions n'ont pas encore été implémentées. Les auteurs, conscients que le projet sera repris par d'autres étudiants, tenaient à dresser la liste des éléments qui restent à être implémentés.
 
 	\subsection{Filtre de détection}
 
 		\paragraph{}
-		Bien que la détection de fautes est fonctionnelle pour la protection des modules de la batterie, elle est trop sensible. Une pointe momentanée de tension ou de courant peut rendre le système en erreur, stoppant du même coup le véhicule solaire. Lorsque la batterie est chargée ou lorsque la demande en énergie est élevée, des pointes de tension peuvent survenir. Pour éviter qu'une erreur non désirée survienne, il faut implémenter un filtre logiciel qui acceptera un délai d'une seconde avant de tomber une faute. Si le système retrouve son état normal durant ce délai, l'erreur n'ouvrira pas les contacteurs. Le délai d'une seconde est permis par la réglementation de la compétition.
+		Bien que la détection de fautes est fonctionnelle pour la protection des modules de la batterie, elle est trop sensible. Une pointe momentanée de tension ou de courant peut rendre le système en erreur, stoppant du même coup le véhicule solaire. Lorsque la batterie est chargée ou lorsque la demande en énergie est élevée, des pointes de tension peuvent survenir. Pour éviter qu'une erreur non désirée survienne, il faut implémenter un filtre logiciel qui acceptera un délai d'une seconde avant de faire tomber le BMS en faute. Si le système retrouve son état normal durant ce délai, l'erreur n'ouvrira pas les contacteurs. Le délai d'une seconde est permis par la réglementation de la compétition.
 
 	\subsection{Fonctions du module maître}
 
 		\paragraph{}
-		Plusieurs fonctions du module maître sont fonctionnels mais ne sont pas implémentées dans le code applicatif du projet.
+		Plusieurs fonctions du module maître sont fonctionnelles mais ne sont pas implémentées dans le code applicatif du projet.
 
 		\paragraph{}
-		La précharge est présentement désactivée dans le code applicatif. Pour qu'elle soit fonctionnelle, il faut pouvoir lire la tension du contacteur principal et du contacteur MPPT. On ferme ensuite les relais de précharge qui fera passer un petit courant pour remplir les condensateurs du système et qui fera baisser la différence de potentiel aux bornes des contacteurs. On enclenche ensuite les contacteurs une fois la précharge effectuée. Présentement, puisqu'aucune charge n'est présente, on ferme les trois contacteurs sans passer par la précharge.
+		La précharge est présentement désactivée dans le code applicatif. Pour qu'elle soit fonctionnelle, il faut pouvoir lire la tension du contacteur principal et du contacteur MPPT. On ferme ensuite les relais de précharge qui feront passer un petit courant pour remplir les condensateurs du système et qui fera baisser la différence de potentiel aux bornes des contacteurs. On enclenche ensuite les contacteurs une fois la précharge effectuée. Présentement, puisqu'aucune charge n'est présente, on ferme les trois contacteurs sans passer par la précharge.
 
 		\paragraph{}
-		Le module maître possède aussi des fonctions venant du BMS Lithium Balance. Ces fonctions sont tous reliées avec le connecteurs 22 broches, avec le même brochages que le BMS de Lithium Balance. Les circuits sont présents sur la carte électronique mais il ne sont pas pris en charge par le code applicatif. De plus, les trois circuits d'entrée/sortie à utilisation générale, qui serviront à contrôler des ventilateurs, sont à implémenter. Une communication sériel est aussi présente sur le connecteur 22 broches et pourra servir à programmer et déverminer le BMS à distance.
+		Le module maître possède aussi des fonctions venant du BMS Lithium Balance. Ces fonctions sont toutes reliées avec le connecteur 22 broches, avec le même brochage que le BMS de Lithium Balance. Les circuits sont présents sur la carte électronique mais il ne sont pas pris en charge par le code applicatif. De plus, les trois circuits d'entrée/sortie à utilisation générale, qui serviront à contrôler des ventilateurs, sont à implémenter. Une communication sérielle est aussi présente sur le connecteur 22 broches et pourra servir à programmer et déverminer le BMS à distance.
 
 		\paragraph{}
-		Certains correctifs doivent être apportés sur la carte électronique de la deuxième version du module maître. Par exemple, les neutres communs devront tous être reliés et les broches de l'amplificateur opérationnel de la partie de lecture de tension des contacteurs doivent être inversées. Également, il a été décidé que les fonctionnalités non utilisées venant du BMS de Lithium Balance seront éliminées. Donc, les deux convertisseurs digitales à analogique, le signal à largeur d'impulsion variable et l'entré analogiques, avec le convertisseur analogique à digital ne seront pas présents dans la prochaine itération de la carte électronique du module maître.
+		Certains correctifs doivent être apportés sur la carte électronique de la deuxième version du module maître. Par exemple, les neutres communs devront tous être reliés et les broches de l'amplificateur opérationnel de la partie de lecture de tension des contacteurs doivent être inversées. Également, il a été décidé que les fonctionnalités non utilisées venant du BMS de Lithium Balance seront éliminées. Donc, les deux convertisseurs numérque à analogique, le signal à largeur d'impulsion variable et l'entrée analogique, avec le convertisseur analogique à numérique ne seront pas présents dans la prochaine itération de la carte électronique du module maître.
 
 	\subsection{Fonctions du module esclave}
 
 		\paragraph{}
-		Présentement, les modules esclaves ont un numéro d'identification (ID) prédéfini lors de la programmation de ceux-ci. Un algorithme doit être développé pour que les modules esclaves se négocie un ID automatiquement au démarrage du BMS. Idéalement, les modules se souviendraient de leur dernier ID et essaieraient de d'avoir le même à chaque démarrage.
+		Présentement, les modules esclaves ont un numéro d'identification (ID) prédéfini lors de la programmation de ceux-ci. Un algorithme doit être développé pour que les modules esclaves se négocient un ID automatiquement au démarrage du BMS. Idéalement, les modules se souviendraient de leur dernier ID et essaieraient de d'avoir le même à chaque démarrage.
 
 	\subsection{Interface graphique}
 		\paragraph{}
@@ -57,7 +57,7 @@
 	\subsection{Surveillance de la batterie}
 
 		\paragraph{}
-		Il serait intéressant d'avoir un système qui puisse continuer de surveiller la batterie lorsque celle-ci est hors du véhicule. Lors de l'utilisation normale de la batterie dans le véhicule, c'est un humain, grâce à la carte de télémétrie qui peut faire la surveillance. Le système à développer remplacerait en quelque sorte la télémétrie du véhicule et pourrait envoyer des notifications par courriel en cas de problèmes. Une plateforme BeagleBone Black ou Raspberry Pie pourrait être utilisé à cette fin.
+		Il serait intéressant d'avoir un système qui puisse continuer de surveiller la batterie lorsque celle-ci est hors du véhicule. Lors de l'utilisation normale de la batterie dans le véhicule, c'est un humain, grâce à la carte de télémétrie qui peut faire la surveillance. Le système à développer remplacerait en quelque sorte la télémétrie du véhicule et pourrait envoyer des notifications par courriel en cas de problèmes. Une plateforme BeagleBone Black ou Raspberry Pie pourrait être utilisée à cette fin.
 
 
 
