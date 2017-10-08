@@ -1,6 +1,6 @@
 Application
 
-L’application doit être compatible avec les systèmes GNU/Linux et Windows. Elle doit offrir une interface graphique intuitive et agréable à utiliser. Des images du véhicule et des logos du club peuvent être fournis pour agrémenter l’application. L’application doit être versionnée avec Git, en utilisant GitHub.
+L’application doit être compatible avec les systèmes GNU/Linux et Windows. Elle doit offrir une interface graphique intuitive et agréable à utiliser. Des images du véhicule et des logos du club peuvent être fournis pour agrémenter l’application. L’application doit être versionnée avec Git, en utilisant GitHub. On doit aussi pouvoir changer de langue facilement.
 
 Affichage
 
